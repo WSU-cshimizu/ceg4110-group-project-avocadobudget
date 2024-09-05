@@ -2,7 +2,7 @@
 - Daniel Cronauer
 - Owen Hill
 - Abhik
-- Devkuymar
+- Devkumar Prakashbhai Patel
 
 ### Project Overview Proposal for Avocado Budget App
 
