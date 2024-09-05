@@ -1,7 +1,7 @@
 ### Members:
 - Daniel Cronauer
 - Owen Hill
-- Abhik
+- Abhik Ashwinkumar Patel
 - Devkumar Prakashbhai Patel
 
 ### Project Overview Proposal for Avocado Budget App
@@ -15,7 +15,7 @@ As a college student in this time of high inflation it is important to watch you
 The project will be divided into several major components amongst the team members. The project will focus on a local solution for the budget app  (no web component as the project aims to be local to the users device).
 
 - **UI / UX**: Abhik will handle the graphics and visual design the project. He will focus on ensuring that the budget app look pleasing, easy to navigate and understand. This will include the look for the various forms to collect transaction data for purchases, for income, and for categories to track income and expenses by.
-- **Front End**: Devkuymar will handle the HTML, CSS and any needed JS to provide a skeleton on which to hang the UI design provided by Abhik. He will work on providing the HTML pages for these various types of transactions to process transactions, read data, display data, etc.
+- **Front End**: Devkumar will handle the HTML, CSS and any needed JS to provide a skeleton on which to hang the UI design provided by Abhik. He will work on providing the HTML pages for these various types of transactions to process transactions, read data, display data, etc.
 - **Database Design**: Owen will focus on database schema design, some business logic and other gaps as needed. He will focus on getting the data design correct, because this will drive all the other parts of the project. Tables will include a transaction table, expense category table, income category table, budget category table, user table, etc. 
 - **Database crud**: Daniel will focus on the glue and crud operations from HTML pages to the back-end database. He will also work on the business logic code and help where needed. Will need to take get / post requests from various forms / pages and route to the proper handler. Will need to take request object and manipulate to pull the data needed for recoding transactions, user category setup, user account set up, etc. 
 - **Reports / queries**: this will be a group effort to ensure that the required outputs are displayed or accessed in a pleasant and easy to understand format.
@@ -23,7 +23,7 @@ The project will be divided into several major components amongst the team membe
 
 ### Architecture:
 
-- **UI / UX design**: tools will be used to create a visual and graphic design for the
+- **UI / UX design**: Figma will be used to create a visual and graphic design for the project.
 - **RDMS**: – will use a relational database and software system to help organize and visualize the design of this database. This will be crucial to organize, store, and change data. A requirement will be the ability to interact with HTML / CSS webpages on a local host basis to start. Future design potential would be to move from local device use to a web access component.
 - **Front End**: HTML, CSS, and JS will be utilized to provide a pleasing interface for users to experience and interact with the budget app. 
 - **Crud Glue**: use software library to enable the front end to send GET, PUT, DELETE and other HTTP requests that will be handled by the crud software to interact with the local RDMS.
