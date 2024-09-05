@@ -43,7 +43,7 @@ HTML,CSS, and JS will be used for an interactive front end that can adapt to cha
 
 ### Software Development Life Cycle Methodology:
 
-Feature Driven Agile
+Feature Driven Agile - Every two weeks we will deploy an integerated front-end and back-end feature. It is expected not every feature will take two weeks; if a feature is finished early then we will start the next feature immediately. 
 
 ### Meeting Expectations:
 
@@ -52,5 +52,5 @@ Further communication and collaboration will be done over discord; here we can s
 
 ### Git Branching Strategies:
 
-We will be using a feature branching strategy where each feature will get its own branch. These branches will vary whether they are worked on by an individual group member or multiple group members.
+We will be using a feature branching strategy where each feature will get its own branch. These branches will vary whether they are worked on by an individual group member or multiple group members. 
 
