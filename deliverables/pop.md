@@ -37,7 +37,9 @@ The project will be divided into several major components amongst the team membe
 - **Testing** – blurb from graduates here
 - **Tech stack validation** given that this stack open source and widely supported; it will be cheap to start development on. Given the local file method for SQLite much of the complexity from web applications will be reduced by provided local only solutions. This will also simplify security concerns as the communication between the app and the back-end database will be handled locally. 
 
-HTML and CSS and JS will still be used for an interactive front end that can be changed to meet changing needs. Finally, Python is an easy to read and develop language with many languages to tie the front end with the SQLite back-end. This will enable a project that is fast to code, test and implement.
+### Justification:
+
+HTML,CSS, and JS will be used for an interactive front end that can adapt to changing needs. Python is an easy to read and develop language with many libraries to tie the front end with the SQLite back-end. These tools are open-source, free licesning and very reliable. This will enable a project that is fast to code, test and implement.
 
 ### Software Development Life Cycle Methodology:
 
