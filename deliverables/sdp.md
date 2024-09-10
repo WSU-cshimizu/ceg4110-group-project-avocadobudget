@@ -3,7 +3,7 @@ Members:
 Daniel Cronauer
 Abhik Ashwinkumar Patel
 Devkumar Prakashbhai Patel
-Owen Hill:
+Owen Hill
 
 ## Administrative 
 
