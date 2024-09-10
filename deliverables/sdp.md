@@ -37,9 +37,12 @@ Owen Hill
 `Record income and expenses, report output of those transactions in a visual form, and provide categories by month that you can compare previous progress against.`
 
 ### Milestones (i.e., "Checkins")
-- Two week sprints starting and ending ever other Tuesday
+- Two week sprints per feature starting and ending ever other Tuesday
+- UI
 
 ### Requirement Specification
-- 
+- MVSs `Friday - Sunday, 20-22`
+- Requirement specifications - `22 - 27`
+- Design specification - `9/27 - 10/11`
 ### Design Specification
 - 
