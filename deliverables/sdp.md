@@ -1,19 +1,26 @@
-Software Development Plan
-Communication Plan
-Meeting Location(s)
+# Software Development Plan
+Members:
+Daniel Cronauer
 
-Meeting Time(s)
+## Administrative 
 
-Meeting Cadence
-
-Communication mechanism(s) for outside of meetings
+###  Meeting Location(s)
+###  Meeting Time(s)
+### Communication Plant
+    - Meeting Cadence
+    - Meeting Structure
+### Project Management
+### Communication mechanism(s) for outside of meetings
 
 We anticipate communicating via x outside of meetings. We have commited to responding within y timeframe. ETC.
 
-Timeline
+## SDLC Details
+
+## Timeline
+
 gantt
 
-MVSs
-Milestones (i.e., "Checkins")
-Requirement Specification
-Design Specification
+### MVSs
+### Milestones (i.e., "Checkins")
+### Requirement Specification
+### Design Specification
