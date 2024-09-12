@@ -13,7 +13,7 @@ Members:
 
 ###  Meeting Time(s)
 
-- Every tuesday for atleast 20 minutes on campus
+- Every Tuesday for at least 20 minutes on campus, target time to start between 1:00PM and 1:30PM
 - Additional meetings will be scheduled as needed
 
 ### Communication Plan
@@ -29,14 +29,16 @@ Members:
 
 ### Project Management
 
-- We plan to use feature-driven agile methodology in order to track, prioritize and implement our project. We will break up our user stories into features that will be assigned to each member based on their defined contribution for the project. 
+- We plan to use feature-driven agile methodology in order to track, prioritize and implement our project. We will break up our user stories into features that will be assigned to each member based on their defined contribution for the project. Our milestones will break out parts of project into front end and back end milestones in order to ensure that we sequence the steps in the proper order. 
 
-## SDLC Details
+# SDLC Details
+
 ## Timeline (MVSs, Milestones, Requirement specifications, and Design Specifications)
 
-``Insert screenshot of gannt chart here then delete this line``
+[a link
+](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganttChartAvocadoBudget.pdf)
 
 ### Justify CP and PM Choices
-- CP - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
+- ***CP*** - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
 
-- PM - We planned our deadlines around what we believe to be the worst case-scenario. We agreed that with our teams given skill sets, we should be able to successfully finish everything before our given deadlines in the gannt chart. To be safe we gave a bit of extra time for each deadline.
+- ***PM*** - We planned our deadlines around what we believe to be the worst case-scenario. We agreed that with our teams given skill sets, we should be able to successfully finish everything before our given deadlines in the gannt chart. To be safe we gave a bit of extra time for each deadline.
