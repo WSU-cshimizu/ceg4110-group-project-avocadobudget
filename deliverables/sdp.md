@@ -32,20 +32,9 @@ Members:
 - We plan to use feature-driven agile methodology in order to track, prioritize and implement our project. We will break up our user stories into features that will be assigned to each member based on their defined contribution for the project. 
 
 ## SDLC Details
-## Timeline
+## Timeline (MVSs, Milestones, Requirement specifications, and Design Specification)
 
-### MVSs 
-`Record income and expenses, report output of those transactions in a visual form, and provide categories by month that you can compare previous progress against.`
-
-### Milestones (i.e., "Checkins")
-- Two week sprints per feature starting and ending ever other Tuesday
-- UI
-
-### Requirement Specification
-- MVSs `Friday - Sunday, 20-22`
-- Requirement specifications - `22 - 27`
-- Design specification - `9/27 - 10/11`
-### Design Specification
+``Insert screenshot of gannt chart here then delete this line``
 
 ### Justify CP and PM Choices
 -
