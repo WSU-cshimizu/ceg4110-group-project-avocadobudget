@@ -7,4 +7,5 @@ Members:
 - Owen Hill
 
 ### Files to Grade
-- Project Overview Proposal for grading is located in deliverables/pop.md
+- ***Project Overview Proposal*** for grading is located in deliverables/pop.md
+- ***Software Development Plan*** for grading is location in deliverables/sdp.md this will also reference ganttChartAvocadoBudget.pdf in the deliverables directory. Will add the link in sdp.md
