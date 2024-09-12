@@ -32,10 +32,11 @@ Members:
 - We plan to use feature-driven agile methodology in order to track, prioritize and implement our project. We will break up our user stories into features that will be assigned to each member based on their defined contribution for the project. 
 
 ## SDLC Details
-## Timeline (MVSs, Milestones, Requirement specifications, and Design Specification)
+## Timeline (MVSs, Milestones, Requirement specifications, and Design Specifications)
 
 ``Insert screenshot of gannt chart here then delete this line``
 
 ### Justify CP and PM Choices
--
-- 
+CP - `This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.`
+
+PM - `We planned our dead lines around what we believe to be the worst case-scenario. We agreed that with our teams given skill sets, we should be able to successfully finish everything before our given deadlines in the gannt chart. To be safe we gave a bit of extra time for each deadline.`
