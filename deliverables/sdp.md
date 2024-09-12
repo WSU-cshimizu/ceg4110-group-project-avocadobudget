@@ -37,6 +37,6 @@ Members:
 ``Insert screenshot of gannt chart here then delete this line``
 
 ### Justify CP and PM Choices
-CP - `This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.`
+- CP - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
 
-PM - `We planned our deadlines around what we believe to be the worst case-scenario. We agreed that with our teams given skill sets, we should be able to successfully finish everything before our given deadlines in the gannt chart. To be safe we gave a bit of extra time for each deadline.`
+- PM - We planned our deadlines around what we believe to be the worst case-scenario. We agreed that with our teams given skill sets, we should be able to successfully finish everything before our given deadlines in the gannt chart. To be safe we gave a bit of extra time for each deadline.
