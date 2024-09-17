@@ -13,7 +13,7 @@
 
 - As an end user it would be nice to compare my performance against previous months so I can see my progress.
 
-- As an end user it would be nice to be able to load an excel file from a credit car company in order to make my data entry easier.  
+- As an end user it would be nice to be able to load an excel file from a credit cards company in order to make my data entry easier.  
 
 ## Developer stories
 
