@@ -21,10 +21,11 @@ The system will enable users to create a monthly budget and keep track of their 
 
 - As a back end developer I want understand all the data needs of the user in order to provide a working database for the project.
 
-- As a back end developer I want to understand the schema of the database and the structure of the front end forms / pages in order to provide the correct
-  Crud operations an business operations to help render the correct front end templates.
+- As a back end developer I want to understand the schema of the database and the structure of the front end forms / pages in order to provide the correct crud operations and business operations to help collect and serve the correct information on the front end templates.
 
-- As a front end devloper I want to understand the data required and forms needed in order to provide the correct template design for a user to interface with. 
+- As a front end devloper I want to understand the data required and forms needed in order to provide the correct template design for a user to interface with.
+
+- As a UI/UX developer I want to understand what the user needs to enter, how many pages we need, and theme for the site so I can create a wireframe that is pleasing and easy to navigate. 
 
 ### Equipment:
 A laptop or desktop for development, budget entry, and review.
