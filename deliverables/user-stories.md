@@ -28,9 +28,13 @@ The system will enable users to create a monthly budget and keep track of their 
 - As a UI/UX developer I want to understand what the user needs to enter, how many pages we need, and theme for the site so I can create a wireframe that is pleasing and easy to navigate. 
 
 ### Equipment:
-A laptop or desktop for development, budget entry, and review.
-A mobile device (optional) for tracking the budget while on the move.
-Concept of Operations (CONOPS):
-User establishes the monthly budget.
+
+- A laptop or desktop for development, budget entry, and review.
+
+- A mobile device (optional) for tracking the budget while on the move.
+
+- Concept of Operations (CONOPS):
+
+- User establishes the monthly budget.
 
 
