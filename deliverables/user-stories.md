@@ -25,7 +25,7 @@ The system will enable users to create a monthly budget and keep track of their 
 
 - As a front end devloper I want to understand the data required and forms needed in order to provide the correct template design for a user to interface with.
 
-- As a UI/UX developer I want to understand what the user needs to enter, how many pages we need, and theme for the site so I can create a wireframe that is pleasing and easy to navigate. 
+- As a UI/UX developer I want to understand what the user needs to enter, how many features we need, so I can create wireframe and UI design that is pleasing, easy to navigate and user friendly. 
 
 ### Equipment:
 
