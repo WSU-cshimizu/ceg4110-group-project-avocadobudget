@@ -29,9 +29,9 @@ The system will enable users to create a monthly budget and keep track of their 
 
 ### Testing stories
 
-- As a testing developer, I want sufficient time to test features thoroughly, allowing for the identification and resolution of bugs prior to release.
+- As a testing developer, I want sufficient time and documentation in order to build a formal test plan, allowing for the identification and resolution of bugs prior to release.
 
-- As a testing developer, I want software developers to address the bugs I identify to ensure a smooth release process.
+- As a testing developer, I want to test the app with new users so I can understand if the interface is user-friendly.
 
 ### Equipment:
 
