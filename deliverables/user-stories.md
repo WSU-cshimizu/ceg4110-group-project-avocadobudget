@@ -27,6 +27,12 @@ The system will enable users to create a monthly budget and keep track of their 
 
 - As a UI/UX developer I want to understand what the user needs to enter, how many features we need, so I can create wireframe and UI design that is pleasing, easy to navigate and user friendly. 
 
+### Testing stories
+
+- As a testing developer, I want sufficient time to test features thoroughly, allowing for the identification and resolution of bugs prior to release.
+
+- As a testing developer, I want software developers to address the bugs I identify to ensure a smooth release process.
+
 ### Equipment:
 
 - A laptop or desktop for development, budget entry, and review.
