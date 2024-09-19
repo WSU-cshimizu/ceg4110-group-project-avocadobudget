@@ -15,3 +15,4 @@
 - No internet connection needed
 - Mimimal amount of local storage required
 - Will run on windows, macOS and Linux
+- App to be capable with the previous two versions of edge, chrome, and firefox.
