@@ -7,6 +7,9 @@
 - ***Year:*** Senior
 ### Devkumar Prakashbhai Patel
 ### Abhik Ashwinkumar Patel
+- ***Major:*** Computer Science
+- ***Year:*** Senior
+- ***International Grad Student***
 ### Owen Hill
 
 ### Files to Grade
