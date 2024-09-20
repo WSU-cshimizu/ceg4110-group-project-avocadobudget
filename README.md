@@ -8,7 +8,7 @@
 ### Devkumar Prakashbhai Patel
 - ***Major:*** Computer Science
 - ***Year:*** Senior
-- ***International Grad Student***
+- ***international Grad Student***
 ### Abhik Ashwinkumar Patel
 - ***Major:*** Computer Science
 - ***Year:*** Senior
