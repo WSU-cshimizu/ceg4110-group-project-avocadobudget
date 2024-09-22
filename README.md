@@ -14,6 +14,9 @@
 - ***Year:*** Senior
 - ***International Grad Student***
 ### Owen Hill
+- ***Major:*** Computer Science
+- ***Year:*** Senior
+- ***Other:*** Associates in BA at Sinclair
 
 ### Files to Grade
 - ***Project Overview Proposal*** for grading is located in deliverables/pop.md
