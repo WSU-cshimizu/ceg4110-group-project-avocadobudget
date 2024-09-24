@@ -11,8 +11,8 @@
 
 ## Device Requirements
 
-- Laptop or Desktop
+- Laptop or Desktop with motherboard and CPU within the last three years using x86 or ARM architecture
 - No internet connection needed
 - Mimimal amount of local storage required
 - Will run on the most recent version of Windows, macOS and Linux given date of 9/24/2024
-- App to be capable with the previous two versions of edge, chrome, and firefox.
+- App to be capable with the previous two versions of edge, chrome, and firefox as of 9/24/2024
