@@ -50,7 +50,7 @@ Members:
 [gantt Table PDF format
 ](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganntTargetDatesTable.pdf)
 
-## ImageHereTest
+## Gannt Chart for Project
 ![Alt text](./gannntChart.png)
 
 
