@@ -11,7 +11,7 @@
 
 ## Device Requirements
 
-- Laptop or Desktop with motherboard and CPU within the last three years using x86 or ARM architecture
+- Laptop or Desktop with motherboard and CPU within the last three years as of 9/24/2024 using x86 or ARM architecture
 - No internet connection needed
 - Mimimal amount of local storage required
 - Will run on the most recent version of Windows, macOS and Linux given date of 9/24/2024
