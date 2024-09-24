@@ -5,6 +5,16 @@
 ## User Requirements
 
 ### User-Stories
+- The user shall be able to track their expenses according to their budget allocation.
+- The user shall be able to access a general built-in budget template.
+- The user shall be able to access a personalized monthly budget template to fit their exact needs.
+- The user shall be able to access an intuitive reporting system that displays the their monthly results.
+- The user shall be able to 
+
+
+
+
+
 
 - As an end user I want to track my expenses in order to know how many avocados I can buy.
 
