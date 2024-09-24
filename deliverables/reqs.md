@@ -25,3 +25,5 @@
 ### Back-end Requirements
 
 ### Hardware Requirements
+
+### Error-Handling Requirements
