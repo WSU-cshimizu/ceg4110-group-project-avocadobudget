@@ -10,7 +10,19 @@
 ## User Requirements
 - The user shall be able to track their expenses.
 - The user shall be able to access a general built-in budget template.
+  1. The user would like to have default categories provided
+  2. The user would like to have default amounts for each category provided
+  3. The user would like these to be saved for later use and later display
+  4. The user would like an easy interface to click a button for default options to be pulled in
+  5. The user would like to be able to navigate to a screen that allows them to pick default budget or personalized buget
+  6. The user would like to have validation to help reduce their change of error.
 - The user shall be able to access a personalized monthly budget template to fit their exact needs.
+  1. The user would like to personalize the categories if desired. This could include, add, remove, or update categoies
+  2. The user would like to detail amounts for each category
+  3. The user would like these personalized settings to be saved for later comparison against their tracked expenses
+  4. The user would like a form where they can pull up their current categories and amounts selected. They would like to be able to add, update, remove items as needed.
+  5. The user would like to be able to clear their budget settings and return to default template if desired.
+  6. The user would like to have some validation to avoid entering negative numbers, missing boxes, etc
 - The user shall be able to access an intuitive reporting system that displays the their monthly results.
 - The user shall be able to compare their currently monthly report to older monthly reports.
 - The user may be able to load credit card reports directly into their expenses for efficiency.
