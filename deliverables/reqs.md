@@ -5,7 +5,7 @@
 - The application shall run on the latest version of Edge (V. 128.0.2739.79)
 - The application shall run on the latest version of Safari (V. 18)
 - The application shall run on the latest version of Firefox (130.0.1)
-
+- User logged expenses shall be stored in the database for no longer than five years.
 
 ## User Requirements
 - The user shall be able to track their expenses.
