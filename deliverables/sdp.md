@@ -44,8 +44,22 @@ Members:
 
 | Task  | Expected Start Date | Expected End Date | Estimated Date to Complete |
 | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+|Team Composition Form|8/27/24|8/30/24|3|
+|Project Overview Proposal|8/30/24|9/6/24|7|
+|Software Development Plan|9/6/24|9/13/24|7|
+|User Story Compendium|9/13/24|9/20/24|7|
+|MVS|9/20/24|9/22/24|2|
+|Requirements Specification|9/22/24|9/27/24|5|
+|Wireframe|9/22/24|9/29/24|7|
+|Table Design|9/16/24|9/30/24|14|
+|Design Specificaition|9/27/24|10/11/24|14|
+|CRUD operations|9/30/24|10/14/24|14|
+|UI Tasks Complete|9/29/24|10/13/24|14|
+|Business Logic / Code complete|10/14/24|10/28/24|14|
+|HTML / CSS - Finailzed|10/14/24|10/28/24|14|
+|Reports - integrate for reports|10/28/24|11/4/24|7|
+|Additional Features as time allows|11/4/24|11/11/24|7|
+|Testing / Finalizing|11/11/24|11/25/24|14|
 
 [gantt Table PDF format
 ](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganntTargetDatesTable.pdf)
