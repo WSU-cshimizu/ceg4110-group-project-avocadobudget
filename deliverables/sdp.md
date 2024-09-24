@@ -42,6 +42,11 @@ Members:
 
 ### Key due dates from Gantt Chart in table form
 
+| Task  | Expected Start Date | Expected End Date | Estimated Date to Complete |
+| ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 [gantt Table PDF format
 ](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganntTargetDatesTable.pdf)
 
