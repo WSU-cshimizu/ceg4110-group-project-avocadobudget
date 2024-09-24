@@ -27,7 +27,9 @@
 - The user shall be able to compare their currently monthly report to older monthly reports.
 - The user may be able to load credit card reports directly into their expenses for efficiency.
 - The user shall be able to access the application with or without internet access.
+  1. The user will have their app run locally as well as store locally. This avoids sending sensitive data over the web.
 - The user shall be able to access all features with minimal amount of local storage.
+  1. The user will have a simple database structure that does not require storage.
 # Sub-System Requirements
 
 ### GUI Requirements
