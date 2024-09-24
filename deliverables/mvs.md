@@ -14,5 +14,5 @@
 - Laptop or Desktop
 - No internet connection needed
 - Mimimal amount of local storage required
-- Will run on windows, macOS and Linux
+- Will run on the most recent version of Windows, macOS and Linux given date of 9/24/2024
 - App to be capable with the previous two versions of edge, chrome, and firefox.
