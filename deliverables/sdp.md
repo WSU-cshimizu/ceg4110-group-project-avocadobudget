@@ -45,6 +45,10 @@ Members:
 [gantt Table PDF format
 ](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganntTargetDatesTable.pdf)
 
+## ImageHereTest
+![Alt text](./gannntChart.png)
+
+
 ### Justify CP and PM Choices
 - ***CP*** - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
 
