@@ -35,15 +35,14 @@ Members:
 
 ## Timeline (MVSs, Milestones, Requirement specifications, and Design Specifications)
 
-### Gantt Chart for project
+### Gannt Chart for Project
+![Alt text](./gannntChart.png)
 
-[gantt Chart PDF format
-](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganttChartAvocadoBudget.pdf)
 
 ### Key due dates from Gantt Chart in table form
 
 | Task  | Expected Start Date | Expected End Date | Estimated Date to Complete |
-| ------------- | ------------- | ------------- | ------------- |
+| :-------------: | :-------------: | :-------------: | :------: |
 |Team Composition Form|8/27/24|8/30/24|3|
 |Project Overview Proposal|8/30/24|9/6/24|7|
 |Software Development Plan|9/6/24|9/13/24|7|
@@ -60,13 +59,6 @@ Members:
 |Reports - integrate for reports|10/28/24|11/4/24|7|
 |Additional Features as time allows|11/4/24|11/11/24|7|
 |Testing / Finalizing|11/11/24|11/25/24|14|
-
-[gantt Table PDF format
-](https://github.com/WSU-cshimizu/ceg4110-group-project-avocadobudget/blob/main/deliverables/ganntTargetDatesTable.pdf)
-
-## Gannt Chart for Project
-![Alt text](./gannntChart.png)
-
 
 ### Justify CP and PM Choices
 - ***CP*** - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
