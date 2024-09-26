@@ -18,7 +18,7 @@
      - Expense Payment Method (Card, Cash, Venmo, etc)
   2. The user will be able to store the information from the expense entry form on a database for persistence beyond the session.
   3. The user will have a form to update/delete/read past transactions entered, for user ease it will be searchable by month and changes will persist in the database.
-  4. The user will have validation to help the user provide accurate data. For example, no negative number or zero value numbers and of course digits only in the amount box.
+  4. The user will have validation to help the user provide accurate data. For example, no negative number or zero value numbers and of course float values only in the amount box.
 
 ### The user shall be able to access a general built-in budget template.
   1. The user will have default categories provided
