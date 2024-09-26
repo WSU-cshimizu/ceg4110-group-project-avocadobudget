@@ -58,5 +58,5 @@
 
 ### The user shall be able to access all features with minimal amount of local storage.
   1. The user will have a simple database structure that does not require storage.
-
+  
 
