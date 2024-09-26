@@ -1,6 +1,6 @@
 # Guest Lecture Response
 ***Guest Lecturer:*** Tim Skrinak<br>
-***Guest Lecturer:*** Nick Ru<br>
+***Guest Lecturer:*** Nick Rue<br>
 ***Company:*** Dayton Freight Lines<br>
 ***Date:*** 9/26/2024<br>
 
