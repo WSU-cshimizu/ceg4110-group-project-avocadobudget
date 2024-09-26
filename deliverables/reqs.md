@@ -25,11 +25,17 @@
   2. The user will have default amounts for each category provided
   3. The user will have these settings saved for later use, comparison and display
   4. The user will have an easy interface to click a button for default options to be pulled into their permanent category comparison
-  5. The user will have the option to navigate to a screen that allows them to pick default budget or personalized buget
-  6. The user will have validation to help reduce their change of error.
-
+  5. The user will have the option in the interface (form) listed above that allows them to pick default budget or personalized budget. By default, the user has a personalized template, however, it defaults to a specific template the first time they load the form. 
+  6. The user will have validation to help reduce their chance of error.
+  7. The form will display rows of data with the following columns
+    - Budget Category
+    - Budget Catgory Amount
+    - Button to Update
+    - Button to Delete
+  8. Later if the user desires, they can click a button to clear their personalized budget and replace with default template.  
+  
 ### The user shall be able to access a personalized monthly budget template to fit their exact needs.
-  1. The user will be able to personalize the categories if desired. This could include, add, remove, or update categories.
+  1. The user will be able to personalize the categories if desired. This could include, add, remove, or update categories. The user would like this form to be the same as the built-in budget template to avoid confusion.
   2. The user will be able to set target amounts for each category
   3. The user will have their personalized settings saved for later comparison against their tracked expenses
   4. The user will have an interface where they can pull up their current categories and amounts selected. They will to be able to add, update, remove items as needed.
@@ -37,10 +43,15 @@
   6. The user will have some validation to avoid entering negative numbers, missing boxes, etc
 
 ### The user shall be able to access an intuitive reporting system that displays the their monthly results.
+  1. The user wants a form what it is easy to navigate and click buttons to display results by month or maybe by other ranges of time. 
 
 ### The user shall be able to compare their currently monthly report to older monthly reports.
+  1. The user will be able to navigate to a form that provides an intuitive interface to compare their expenses against budget over time.
+  2. The user wants easy to digest information. The representation will be graph form and display expense total by category, by month against the budget targets.
 
 ### The user may be able to load credit card reports directly into their expenses for efficiency.
+  1. The user would like some functionality where they could load a file in the app to automatically pull in expenses based on a predifined format.
+  2. The user would appreciate using this feature so they can also shift over any excel sheet they use for their own budgeting purposes.
 
 ### The user shall be able to access the application with or without internet access.
   1. The user will have their app run locally as well as store locally. This avoids sending sensitive data over the web.
