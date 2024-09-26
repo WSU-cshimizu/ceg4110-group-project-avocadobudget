@@ -47,7 +47,7 @@ Members:
 |Project Overview Proposal|8/30/24|9/6/24|7|
 |Software Development Plan|9/6/24|9/13/24|7|
 |User Story Compendium|9/13/24|9/20/24|7|
-|MVS|9/20/24|9/24/24|4|
+|MVS|9/20/24|9/26/24|6|
 |Requirements Specification|9/22/24|9/27/24|5|
 |Wireframe|9/22/24|10/6/24|14|
 |Table Design|9/16/24|10/7/24|21|
