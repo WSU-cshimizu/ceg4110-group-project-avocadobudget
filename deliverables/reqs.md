@@ -21,8 +21,7 @@
   4. The user will have validation to help collect accurate data. For example, no negative number or zero value numbers and of course float values only in the amount box
 
 ### The user shall be able to access a general built-in budget template if they choose to have the app help them
-  
-  1.The user will have default categories defined
+  1. The user will have default categories defined
   2. The user will have default percentages defined for these category
   3. The user will enter their income and based off the percentages it will determine their budget
   4. The user will have an easy interface to click a button for default options to be pulled into their permanent category comparison
