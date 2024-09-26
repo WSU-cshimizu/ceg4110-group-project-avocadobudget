@@ -4,9 +4,9 @@
 
 - The app will be able to collect user expenses using a local website interface and store in a local database.
 - The expenses that will be collected in the database will be coded by category in order to track progress.
-- The product will launch with a default template option that will provide prebuilt expense categories and  monthly targets for those categories
-- The app will offer a feature to create a personalized template option to define monthly expense targets and select the categories desired by the user
-- The app will provide the ability to compile past data transaction by month and provide graphical representations of that data.
+- The product will launch with a default template option that will provide prebuilt expense categories and  monthly targets for those categories based on the users income.
+- The app will offer a feature to create provide personalized template options to define monthly expense targets and select the categories desired by the user
+- The app will provide the ability to compile past data transaction by month and it might provide graphical representations of that data.
 - The app will be single user, local to device and as such no login needed
 
 ## Device Requirements
