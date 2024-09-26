@@ -25,5 +25,5 @@
 - ***Meeting Minutes*** directory with meeting minutes located in deliverables/meetings/
 - ***Minimum Viable Specification** Finalized SEPT 26 in deliverables/mvs.md
 - ***Requirements Document*** for grading located in deliverables/reqs.md
-- ***Guest Lectures*** for grading located in deliverables/ often labeled as guest1.md etc
+- ***Guest Lectures*** added directory for group lectures /deliverables/group_lectures in order to locate the 5 guest lecture forms.
 
