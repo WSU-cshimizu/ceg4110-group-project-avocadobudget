@@ -36,7 +36,7 @@ Members:
 ## Timeline (MVSs, Milestones, Requirement specifications, and Design Specifications)
 
 ### Gannt Chart for Project
-![Alt text](./gannntChart.png)
+![Alt text](./ganntChart_V2.png)
 
 
 ### Key due dates from Gantt Chart in table form
