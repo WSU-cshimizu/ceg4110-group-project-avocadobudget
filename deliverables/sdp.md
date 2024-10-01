@@ -47,18 +47,19 @@ Members:
 |Project Overview Proposal|8/30/24|9/6/24|7|
 |Software Development Plan|9/6/24|9/13/24|7|
 |User Story Compendium|9/13/24|9/20/24|7|
-|MVS|9/20/24|9/26/24|6|
+|MVS|9/20/24|9/24/24|4|
 |Requirements Specification|9/22/24|9/27/24|5|
-|Wireframe|9/22/24|10/6/24|14|
-|Table Design|9/16/24|10/7/24|21|
-|Design Specificaition|9/27/24|10/11/24|14|
-|CRUD operations|9/30/24|10/14/24|14|
-|UI Tasks Complete|9/29/24|10/13/24|14|
-|Business Logic / Code complete|10/14/24|10/28/24|14|
-|HTML / CSS - Finailzed|10/14/24|10/28/24|14|
-|Reports - integrate for reports|10/28/24|11/4/24|7|
+|Wireframe|9/27/24|10/11/24|14|
+|Design Specification|9/27/24|10/11/24|14|
+|Table Design|10/11/24|10/14/24|3|
+|UI Tasks Complete|10/11/24|10/18/24|7|
+|HTML / CSS - Finailzed|10/11/14|10/21/14|10|
+|Business Logic / Code complete|10/14/24|10/30/24|16|
+|Crud Operations|10/14/24|10/30/24|16|
+|Reports - integrate for reports|10/30/24|11/4/24|5|
 |Additional Features as time allows|11/4/24|11/11/24|7|
-|Testing / Finalizing|11/11/24|11/25/24|14
+|Testing / Finalizing|11/11/24|11/25/24|14|
+
 
 ### Justify CP and PM Choices
 - ***CP*** - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
