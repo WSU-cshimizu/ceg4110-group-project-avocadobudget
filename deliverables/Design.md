@@ -16,4 +16,6 @@
 
 ## Requirement 6: The user may be able to load credit card reports directly into their expenses for effeciency
 
-## Requirement 7: 
+## Requirement 7: The user shall be able to access the application without internet access.
+
+## Requirement 8: The user shall be able to access all features with minimal amount of local storage
