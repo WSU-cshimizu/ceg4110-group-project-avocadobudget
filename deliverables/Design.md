@@ -9,13 +9,15 @@
 1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's monthly or yearly income.
 
 2. The default expense fields will contain the following:
+    - primary key
     - expense category
     - expense description
     - expense amount
     - expense date
     - expense payment method
 
-3. The default category table will contain the following fields in SQLite: 
+3. The default category table will contain the following records in SQLite:
+   
     - rent
     - groceries
     - entertainment
