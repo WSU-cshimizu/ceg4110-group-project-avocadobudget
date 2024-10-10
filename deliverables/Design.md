@@ -65,13 +65,33 @@
    - ***Delete** button click will delete the record in the form that the delete button was clicked in.
    - ***Update*** button click from the update template button will take in the values for each field and replace the ID of the expense with the new values by using the db class
 ## WIREFRAME
-1. Homepage.....
+1. ***My Reports page***
+    - The my report page displays a financial dashboard from "Avocadobudget," focusing on "My Reports". It features a bar chart comparing set budgets ("Spend up to") and actual spending across expense categories. Users can adjust the month and generate reports using the dropdown and "Apply" button.
 
-2. MyBudget displays ......
-    - How it will work
+2. ***My Expense page***
+    - The "My Expense" page allows users to manage their spending records. Users can:
+    1. Search for specific expenses using a description or by selecting a category from the dropdown menu.
+    2. Filter expenses based on a date range and apply the filter to view relevant transactions.
+    3. View a table listing expense details, including:
+        - Expense ID
+        - Date
+        - Payment Method (e.g., Credit card, Cash, Debit card)
+        - Total amount spent
+        - Expense description
+        - Expense category
+3. Each record has "Edit" and "Delete" options, enabling users to modify or remove expenses. Additionally, there is a "New Expense" button for adding new transactions manually.
 
-3. Contains a Expenses page that .......
-    - How the different components work
+3. ***My Budget Page***
+    - The "My Budget" page allows users to manage and allocate their monthly income across different expense categories. Here's how it works:
+    1. ***Monthly Income Input***: Users can enter their monthly income in the provided field and click "Save" to update it.
+    2. ***Expense Categories***: A list of predefined categories.
+        - The percentage of income allocated to that category.
+        - The corresponding amount in dollars.
+    3. ***Edit Option***: Users can modify the percentage or amount for each category by clicking the "Edit" button next to each entry.
+    4. ***Add New Category***: Users can add new expense categories by clicking the "+ New Category" button at the top right.
+    - This page helps users plan their budgets effectively based on income and expenditure preferences. 
+    
 
-4. 
+
+
 
