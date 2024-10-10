@@ -13,7 +13,8 @@
     - expense amount
     - expense date
     - expense payment method
-3. ***UI/UX***Dedicated html page for inserting an expense
+3. ***UI/UX*** Dedicated html page for inserting an expense
+4. ***HTML/CSS*** Page will need input box for each field above, button for insert
 
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
 1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered monthly income 
@@ -53,6 +54,16 @@
 ## Requirement 7: The user shall be able to access all features with minimal amount of local storage
 1. The program is extremely small (< 1GB) and stores less than 1GB.
 
+## Requirement 8: The user shall be able to view past expenses by different filters and delete or update as needed
+1. ***HTML*** Each expense record from result of filter will have its own form.
+   - Each form will have an input box for each field in the table
+   - Each form will have an edit and delete button
+2. ***UI/UX*** Expense page will provide ability to filter expense table and display result with HTML above
+   - Clicking the update button will bring up another interface for the user to 
+
+4. ***CRUD*** The db class will have some functions added to handle delete and update.
+   - ***Delete** button click will delete the record in the form that the delete button was clicked in.
+   - ***Update*** button click from the update template button will take in the values for each field and replace the ID of the expense with the new values by using the db class
 ## WIREFRAME
 1. Homepage.....
 
