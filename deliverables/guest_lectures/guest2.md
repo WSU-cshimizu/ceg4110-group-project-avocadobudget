@@ -34,5 +34,5 @@
 - They talk about outcomes - (I want statements) that is the start of their process.
 - They even focus on sustainment, making sure it is used after the fact.
 - Agile is an adjective - working software over documentation,
-
+- Todd does not like branching strategies!!
 
