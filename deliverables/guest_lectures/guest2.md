@@ -5,7 +5,7 @@
 
 ## Pertinent Questions
 - ***Question 1*** If you deal with goverment, what type of data do you see for prototyping, is anything restricted, and do you need security clearance to use it?
-- ***Question 2*** 
+- ***Question 2*** On average how long are their projects? 2 day to 2 week or longer? Are you updating curent database and applications to a more modern efficient program vs building inputs, outputs, features from scratch. 
 
 
 ## Lessons Learned
@@ -16,7 +16,15 @@
 - Civilians vs Military for DOD
 - They ask for something, then want something else, after three months of changes, what user is using this?
 - Identify user, identify problem, who is going to use it? They seem very user focused which was a difference from Dayton Freight Lines.
-- 
+- They even focus on sustainment, making sure it is used after the fact.
+- For goverment contracts, time is a huge factor, they want fast results that are reliable and solve the issue.
+- They have 2 days to two week deliveries.
+- Prefer user stories over system requirements.
+- Product blitz, five day activity to develop a product.
+- Build stories, tie to epics, define after Friday, then build the product out.
+- Then define architecture, responsiblities, technologies, talk to team define who is doing what.
+- Sprint come back, review, retrospect how to improve. 
+
 
 ## Differences
 - Their process Design Thinking, Rapid Prototyping, Agile Development, Sustainment (Problem Solving, Execution & Solution, Deliver Value). Customer Problem to Customer Solution. 
