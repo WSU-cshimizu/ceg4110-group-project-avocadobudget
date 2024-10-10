@@ -1,39 +1,36 @@
 # Design Specification
 
 ## Requirement 1: The user shall be able to submit their expenses
-1. The local web server will collect user entered expenses and store them in a SQLite database.
+1. ***Crud***The local web server will collect user entered expenses and store them in a SQLite database.
     - Flask will be used for front-end to back-end integration.
-    - When the user enters an expense it will run as a post request then sends the user entered expenses to python code that will store it in our database.
+    - When the user enters an expense it will run as an HTTP post request then sends the user entered expenses to python code that will store it in our database.
+    - will create db class to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
 
-2. The default expense table will contain the following:
-    - expense id (primary key)
-    - expense category
-    - expense description
-    - expense amount
-    - expense date
-    - expense payment method
+2. ***Database Design***The default expense table will contain the following:
+    - ***expense id (primary key)***
+    - ***expense category (foreign key category table)***
+    - ***expense description***
+    - ***expense amount***
+    - ***expense date***
+    - ***expense payment method***
+3. ***UI/UX***Dedicated html page for inserting an expense
 
-## Requirement 2: The user shall be able to access a general built-in budget template if they choose to have the app help them
-1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's monthly or yearly income.
+## Requirement 2: The user shall be able to access a general built-in monthly budget template if they choose to have the app help them
+1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's monthly
 
-2. The default category table will contain the following records in SQLite:
-   
+2. The default category table will contain the following fields in SQLite:
+   1. ***category*** - will be text describing the category that the expenses will take (also the primary key) The categories will be defind for the program and they are below.
     - rent
     - groceries
     - entertainment
     - miscellaneous
-    - bills/subscriptions [optional]
-    - Retirement [optional]
+    - bills/subscriptions 
+    - Retirement
+    2. ***category amount*** to define the monthly budget for each category
 
-- Each record will be a unique key for the expense records.
+3. There will be validation to ensure that negative values are not allowed, also only allow valid floats.
 
-3. There will be a category class in the back-end code.
-    - This helps to determine if a optional category is active
-    - Helps with determining if a category already exists so you can't add the same category to the budget twice.
 
-4. There may be an expense class that will be inherited by the category class.
-    - Improves code readibility
-    - Simplifies the functions in the category class.
 
 ## Requirement 3: The user shall be able to provide personalized numbers to their budget
 1. This means that the user can bypass our recommended budget allocation algorithm that is based on user income and use their one budget allocation.
