@@ -5,18 +5,18 @@
     - Flask will be used for front-end to back-end integration.
     - When the user enters an expense it will run as a post request then sends the user entered expenses to python code that will store it in our database.
 
-## Requirement 2: The user shall be able to access a general built-in budget template if they choose to have the app help them
-1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's monthly or yearly income.
-
 2. The default expense table will contain the following:
-    - primary key
+    - expense id (primary key)
     - expense category
     - expense description
     - expense amount
     - expense date
     - expense payment method
 
-3. The default category table will contain the following records in SQLite:
+## Requirement 2: The user shall be able to access a general built-in budget template if they choose to have the app help them
+1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's monthly or yearly income.
+
+2. The default category table will contain the following records in SQLite:
    
     - rent
     - groceries
@@ -27,11 +27,11 @@
 
 - Each record will be a unique key for the expense records.
 
-4. There will be a category class in the back-end code.
+3. There will be a category class in the back-end code.
     - This helps to determine if a optional category is active
     - Helps with determining if a category already exists so you can't add the same category to the budget twice.
 
-5. There may be an expense class that will be inherited by the category class.
+4. There may be an expense class that will be inherited by the category class.
     - Improves code readibility
     - Simplifies the functions in the category class.
 
@@ -47,12 +47,10 @@
 1. The back-end will send a range of dates to the database and query the expense results for those date ranges.
     - Will be displayed in form of a bar chart.
 
-## Requirement 6: The user may be able to load credit card reports directly into their expenses for effeciency
-
-## Requirement 7: The user shall be able to access the application without internet access.
+## Requirement 6: The user shall be able to access the application without internet access.
 1. Set to run on a local system which doesn't require internet access.
 
-## Requirement 8: The user shall be able to access all features with minimal amount of local storage
+## Requirement 7: The user shall be able to access all features with minimal amount of local storage
 1. The program is extremely small (< 1GB) and stores less than 1GB.
 
 
