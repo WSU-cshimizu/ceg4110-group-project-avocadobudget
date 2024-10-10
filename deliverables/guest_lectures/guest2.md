@@ -26,7 +26,8 @@
 - Sprint come back, review, retrospect how to improve.
 - Portals to databases - lots of front end
 - They spend half their time with the customer, the other half the time developing.
-- Todd really likes user stories vs requirements 
+- Todd really likes user stories vs requirements
+- Todd mentioned that agile is great for engineers to determine what is important due to the past paced nature of agile.
 
 
 ## Differences
