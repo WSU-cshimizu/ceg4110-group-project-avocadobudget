@@ -1,10 +1,12 @@
 # Design Specification
 
-## Requirement 1: The user shall be able to submit their expenses
-1. ***Crud*** The local web server will collect user entered expenses and store them in a SQLite database.
+## Requirement 1: The user shall be able to submit, delete, update and review their expenses
+
+1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
     - Flask will be used for front-end to back-end integration.
-    - When the user enters an expense it will run as an HTTP post request then sends the user entered expenses to python code that will store it in our database.
-    - will create db class to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
+    - When the user enters an expense it will run as an HTTP post request. This sends the user entered expenses to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to dispaly on the expense management page.
+    - ***We will create a db class*** to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
+      1. getConnection() - This function returns var that represents an object that provides a connection to the db file provided. This object will be provided to the various class methods required to read, delete, update, or insert to our various tables.
 
 2. ***Database Design*** The default expense table will contain the following:
     - expense id (primary key)
@@ -13,8 +15,12 @@
     - expense amount
     - expense date
     - expense payment method
+      
 3. ***UI/UX*** Dedicated html page for inserting an expense
-4. ***HTML/CSS*** Page will need input box for each field above, button for insert
+   - See the wifreframe section below
+   - Deafult to current months expenses for display
+
+4. ***HTML/CSS*** Page will need input box for each field above, button to pull up insert page, button for delete and edit. Will also need an apply button to apply filters to our dataset so the expense table only dsiplays the records on the page that we choose. 
 
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
 1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered monthly income 
