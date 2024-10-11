@@ -37,8 +37,14 @@
     - ***Class Methods***
 6. ***DB class*** to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
       1. ***DB variables***
-      2. ***DB methods***
-      - getConnection() - This function returns var that represents an object that provides a connection to the db file provided. This object will be provided to the various class methods required to read, delete, update, or insert to our various tables.
+         - none so far
+      3. ***DB methods***
+      - ***getConnection*** This function returns var that represents an object that provides a connection to the db file provided. This object will be provided to the various class methods required to read, delete, update, or insert to our various tables.
+      - ***insertExpense*** This function will take in a tuple of expense fields along with a connection object in order to insert a new record to the expense table
+      - ***maxpenseID*** This function will take in a connection object and collect the max id in the expense table then add one and return that value, if there are no records in the table, then return the value of 1 to start the ids for the table.
+      - ***getExpenseTable*** This function will return all the records in the expense object table, later refinement will allow you to provide custom filtering to the table.
+     - ***deleteIDExpense*** This function will delete the id passed to the function if it exists in the expense table
+     - ***updateIDExpense** This function will update the id passed to the function to capture any desired changes to the existing record. This will only work if the id passed has a matching id in the expense table. We will also pass a tuple with the fields of the corrected item. We will techinically insert new record to new id, then delete the old record for the id we want to replace, then we will change id of duplicate record to match the desired id to replace. This is more effiecent than updating all the fields. 
 
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
 
