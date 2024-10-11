@@ -18,6 +18,8 @@
 3. ***UI/UX*** Dedicated html page for inserting an expense
    - See the wifreframe section below
    - Deafult to current months expenses for display
+   - expense category to use drop down to ensure that this field is controlled
+   - payment method to use drop down to ensure that this field is controlled
 
 4. ***HTML/CSS*** Page will need input box for each field above, button to pull up insert page, button for delete and edit. Will also need an apply button to apply filters to our dataset so the expense table only dsiplays the records on the page that we choose.
    - One page for displaying current expenses with filter options. Buttons for edit, delete on each record displayed. Then another button for inserting a new expense, finally another button to apply a filter and requery the expense table for display on the filter.
@@ -39,6 +41,7 @@
       - getConnection() - This function returns var that represents an object that provides a connection to the db file provided. This object will be provided to the various class methods required to read, delete, update, or insert to our various tables.
 
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
+
 1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered monthly income 
    - Clicking the apply % button on the category page will take the income the user entered into the monthly income box and apply default % values for the categories, to build the customer's template in the categories table
 
@@ -52,17 +55,22 @@
     - savings
     2. ***category amount*** to define the monthly budget for each category
 
-3. There will be validation to ensure that negative values are not allowed, also only allow valid floats.
+3. There will be validation to ensure that negative values are not allowed, also only allow valid floats for income and amounts.
 
 4. The gui interface will allow editing of the amounts by category. It will not allow you to add categories or remove them. Also, clicking apply % button will recalculate the tables based on custom percentages built in the backend code. (50% for living expenses 30% for misc and entertainment 20% for saving)
 
+5. The DB class will add methods to handle changes to category table, this will be documented in requirement one. 
+
+6. Categories will be fixed, as of now plan is to only offer what is displayed.
 
 ## Requirement 3: The user shall be able to provide personalized numbers to their budget
-1. This means that the user can bypass our recommended budget allocation algorithm that is based on user income and use their one budget allocation.
-    - There is a button to change the amount allocated, when a new amount is saved, a new percentage will be calculated with back-end code.
+
+1. This means that the user can bypass our recommended budget allocation algorithm that is based on user monthly net income and use their own budget allocation.
+    - There is a button to update the amount allocated, when a new amount is saved, a new percentage will be calculated with back-end code.
 2. This will use the same interface and page as the default budget feature
 
 ## Requirement 4: The user may be able to access an intuitive reporting system that displays their monthly results
+
 1. When the user wants to retrieve their expenses, a get request will be sent to flask and this will query the expense records from the database based on different filters
     - The user can retrieve expenses by providing a date range that will send a query to the database and display it back to the user's html page. This may just provide selection by month.
 
@@ -76,16 +84,7 @@
 ## Requirement 7: The user shall be able to access all features with minimal amount of local storage
 1. The program is extremely small (< 1GB) and stores less than 1GB.
 
-## Requirement 8: The user shall be able to view past expenses by different filters and delete or update as needed
-1. ***HTML*** Each expense record from result of filter will have its own form.
-   - Each form will have an input box for each field in the table
-   - Each form will have an edit and delete button
-2. ***UI/UX*** Expense page will provide ability to filter expense table and display result with HTML above
-   - Clicking the update button will bring up another interface for the user to 
 
-4. ***CRUD*** The db class will have some functions added to handle delete and update.
-   - ***Delete** button click will delete the record in the form that the delete button was clicked in.
-   - ***Update*** button click from the update template button will take in the values for each field and replace the ID of the expense with the new values by using the db class
 ## WIREFRAME
 1. ***My Reports page***
     - The my report page displays a financial dashboard from "Avocadobudget," focusing on "My Reports". It features a bar chart comparing set budgets ("Spend up to") and actual spending across expense categories. Users can adjust the month and generate reports using the dropdown and "Apply" button.
@@ -105,12 +104,11 @@
 
 3. ***My Budget Page***
     - The "My Budget" page allows users to manage and allocate their monthly income across different expense categories. Here's how it works:
-    1. ***Monthly Income Input***: Users can enter their monthly income in the provided field and click "Save" to update it.
+    1. ***Monthly Income Input***: Users can enter their monthly income in the provided field and click "Apply" to update it, this will also take that income and build budget based on defined % in backend code.
     2. ***Expense Categories***: A list of predefined categories.
         - The percentage of income allocated to that category.
         - The corresponding amount in dollars.
-    3. ***Edit Option***: Users can modify the percentage or amount for each category by clicking the "Edit" button next to each entry.
-    4. ***Add New Category***: Users can add new expense categories by clicking the "+ New Category" button at the top right.
+    3. ***Edit Option***: Users can modify the amount for each category by clicking the "Edit" button next to each entry.
     - This page helps users plan their budgets effectively based on income and expenditure preferences. 
     
 
