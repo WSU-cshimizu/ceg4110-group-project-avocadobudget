@@ -4,9 +4,8 @@
 
 1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
     - Flask will be used for front-end to back-end integration.
-    - When the user enters an expense it will run as an HTTP post request. This sends the user entered expenses to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to dispaly on the expense management page.
-    - ***We will create a db class*** to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
-      1. getConnection() - This function returns var that represents an object that provides a connection to the db file provided. This object will be provided to the various class methods required to read, delete, update, or insert to our various tables.
+    - When the user wants to enter, update, or delete an expense it will run as an HTTP post request. This sends the user entered desired request based on the button clicked to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to dispaly on the expense management page. If we are reapplying the table after a filter, update, insert, or delete we will also refresh the page with a get request based on the currently selected filter options.
+
 
 2. ***Database Design*** The default expense table will contain the following:
     - expense id (primary key)
@@ -20,7 +19,24 @@
    - See the wifreframe section below
    - Deafult to current months expenses for display
 
-4. ***HTML/CSS*** Page will need input box for each field above, button to pull up insert page, button for delete and edit. Will also need an apply button to apply filters to our dataset so the expense table only dsiplays the records on the page that we choose. 
+4. ***HTML/CSS*** Page will need input box for each field above, button to pull up insert page, button for delete and edit. Will also need an apply button to apply filters to our dataset so the expense table only dsiplays the records on the page that we choose.
+   - One page for displaying current expenses with filter options. Buttons for edit, delete on each record displayed. Then another button for inserting a new expense, finally another button to apply a filter and requery the expense table for display on the filter.
+   - Another page for updating / inserting an expense once the insert button is clicked or a specific record is selected for an update.
+   - Data validation provided, do not allow negative numbers and only allow valid floats for amounts. Other fields will require text, date, etc
+
+5. ***Expense Class*** will be created in the back end code to assist with data validation, crud operations, changing an expense etc.
+   - ***Class Variables***
+      1. expenseID
+      2. expenseCategory
+      3. expenseDescription
+      4. expenseAmount
+      5. expenseDate
+      6. expensePaymentMethod
+    - ***Class Methods***
+6. ***DB class*** to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
+      1. ***DB variables***
+      2. ***DB methods***
+      - getConnection() - This function returns var that represents an object that provides a connection to the db file provided. This object will be provided to the various class methods required to read, delete, update, or insert to our various tables.
 
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
 1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered monthly income 
