@@ -53,10 +53,10 @@ Members:
 |Design Specification|9/27/24|10/11/24|14|
 |Table Design|10/11/24|10/14/24|3|
 |UI Tasks Complete|10/11/24|10/18/24|7|
-|HTML / CSS - Finailzed|10/11/14|10/21/14|10|
-|Business Logic / Code complete|10/14/24|10/30/24|16|
-|Crud Operations|10/14/24|10/30/24|16|
-|Reports - integrate for reports|10/30/24|11/4/24|5|
+|HTML / CSS - Finailzed|10/11/14|10/28/14|10|
+|Business Logic / Code complete|10/14/24|11/4/24|16|
+|Crud Operations|10/14/24|11/4/24|16|
+|Reports - integrate for reports|10/30/24|11/8/24|5|
 |Additional Features as time allows|11/4/24|11/11/24|7|
 |Testing / Finalizing|11/11/24|11/25/24|14|
 
@@ -65,3 +65,10 @@ Members:
 - ***CP*** - This is a plan we all have agreed upon and a plan that we have already implemented for the couple of assignments. We haven't had any issues yet as all of our members spend a lot of time on campus everyday so it's not difficult to stick to our plan.
 
 - ***PM*** - We planned our deadlines around what we believe to be the worst case-scenario. We agreed that with our teams given skill sets, we should be able to successfully finish everything before our given deadlines in the gannt chart. To be safe we gave a bit of extra time for each deadline.
+
+
+### Change Log after 10/7/2024
+1. After discussion on 10/15/2024, our team decided some dates needed to be moved back based on HTML/CSS not being ready. Our team member was frank and due to midterms, the days have to be moved. We settled on moving the due date of 10/21/2024 to 10/28/2024 for HTML/CSS to be completed.
+2. Due to change in HTML due date, the business logic and crud operations due dates were pushed back from 10/30/2024 to 11/4/2024. Back end team can work around some of the HTML not being complete, but still reliant on that to properly code. 
+3. Reports pushed back 4 days from due date of 11/4/2024 to 11/8/2024. This cascades from resources from team not being available until backend code is complete.
+
