@@ -41,7 +41,7 @@ Members:
 
 ### Key due dates from Gantt Chart in table form
 
-| Task  | Expected Start Date | Expected End Date | Estimated Date to Complete |
+| Task  | Expected Start Date | Expected End Date | Estimated Days to Complete Task |
 | :-------------: | :-------------: | :-------------: | :------: |
 |Team Composition Form|8/27/24|8/30/24|3|
 |Project Overview Proposal|8/30/24|9/6/24|7|
