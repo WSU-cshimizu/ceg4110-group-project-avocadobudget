@@ -59,7 +59,14 @@ class Expense:
     def __str__(self):
         return f"Variables, {self.id}, {self.category}, {self.description}, {self.amount}, {self.date}, {self.payment} "
     
-
+    def validExpense(self):
+        print("Valid expense check: " + str(self.validExpense))
+        return self.valid
+    
+    def returnExpense(self):
+        return [
+                (self.id,self.category, self.description, self.amount, self.date, self.payment)
+            ]
 
 
         

@@ -34,16 +34,38 @@ def home():
         print(expense_date)
         insertExp = Expense(pkID, expense_cat, expense_desc, expense_amount, expense_date, expense_payment_method)
 
-        print(insertExp)
+        fields =""
+        print("Expense item" + str(insertExp))
 
+        insertTuple = insertExp.returnExpense()
+
+        # print(insertTuple)
+        # print("Truth Check: " + str(insertExp.validExpense()))
+        if(insertExp.validExpense() == True):
+            fields = insertExp.returnExpense()
+            db.insertExpense(fields,con)
+            print(fields)
+            con.close()
+            print("expense desc: " + expense_desc + " expense amount: $" + str(expense_amount))
+            return redirect(url_for('success', code = 302,fields = fields))
+
+        '''
         fields = [
                 (pkID,expense_cat, expense_desc, expense_amount, expense_date, expense_payment_method)
             ]
-        print(fields)
-        db.insertExpense(fields,con)
+        '''
+
+        db = dbOperations
+        con = db.getConnection()
+       
+        listItems = db.getExpenseTable(con)
+
+        print(listItems)
+
         con.close()
-        print("expense desc: " + expense_desc + " expense amount: $" + str(expense_amount))
-        return redirect(url_for('success', code = 302,fields = fields))
+        print("handled get table")
+        return render_template('expensetable.html', listItems = listItems)
+        
     elif request.method == 'GET':
         
         print("handled get")
@@ -144,8 +166,11 @@ def update():
 
         print("expense_id: " + str(expense_id))
         
+        #expense
+        expenseObj = Expense(expense_id,expense_cat,expense_desc, expense_amount, expense_date, expense_payment_method)
+
         # need array to pass to update expense (this are the items to insert)
-        expenseArray = [expense_id, expense_cat, expense_desc, expense_amount, expense_date, expense_payment_method]
+        expenseArray = expenseObj.returnExpense()
 
         print("Expense Array: " + str(expenseArray))
 
@@ -162,7 +187,6 @@ def update():
 
         updateID = request.args['listItems']
       
-        
         print('get method')
         
         listItems = db.selectIDExpense(con,updateID)

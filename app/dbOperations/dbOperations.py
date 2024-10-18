@@ -103,7 +103,7 @@ def updateIDExpense(con, expenseArray):
     print("Got inside updateIDExpense!!")
 
     #store desired update id
-    updateID = expenseArray[0]
+    updateID = expenseArray[0][0]
 
     
 
@@ -111,13 +111,9 @@ def updateIDExpense(con, expenseArray):
     newID = maxExpenseID(con)
 
     updateArray = expenseArray
-    updateArray[0] = newID
+    updateArray[0][0] = newID
 
-    updateTuple = [
-        (updateArray[0],updateArray[1],updateArray[2],updateArray[3],updateArray[4],updateArray[5])
-    ]
-
-    print("Expense Array: " + str(updateTuple))
+    print("Update array:" + str(updateArray))
 
     print("newID: " + str(newID))
     print("updateID: " + str(updateID))
@@ -129,7 +125,7 @@ def updateIDExpense(con, expenseArray):
         
     #now attempt insert with new array
     try:
-        insertExpense(updateTuple, con)
+        insertExpense(updateArray, con)
         insertSucess = True
     except:
         print("error inserting record no need to delete or update!!")
