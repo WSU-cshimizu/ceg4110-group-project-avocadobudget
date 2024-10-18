@@ -35,6 +35,9 @@
       5. expenseDate
       6. expensePaymentMethod
     - ***Class Methods***
+      1. ***__str__*** Returns a string of the expenses variables for the instance of expense
+      2. ***validExpense*** Returns true or false depending on if expense instance is true or false
+      3. ***returnExpense*** Returns one element list with tuple of expense object varaibles to be used for interting validated records. 
 6. ***DB class*** to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
       1. ***DB variables***
          - none so far
