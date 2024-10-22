@@ -7,7 +7,7 @@ class Expense:
         #bool keep track of valid instance
         self.valid = True
         #check id for digit
-        if(isinstance(id, int)):
+        if(isinstance(int(id), int)):
            self.id = id
         else:
             self.valid = False
@@ -30,7 +30,7 @@ class Expense:
         #check amt is float
 
         amt = float(amt)
-        if(isinstance(amt, float)):
+        if(isinstance(amt, float) and float(amt) > 0):
             # if float round to decimal spots so goes in DB as calid currency
             self.amount = round(amt,2)
         else:
@@ -68,6 +68,10 @@ class Expense:
                 (self.id,self.category, self.description, self.amount, self.date, self.payment)
             ]
 
+    def setID(self, newID):
+        self.id = newID
 
+    def getID(self):
+        return self.id
         
         

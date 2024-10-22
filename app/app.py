@@ -47,7 +47,7 @@ def home():
             print(fields)
             con.close()
             print("expense desc: " + expense_desc + " expense amount: $" + str(expense_amount))
-            return redirect(url_for('success', code = 302,fields = fields))
+            return redirect(url_for('table', code = 302))
 
         '''
         fields = [
@@ -175,11 +175,11 @@ def update():
         print("Expense Array: " + str(expenseArray))
 
         #call update expense using array above
-        db.updateIDExpense(con, expenseArray)
+        db.updateIDExpense(con, expenseObj)
 
-        listItems = db.selectIDExpense(con,expense_id)
+        listItems = db.getExpenseTable(con)
 
-        return render_template('success.html', listItems = listItems)
+        return render_template('expensetable.html', listItems = listItems)
     elif request.method == 'GET':
         
         db = dbOperations

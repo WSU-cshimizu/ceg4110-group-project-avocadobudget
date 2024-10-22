@@ -7,6 +7,7 @@ outputs:
 
 import sqlite3
 from datetime import *
+#import expense
 
 def printTest():
     print("this is a test")
@@ -98,20 +99,23 @@ then we want after successful instertion to delete the record at desired update 
 current record at top of table to have PK value of the record we just deleted
 outputs: No output to return, just updated values in table.
 '''         
-def updateIDExpense(con, expenseArray):
+def updateIDExpense(con, expenseObject):
     cur = con.cursor()
     print("Got inside updateIDExpense!!")
 
     #store desired update id
-    updateID = expenseArray[0][0]
+    updateID = expenseObject.getID()
 
+    print("Update ID: " + str(updateID))
     
 
     #get new id to insert to
     newID = maxExpenseID(con)
 
-    updateArray = expenseArray
-    updateArray[0][0] = newID
+    #set id
+    expenseObject.setID(newID)
+
+    updateArray = expenseObject.returnExpense()
 
     print("Update array:" + str(updateArray))
 
@@ -154,5 +158,7 @@ def selectIDExpense(con, ID):
     
     return result
     
+######### CATEGORY EXPENSE ##########
+
     
     
