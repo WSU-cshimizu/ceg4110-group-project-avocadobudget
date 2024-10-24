@@ -37,7 +37,7 @@ def home():
         fields =""
         print("Expense item" + str(insertExp))
 
-        insertTuple = insertExp.returnExpense()
+        # insertTuple = insertExp.returnExpense()
 
         # print(insertTuple)
         # print("Truth Check: " + str(insertExp.validExpense()))
@@ -197,4 +197,5 @@ def update():
 
 if __name__ == '__main__':
    app.run(debug=True, port=5000)
+   
  
