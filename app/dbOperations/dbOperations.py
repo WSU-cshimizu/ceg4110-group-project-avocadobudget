@@ -19,6 +19,7 @@ inputs: None
 outputs: Provides object that provides connection to project database
 '''
 def getConnection():
+    # take in string, create connection, return connection object
     con = sqlite3.connect("AvocadoToast_Database_CEG4110.db")
     return con
 
@@ -33,7 +34,7 @@ validation checks in back end before passing tuple, so no need to error handle
 outputs: No return 
 '''
 def insertExpense(insertTuple, con):
-    
+    # take in array tuple and insert based on parameters
     cur = con.cursor()
     cur.executemany('INSERT INTO Expense VALUES (?,?,?,?,?,?)', insertTuple)
     con.commit()
@@ -46,6 +47,7 @@ If one exists add one to maxID, if none exists then default with 1 as the value.
 outputs: return the maxID derived to use for insert in Expense table
 '''    
 def maxExpenseID(con):
+    # get max id from table add one return the value, otherwise if no records return 1
     cur = con.cursor()
     selectString = "SELECT Max(Expense_ID) FROM Expense"
     result = cur.execute(selectString).fetchone()
@@ -68,9 +70,12 @@ to calling object
 outputs: result variable with all the records collected from the expense table
 '''
 def getExpenseTable(con):
-    cur = con.cursor()
     
+    # get all records in expense table
+    cur = con.cursor()
+    # select all records from expense table
     selectString = "SELECT * FROM Expense"
+    # return array or arrays for result of string above
     result = cur.execute(selectString).fetchall()
     
     return result
@@ -84,15 +89,17 @@ outputs: nothing, but provided ID will be delete from the expense table now
 def deleteIDExpense(con, ID):
     cur = con.cursor()
 
-    
-    deleteString = "DELETE FROM Expense WHERE Expense_ID = (?)"
-
-    cur.executemany(deleteString, (ID,) )
-        
+    # create parameterized string
+    deleteString = "DELETE FROM Expense WHERE Expense_ID = " + str(ID)
+    print("delete ID pressed: " + ID)
+    print("DElete String: " + deleteString)
+    #pass string and ID to delete send delete command to database
+    cur.execute(deleteString)
+    # commit the change    
     con.commit()  
 '''
 DB Method: updateIDExpense
-inputs: take in connection object and ID of expense you want to update
+inputs: take in connection object and expense object you want to update
 processing: create cursor object from connection passed, use that to first
 insert object based on array passed to function. Want to change ID to current maxID + 1 in table
 then we want after successful instertion to delete the record at desired update record, then update
@@ -108,13 +115,13 @@ def updateIDExpense(con, expenseObject):
 
     print("Update ID: " + str(updateID))
     
-
     #get new id to insert to
     newID = maxExpenseID(con)
 
-    #set id
+    #set id of object to new id - we are going to insert copy of object to top of table
     expenseObject.setID(newID)
 
+    # get array tuple of expense object
     updateArray = expenseObject.returnExpense()
 
     print("Update array:" + str(updateArray))
@@ -125,19 +132,22 @@ def updateIDExpense(con, expenseObject):
     #set bool to false as signal if insert was successful
     insertSucess = False
 
+    # create tuple with old ID to replace and newID to create temporarily
     updateIDs = (updateID,newID)
         
-    #now attempt insert with new array
+    #now attempt insert with new array - newID
     try:
         insertExpense(updateArray, con)
         insertSucess = True
     except:
         print("error inserting record no need to delete or update!!")
-
+    # if valid insert, now we want to delete current record at ID of target update
     if insertSucess == True:
+        # delete record current update ID
         deleteIDExpense(con,updateID)
         # string to update table on ID onlys
         updateString = "UPDATE Expense SET Expense_ID = (?) WHERE Expense_ID = ?"
+        # change record we inserted at top of table and set ID to the ID of the record we wanted to update
         cur.execute(updateString, updateIDs)
         print("Sucessful Update")
         con.commit()
@@ -150,7 +160,7 @@ since we are searching on PK
 '''         
 def selectIDExpense(con, ID):
     cur = con.cursor()
-
+    # Get record from expense table that matches the ID passed to this function
     selectString = "SELECT * FROM Expense WHERE Expense_ID = ?"
     result = cur.execute(selectString, [ID]).fetchone()
     
