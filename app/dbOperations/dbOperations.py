@@ -168,7 +168,7 @@ def selectIDExpense(con, ID):
     
     return result
     
-######### CATEGORY EXPENSE ##########
+######### CATEGORY CRUD ##########
 
     
     
