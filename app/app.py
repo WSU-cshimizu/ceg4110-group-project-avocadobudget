@@ -15,7 +15,7 @@ app = Flask(__name__)
 # This handle default launch page - 
 # GET request causes insert expense page to come up
 # Post request to / pulls information from insert expense html page and inserts it to the DB
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/insertexpense', methods=['POST', 'GET'])
 def home():
     print("inside home")
     error = None
@@ -64,7 +64,7 @@ def home():
             print("expense desc: " + expense_desc + " expense amount: $" + str(expense_amount))
             # redirect to table() function in order to avoid resubmit post errors, redirect to GET to 
             # expense table allows us to see updated expense table on susseful insert
-            return redirect(url_for('table', code = 302))
+            return redirect(url_for('table', code = 200))
 
         '''
         old format required for query SQlite3
@@ -90,7 +90,7 @@ def home():
     elif request.method == 'GET':
         
         print("handled get")
-        return render_template('index.html')
+        return render_template('insertExpense.html')
     else:
         # handle method we were not expecting
         return "<p>Other Call</p>"
@@ -118,7 +118,7 @@ def success():
 
 
 # handle display expense table, right now just show all items in table, should only handle get request
-@app.route('/expensetable', methods=['GET'])
+@app.route('/', methods=['GET'])
 def table():
     print("inside table")
     error = None
@@ -137,7 +137,7 @@ def table():
         con.close()
         print("handled get table")
         #have flaskk render the new html page with the items collected
-        return render_template('expensetable.html', listItems = listItems)
+        return render_template('index.html', listItems = listItems)
 
 
 # routing to this only accepts POST request
@@ -167,7 +167,7 @@ def expenseButton():
             # close connection
             con.close()
             # render template based on new set of records
-            return render_template('expensetable.html', listItems = listItems)
+            return render_template('index.html', listItems = listItems)
         # handle case for update
         elif (methodRequested == "UPDATE"):
             print("UPDATE button clicked")
@@ -226,7 +226,7 @@ def update():
         listItems = db.getExpenseTable(con)
 
         # render expensetable.html
-        return render_template('expensetable.html', listItems = listItems)
+        return render_template('index.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object
@@ -242,6 +242,32 @@ def update():
         print(listItems)
         # create template with the one id passed for display
         return render_template('updateExpense.html', listItems = listItems)
+    
+# this will load the page of the desired updateID passed in listItems array
+# or handle post request from this page
+@app.route('/mybudget', methods=['POST', 'GET'])
+def budget():
+    # handle post request, which is triggered by clicking update button in updateExpense.html
+    if request.method == 'POST':
+        listItems = ["test"]
+        return render_template('myBudget.html', listItems = listItems)
+    # otherwise if GET, just want to display current ID given ID passed to get request
+    elif request.method == 'GET':
+        # create DB and connection object
+        db = dbOperations
+        con = db.getConnection()
+        #get ID to display
+        #updateID = request.args['listItems']
+      
+        print('get method mybudget')
+        
+        # get record for ID desired
+        #listItems = db.selectIDExpense(con,updateID)
+        listItems = ["test"]
+        #print("List Items GET")
+        #print(listItems)
+        # create template with the one id passed for display
+        return render_template('myBudget.html', listItems = listItems)
 ## if this file is run directly, then it is main and runs the flass app object to start listening on localhost 
 # port 5000 for requests
 if __name__ == '__main__':
