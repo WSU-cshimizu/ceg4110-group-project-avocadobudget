@@ -8,7 +8,7 @@
 <form action="/updateExpense" method="POST">
     <input type="hidden" id="expid" name="expid" value ="{{listItems[0]}}"><br><br>
     <label for="excpcat">Expense category:</label>
-    <select name="expcat" id="expcat">
+    <select name="expcat" id="expcat" required>
         <option value="rent" {% if listItems[1]  == "rent" %}selected{% endif %}>Rent</option>
         <option value="groceries" {% if listItems[1]  == "groceries" %}selected{% endif %}>Groceries</option>
         <option value="entertainment" {% if listItems[1]  == "entertainment" %}selected{% endif %}>entertainment</option>
@@ -18,15 +18,15 @@
     </select><br>
     <!-- <input type="text" id="expcat" name="expcat"><br><br> -->
     <label for="expdesc">Expense desc:</label>
-    <input type="text" id="expdesc" name="expdesc" value="{{listItems[2]}}"><br><br>
+    <input type="text" id="expdesc" name="expdesc" value="{{listItems[2]}}" required><br><br>
     <label for="expamt">Expense Amount: </label>
-    <input type="number" id="expamt" name="expamt" step="0.01" value="{{listItems[3]}}" min="0"><br><br>
+    <input type="number" id="expamt" name="expamt" step="0.01" value="{{listItems[3]}}" min="0" required><br><br>
     <label for="expdate">Date:</label>
-    <input type="date" id="expdate" name="expdate" value = "{{listItems[4]}}"><br><br>
+    <input type="date" id="expdate" name="expdate" value = "{{listItems[4]}}" required><br><br>
     <!-- <label for="exppay">Payment Method:</label>
     <input type="text" id="exppay" name="exppay"><br><br> -->
     <label for="exppay">Payment Method:</label>
-    <select name="exppay" id="expcat">
+    <select name="exppay" id="expcat" required>
         <option value="Cash" {% if listItems[5]  == "Cash" %}selected{% endif %}>Cash</option>
         <option value="Credit Card" {% if listItems[5]  == "Credit Card" %}selected{% endif %}>Credit Card</option>
         <option value="Debit Card" {% if listItems[5]  == "Debit Card" %}selected{% endif %}>Debit Card</option>

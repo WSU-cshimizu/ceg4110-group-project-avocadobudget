@@ -98,23 +98,23 @@ def home():
 
 # This is likely going to be removed, was not part of the requirements listed for the class, going to handle
 # successful insert with expense table reload and error with expense table reload and popup message
-@app.route('/success', methods=['POST', 'GET'])
-def success():
-    print("inside home")
-    error = None
-    if request.method == 'POST':
-        print("pass in post")
-        return render_template('success.html')
-    elif request.method == 'GET':
+# @app.route('/success', methods=['POST', 'GET'])
+# def success():
+#     print("inside home")
+#     error = None
+#     if request.method == 'POST':
+#         print("pass in post")
+#         return render_template('success.html')
+#     elif request.method == 'GET':
         
-        #return render_template('success.html')
-        print("Got to success get")
-        fields = request.args['fields']
-        listItems = list(ast.literal_eval(fields))
-        print(listItems)
-        return render_template('success.html', listItems = listItems)
-    print("neither")
-    return render_template('success.html')
+#         #return render_template('success.html')
+#         print("Got to success get")
+#         fields = request.args['fields']
+#         listItems = list(ast.literal_eval(fields))
+#         print(listItems)
+#         return render_template('success.html', listItems = listItems)
+#     print("neither")
+#     return render_template('success.html')
 
 
 # handle display expense table, right now just show all items in table, should only handle get request
@@ -243,8 +243,7 @@ def update():
         # create template with the one id passed for display
         return render_template('updateExpense.html', listItems = listItems)
     
-# this will load the page of the desired updateID passed in listItems array
-# or handle post request from this page
+# this will load the mybudget page and handle based on get or post
 @app.route('/mybudget', methods=['POST', 'GET'])
 def budget():
     # handle post request, which is triggered by clicking update button in updateExpense.html
@@ -268,7 +267,34 @@ def budget():
         #print(listItems)
         # create template with the one id passed for display
         return render_template('myBudget.html', listItems = listItems)
-## if this file is run directly, then it is main and runs the flass app object to start listening on localhost 
+
+# this will load the my reports page and handle based on get or post
+@app.route('/myreport', methods=['GET' ,'POST'])
+def report():
+    # handle post request, which is triggered by clicking update button in updateExpense.html
+    if request.method == 'POST':
+        listItems = ["test"]
+        return render_template('char.html', listItems = listItems)
+    # otherwise if GET, just want to display current ID given ID passed to get request
+    elif request.method == 'GET':
+        # create DB and connection object
+        db = dbOperations
+        con = db.getConnection()
+        #get ID to display
+        #updateID = request.args['listItems']
+      
+        print('get method mybudget')
+        
+        # get record for ID desired
+        #listItems = db.selectIDExpense(con,updateID)
+        listItems = ["test"]
+        #print("List Items GET")
+        #print(listItems)
+        # create template with the one id passed for display
+        return render_template('char.html', listItems = listItems)
+
+
+## if this file is run directly, then it is main and runs the flask app object to start listening on localhost 
 # port 5000 for requests
 if __name__ == '__main__':
    app.run(debug=True, port=5000)

@@ -7,7 +7,7 @@
 
 <form action="/insertexpense" method="POST">
     <label for="excpcat">Expense category:</label>
-    <select name="expcat" id="expcat">
+    <select name="expcat" id="expcat" required>
         <option value="rent">Rent</option>
         <option value="groceries">Groceries</option>
         <option value="entertainment">entertainment</option>
@@ -17,15 +17,15 @@
     </select><br>
     <!-- <input type="text" id="expcat" name="expcat"><br><br> -->
     <label for="expdesc">Expense desc:</label>
-    <input type="text" id="expdesc" name="expdesc"><br><br>
+    <input type="text" id="expdesc" name="expdesc" required><br><br>
     <label for="expamt">Expense Amount:</label>
-    <input type="number" id="expamt" name="expamt" step="0.01" min="0"><br><br>
+    <input type="number" id="expamt" name="expamt" step="0.01" min="0" required><br><br>
     <label for="expdate">Date:</label>
-    <input type="date" id="expdate" name="expdate"><br><br>
+    <input type="date" id="expdate" name="expdate" required><br><br>
     <!-- <label for="exppay">Payment Method:</label>
     <input type="text" id="exppay" name="exppay"><br><br> -->
     <label for="exppay">Payment Method:</label>
-    <select name="exppay" id="expcat">
+    <select name="exppay" id="expcat" required>
         <option value="Cash">Cash</option>
         <option value="Credit Card">Credit Card</option>
         <option value="Debit Card">Debit Card</option>
