@@ -143,6 +143,7 @@ def table():
 # routing to this only accepts POST request
 @app.route('/modifyexpense', methods=['POST'])
 def expenseButton():
+    
     if request.method == 'POST':
         # this is the button requested could be update or delete
         methodRequested = request.form['button']
@@ -183,6 +184,7 @@ def expenseButton():
             listItems = db.selectIDExpense(con,updateItem)
             print("List Items")
             print(listItems)
+
             
             #return redirect(url_for('update', listItems = listItems)) this will prefill the updateExpense.html page
             return render_template('updateExpense.html', listItems = listItems)
@@ -226,6 +228,8 @@ def update():
         listItems = db.getExpenseTable(con)
 
         # render expensetable.html
+        print("WHERE ARE WE")
+
         return render_template('index.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
@@ -243,18 +247,28 @@ def update():
         # create template with the one id passed for display
         return render_template('updateExpense.html', listItems = listItems)
     
+
+
 # this will load the mybudget page and handle based on get or post
 @app.route('/mybudget', methods=['POST', 'GET'])
 def budget():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
-        listItems = ["test"]
-        return render_template('myBudget.html', listItems = listItems)
+        db = dbOperations
+        con = db.getConnection()
+        #catToChange = request.form.get('cat')
+        #print(str(request.forms))
+        #print(str(catToChange))
+        listItems = ["testinggggg"]
+        methodRequested = request.form['button']
+        if (methodRequested == "UPDATE"):
+            return render_template('updateCategory.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object
         db = dbOperations
         con = db.getConnection()
+
         #get ID to display
         #updateID = request.args['listItems']
       
@@ -262,11 +276,21 @@ def budget():
         
         # get record for ID desired
         #listItems = db.selectIDExpense(con,updateID)
-        listItems = ["test"]
+        listItems = db.getCategoryTable(con)
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
         return render_template('myBudget.html', listItems = listItems)
+    else:
+        return render_template('mybudget.html')
+    
+    @app.route('/updateCategory', methods=['POST'])
+    #This doens't get reached ever
+    def budgetAmount():
+        print("DOES THIS EVER GET ACCESSED")
+        if request.method == 'POST':
+            listItems = ["Test"]
+            return render_template("myBudget.html", listItems = listItems)
 
 # this will load the my reports page and handle based on get or post
 @app.route('/myreport', methods=['GET' ,'POST'])
