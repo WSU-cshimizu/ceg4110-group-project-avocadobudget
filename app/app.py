@@ -257,12 +257,16 @@ def budget():
         db = dbOperations
         con = db.getConnection()
         #catToChange = request.form.get('cat')
-        #print(str(request.forms))
-        #print(str(catToChange))
-        listItems = ["testinggggg"]
-        methodRequested = request.form['button']
-        if (methodRequested == "UPDATE"):
-            return render_template('updateCategory.html', listItems = listItems)
+        print(str(request.form))
+        print(str(request.args))
+
+
+        item = request.args['item']
+
+        listItems = db.selectSingleCategory(con,item)
+        print("item: " + str(item))
+        print("listitems: " + str(item))
+        return render_template('updateCategory.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object

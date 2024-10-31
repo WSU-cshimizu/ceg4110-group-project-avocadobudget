@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Update Category</h1>
+<p>Update you amount infromation</p>
+
+<form action="/myBudget" method="POST">
+    <label for="cat"  >Category:</label>
+    <input type="text" id="cat" name="cat" value="{{listItems[0]}}" required><br><br>
+    <label for="catamt">category Amount: </label>
+    <input type="number" id="expamt" name="expamt" step="0.01" value="{{listItems[1]}}" min="0" required><br><br> 
+    <input type="submit" value="UPDATE RECORD">
+</form>
+
+<form action="/myBudget" method="GET">
+    <input type="submit" value="View Categories">
+</form>
+
+</body>
+</html>

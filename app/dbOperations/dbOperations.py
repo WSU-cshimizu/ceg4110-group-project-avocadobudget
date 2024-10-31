@@ -180,6 +180,20 @@ def getCategoryTable(con):
 # def updateCategoryAmount(con, ID, amt):
 #     cur = con.cursor()
 
-
+'''
+DB Method: selectSingleCategory
+inputs: pass connection object and text for category
+processing: take in category and return record with matching value
+outputs: return record that matches
+'''         
+def selectSingleCategory(con, cat):
+    cur = con.cursor()
+    # Get record from expense table that matches the ID passed to this function
+    selectString = "SELECT * FROM Category WHERE category_ID = ?"
+    result = cur.execute(selectString, [cat]).fetchone()
+    
+    print ("Result: " + str(result))
+    
+    return result
     
     
