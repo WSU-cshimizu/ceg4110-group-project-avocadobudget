@@ -169,6 +169,17 @@ def selectIDExpense(con, ID):
     return result
     
 ######### CATEGORY CRUD ##########
+def getCategoryTable(con):
+    cur = con.cursor()
+    selectString = "SELECT * FROM Category"
+    
+    result = cur.execute(selectString).fetchall()
+
+    return result
+
+# def updateCategoryAmount(con, ID, amt):
+#     cur = con.cursor()
+
 
     
     
