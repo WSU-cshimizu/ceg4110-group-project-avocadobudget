@@ -10,16 +10,11 @@
     <div class="sidebar">
         <h2>Avocadobudget</h2>
         <ul>
-            <form action="">
-                <li><button ><a href="">My Reports</a></button></li>
-            </form>
-            <form action="/" method="GET"></form>
-                <li><button class="active" ><a href="">My Expenses</a></button></li>
-            </form>
-            <!-- <li><a href="redirect(url_for('table', code = 200))" class="active">My Expense</a></li> -->
-            <form action="/mybudget" method="GET">
-                <li><button><a href="{{ url_for('budget')}}">My Budget</a></button></li>
-            </form>
+          
+            <li><a href="{{url_for('report')}}">My Reports</a></li>
+            <li><a class="active" href="{{ url_for('table')}}">My Expenses</a></li>  
+            <li><a href="{{ url_for('budget')}}">My Budget</a></li>
+            
         </ul>
     </div>
 
