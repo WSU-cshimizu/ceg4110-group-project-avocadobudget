@@ -4,33 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Reports</title>
-    <link rel="stylesheet" href="chart.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="filter">
-        <label for="month">Month:</label>
-        <select id="month">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-        </select>
-        <button id="apply-btn">Apply</button>
-    </div>
+    <div class ="container">
+        <aside class="sidebar">
+            <h2>Avocadobudget</h2>
+            <ul>
+                <li><a class="active" href="{{url_for('report')}}">My Reports</a></li>
+                <li><a href="{{ url_for('table')}}">My Expenses</a></li>  
+                <li><a href="{{ url_for('budget')}}">My Budget</a></li>
+            </ul>
+        </aside>
+        <div class="filter">
+            <label for="month">Month:</label>
+            <select id="month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <button id="apply-btn">Apply</button>
+        </div>
 
-    <div class="chart-container">
-        <canvas id="expenseChart"></canvas>
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
     </div>
-
-    <script src="chart.js"></script>
+    <!-- <script src="chart.js"></script> -->
+    <script src="{{url_for('static', filename='js/chart.js')}}"></script>
 </body>
 </html>

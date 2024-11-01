@@ -11,9 +11,9 @@
         <aside class="sidebar">
             <h2>Avocadobudget</h2>
             <ul>
-                <li><a href="char.html">My Reports</a></li>
-                <li><a href="index.html">My Expense</a></li>
-                <li><a href="#" class="active">My Budget</a></li>
+                <li><a href="{{url_for('report')}}">My Reports</a></li>
+                <li><a href="{{ url_for('table')}}">My Expenses</a></li>  
+                <li><a class="active" href="{{ url_for('budget')}}">My Budget</a></li>
             </ul>
         </aside>
 
@@ -39,7 +39,7 @@
                     </tr>
                 </thead>
                 {% for item in listItems %}
-               <form action="{{url_for('categoryButton', listItems = item)}}" method="POST">
+               <form action="/mybudget" method="POST">
                <tbody id="expense-table">
                 <!-- Dynamic content will be added here -->
                     <td>{{item[0]}}</td>
@@ -56,21 +56,7 @@
     </div>
 
 
-    <!-- Modal for editing a category -->
-    <div id="edit-category-modal" class="modal">
-        <div class="modal-content">
-            <h2>Edit Category</h2>
-            <form id="edit-category-form">
-                <label for="edit-category-amount">Enter Expense Amount</label>
-                <input type="number" id="edit-category-amount" placeholder="Enter New Amount">
-                <div class="modal-buttons">
-                    <button type="button" id="edit-cancel-btn">Cancel</button>
-                    <button type="submit" id="edit-submit-btn">Save & Update</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
+    
     <script src="{{url_for('static', filename='js/app.js')}}"></script>
 </body>
 </html>
