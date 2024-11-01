@@ -176,8 +176,8 @@ outputs: return records that match the query
 '''         
 def selectParamsExpense(con, parameterQueryString, parameterArray):
     cur = con.cursor()
-    # Get record from expense table that matches the ID passed to this function
-    selectString = "SELECT * FROM Expense WHERE expense_Description = ? AND expense_Category = ?"
+    
+    #pass string, array and execute
     result = cur.execute(parameterQueryString, parameterArray).fetchall()
     
     print ("Result: " + str(result))

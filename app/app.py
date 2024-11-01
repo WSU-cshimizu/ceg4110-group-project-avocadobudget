@@ -4,11 +4,33 @@ import sys
 import ast
 from pathlib import Path
 from dbOperations import *
+from datetime import *
 
 
-printTest()
+def buildExpenseString(desc, cat, sDate, eDate, parameterArray):
+    #default branch in case no filters have a match
+    filterSQLString = "SELECT * FROM expense WHERE 1=1"
 
-print(sys.path)
+    # build string based on if variables exists or not
+    # this allows a dynamic select query to be run as a filter
+    # from the My expense page
+    if desc != "":
+        filterSQLString += " AND expense_Description = ?"
+        parameterArray.append(desc)
+
+    if cat != "":
+        filterSQLString += " AND expense_Category = ?"
+        parameterArray.append(cat)
+
+    if sDate != "":
+        filterSQLString += " AND expense_Date >= ?"
+        parameterArray.append(sDate) 
+
+    if eDate != "":
+        filterSQLString += " AND expense_Date <= ?"
+        parameterArray.append(eDate)
+
+    return filterSQLString
 
 app = Flask(__name__)
 
@@ -66,12 +88,6 @@ def home():
             # expense table allows us to see updated expense table on susseful insert
             return redirect(url_for('table', code = 200))
 
-        '''
-        old format required for query SQlite3
-        fields = [
-                (pkID,expense_cat, expense_desc, expense_amount, expense_date, expense_payment_method)
-            ]
-        '''
         # this handles the cause of error not valid - we are just loading the expense table again
         # new expense we wanted to insert will not work. At some point we want a message box to pop up
         # that will tell us that variables were incorrect in the expense object
@@ -95,28 +111,6 @@ def home():
         # handle method we were not expecting
         return "<p>Other Call</p>"
 
-
-# This is likely going to be removed, was not part of the requirements listed for the class, going to handle
-# successful insert with expense table reload and error with expense table reload and popup message
-# @app.route('/success', methods=['POST', 'GET'])
-# def success():
-#     print("inside home")
-#     error = None
-#     if request.method == 'POST':
-#         print("pass in post")
-#         return render_template('success.html')
-#     elif request.method == 'GET':
-        
-#         #return render_template('success.html')
-#         print("Got to success get")
-#         fields = request.args['fields']
-#         listItems = list(ast.literal_eval(fields))
-#         print(listItems)
-#         return render_template('success.html', listItems = listItems)
-#     print("neither")
-#     return render_template('success.html')
-
-
 # handle display expense table, right now just show all items in table, should only handle get request
 @app.route('/', methods=['GET'])
 def table():
@@ -128,9 +122,29 @@ def table():
         db = dbOperations
         con = db.getConnection()
        
-       # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
-       # page
-        listItems = db.getExpenseTable(con)
+        # Get the current date
+        today = datetime.now().date()
+
+        # Get the first day of the current month
+        first_day = today.replace(day=1)
+
+        print("today: " + str(today) + "first day: " + str(first_day))
+
+        desc = ""
+        cat = ""
+
+        #parameters
+        parameterArray = []
+
+        #string
+        filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+
+      
+        # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+        # page
+        print("String for query is: " + str(filterSQLString))
+
+        listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         print(listItems)
         #close conneciton
@@ -150,8 +164,6 @@ def filtertable():
         db = dbOperations
         con = db.getConnection()
         
-        
-
         desc = request.args['search-description']
         cat = request.args['expcat']
         sDate = request.args['sDate']
@@ -160,31 +172,12 @@ def filtertable():
         print("description: " + str(desc) + " category " + str(cat) + " start date " + str(sDate))
         
 
-
-        #default branch in case no filters have a match
-        filterSQLString = "SELECT * FROM expense WHERE 1=1"
-
         #parameters
         parameterArray = []
 
-        # build string based on if variables exists or not
-        # this allows a dynamic select query to be run as a filter
-        # from the My expense page
-        if desc != "":
-            filterSQLString += " AND expense_Description = ?"
-            parameterArray.append(desc)
-        
-        if cat != "":
-            filterSQLString += " AND expense_Category = ?"
-            parameterArray.append(cat)
+        filterSQLString = buildExpenseString(desc, cat, sDate, eDate, parameterArray)
 
-        if sDate != "":
-            filterSQLString += " AND expense_Date >= ?"
-            parameterArray.append(sDate) 
-        
-        if eDate != "":
-            filterSQLString += " AND expense_Date <= ?"
-            parameterArray.append(eDate) 
+      
         # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
         # page
         print("String for query is: " + str(filterSQLString))
