@@ -329,7 +329,7 @@ def budget():
         
         # get record for ID desired
         #listItems = db.selectIDExpense(con,updateID)
-        listItems = db.getCategoryTable(con)
+        listItems = ['test']
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
