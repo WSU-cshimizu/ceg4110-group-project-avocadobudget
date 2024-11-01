@@ -177,9 +177,6 @@ def getCategoryTable(con):
 
     return result
 
-# def updateCategoryAmount(con, ID, amt):
-#     cur = con.cursor()
-
 '''
 DB Method: selectSingleCategory
 inputs: pass connection object and text for category
@@ -194,6 +191,12 @@ def selectSingleCategory(con, cat):
     
     print ("Result: " + str(result))
     
+    return result
+
+def updateCategoryAmount(con, catList):
+    cur = con.cursor
+    insertCatAmount = "UPDATE Category SET category_Budget = ? WHERE category_ID = ?"
+    result = cur.execute(insertCatAmount, catList)
     return result
     
     

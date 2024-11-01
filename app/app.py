@@ -228,7 +228,6 @@ def update():
         listItems = db.getExpenseTable(con)
 
         # render expensetable.html
-        print("WHERE ARE WE")
 
         return render_template('index.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
@@ -255,17 +254,17 @@ def budget():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
         db = dbOperations
-        con = db.getConnection()
-        #catToChange = request.form.get('cat')
-        print(str(request.form))
-        print(str(request.args))
+        con = db.getConnection()       
+        expense_amt = request.form.get('catamt')
+        expense_cat = request.form.get('cat')
+        catList = [expense_cat, expense_amt]
+        cat = request.args['item']
+        print(catList)
 
-
-        item = request.args['item']
-
-        listItems = db.selectSingleCategory(con,item)
-        print("item: " + str(item))
-        print("listitems: " + str(item))
+        #amt = request.args
+        listItems = db.selectSingleCategory(con, cat)
+        # print("item: " + str(item))
+        # print("listitems: " + str(item))
         return render_template('updateCategory.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
@@ -288,13 +287,19 @@ def budget():
     else:
         return render_template('mybudget.html')
     
-    @app.route('/updateCategory', methods=['POST'])
-    #This doens't get reached ever
-    def budgetAmount():
-        print("DOES THIS EVER GET ACCESSED")
-        if request.method == 'POST':
-            listItems = ["Test"]
-            return render_template("myBudget.html", listItems = listItems)
+@app.route('/updateCategory', methods=['POST'])
+def updateCategory():
+    if request.method == 'POST':
+        db = dbOperations
+        con = db.getConnection() 
+        expense_amt = request.form.get('catamt')
+        expense_cat = request.form.get('cat')
+        catList = [str(expense_cat), float(expense_amt)]
+        #list = request.args['item']
+        print(catList)
+        #print(list)
+        listItems = db.updateCategoryAmount(con, catList)
+        return render_template('myBudget.html', listItems = listItems)
 
 # this will load the my reports page and handle based on get or post
 @app.route('/myreport', methods=['GET' ,'POST'])
