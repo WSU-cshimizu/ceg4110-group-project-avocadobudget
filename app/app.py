@@ -138,6 +138,65 @@ def table():
         print("handled get table")
         #have flaskk render the new html page with the items collected
         return render_template('index.html', listItems = listItems)
+    
+# handle display expense table, right now just show all items in table, should only handle get request
+@app.route('/applyExpense', methods=['GET'])
+def filtertable():
+    print("inside apply expense")
+    error = None
+    # display expense table with current items in the expense table
+    if request.method == 'GET':
+        # create database operations object, use that to create connection to the database
+        db = dbOperations
+        con = db.getConnection()
+        
+        
+
+        desc = request.args['search-description']
+        cat = request.args['expcat']
+        sDate = request.args['sDate']
+        eDate = request.args['eDate']
+
+        print("description: " + str(desc) + " category " + str(cat) + " start date " + str(sDate))
+        
+
+
+        #default branch in case no filters have a match
+        filterSQLString = "SELECT * FROM expense WHERE 1=1"
+
+        #parameters
+        parameterArray = []
+
+        # build string based on if variables exists or not
+        # this allows a dynamic select query to be run as a filter
+        # from the My expense page
+        if desc != "":
+            filterSQLString += " AND expense_Description = ?"
+            parameterArray.append(desc)
+        
+        if cat != "":
+            filterSQLString += " AND expense_Category = ?"
+            parameterArray.append(cat)
+
+        if sDate != "":
+            filterSQLString += " AND expense_Date >= ?"
+            parameterArray.append(sDate) 
+        
+        if eDate != "":
+            filterSQLString += " AND expense_Date <= ?"
+            parameterArray.append(eDate) 
+        # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+        # page
+        print("String for query is: " + str(filterSQLString))
+
+        listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
+
+        print(listItems)
+        #close conneciton
+        con.close()
+        print("handled get table")
+        #have flaskk render the new html page with the items collected
+        return render_template('index.html', listItems = listItems)
 
 
 # routing to this only accepts POST request
@@ -248,13 +307,21 @@ def update():
 def budget():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
-        listItems = ["test"]
+        print("Inside post update category")
+        db = dbOperations
+        con = db.getConnection()
+        #catToChange = request.form.get('cat')
+        print(str(request.forms))
+        #print(str(catToChange))
+        listItems = ["testinggggg"]
+        methodRequested = request.form['button']
         return render_template('myBudget.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object
         db = dbOperations
         con = db.getConnection()
+
         #get ID to display
         #updateID = request.args['listItems']
       
@@ -262,11 +329,13 @@ def budget():
         
         # get record for ID desired
         #listItems = db.selectIDExpense(con,updateID)
-        listItems = ["test"]
+        listItems = db.getCategoryTable(con)
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
         return render_template('myBudget.html', listItems = listItems)
+    else:
+        return render_template('mybudget.html')
 
 # this will load the my reports page and handle based on get or post
 @app.route('/myreport', methods=['GET' ,'POST'])

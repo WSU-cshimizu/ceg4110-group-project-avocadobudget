@@ -167,6 +167,23 @@ def selectIDExpense(con, ID):
     print ("Result: " + str(result))
     
     return result
+
+'''
+DB Method: selectParamExpense
+inputs: pass connection object parameters for select statement
+processing: take in more than one parameter and pass to prep query
+outputs: return records that match the query
+'''         
+def selectParamsExpense(con, parameterQueryString, parameterArray):
+    cur = con.cursor()
+    # Get record from expense table that matches the ID passed to this function
+    selectString = "SELECT * FROM Expense WHERE expense_Description = ? AND expense_Category = ?"
+    result = cur.execute(parameterQueryString, parameterArray).fetchall()
+    
+    print ("Result: " + str(result))
+    
+    return result
+
     
 ######### CATEGORY CRUD ##########
 
