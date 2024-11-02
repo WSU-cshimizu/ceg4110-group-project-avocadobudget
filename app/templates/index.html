@@ -65,6 +65,7 @@
             <form action="{{url_for('expenseButton', listItems = item)}}" method="POST">
             <tbody id="expense-table">
                 <!-- Dynamic content will be added here -->
+                 <!-- <td><input readonly value ="{{item[0]}}"></td>input></td> -->
                  <td>{{item[0]}}</td>
                  <td>{{item[1]}}</td>
                  <td>{{item[2]}}</td>
@@ -79,9 +80,6 @@
             {% endfor %}
         </table>
         <div class="pagination">
-    <button class="prev" disabled>Previous</button>
-    <span>Page <span id="current-page">1</span></span>
-    <button class="next">Next</button>
 </div>
 
         
