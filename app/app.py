@@ -190,7 +190,51 @@ def table():
         print("handled get table")
         #have flaskk render the new html page with the items collected
         return render_template('index.html', listItems = listItems)
+
+@app.route('/returnIndex', methods=['GET'])
+def returnIndex():
+    print("inside table")
+    error = None
+    # display expense table with current items in the expense table
+   
+    # create database operations object, use that to create connection to the database
+    db = dbOperations
+    con = db.getConnection()
     
+    arraySession = getExpenseSessionArray()
+
+    # Get the current date
+    today = arraySession[3]
+
+    # Get the first day of the current month
+    first_day = arraySession[2]
+
+    print("today: " + str(today) + "first day: " + str(first_day))
+
+    desc = arraySession[0]
+    cat = arraySession[1]
+
+    #parameters
+    parameterArray = []
+
+    #string
+    filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+
+    
+    # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+    # page
+    print("String for query is: " + str(filterSQLString))
+
+    listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
+
+    print(listItems)
+    #close conneciton
+    con.close()
+    print("handled get table")
+    #have flaskk render the new html page with the items collected
+    return render_template('index.html', listItems = listItems)
+
+
 # handle display expense table, right now just show all items in table, should only handle get request
 @app.route('/applyExpense', methods=['GET'])
 def filtertable():
