@@ -294,10 +294,7 @@ def updateCategory():
         con = db.getConnection() 
         expense_amt = request.form.get('catamt')
         expense_cat = request.form.get('cat')
-        catList = [str(expense_cat), float(expense_amt)]
-        #list = request.args['item']
-        print(catList)
-        #print(list)
+        catList = [str(expense_amt), str(expense_cat)]
         listItems = db.updateCategoryAmount(con, catList)
         return render_template('myBudget.html', listItems = listItems)
 
