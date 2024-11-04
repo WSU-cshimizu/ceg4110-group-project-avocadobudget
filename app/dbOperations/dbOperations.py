@@ -194,9 +194,14 @@ def selectSingleCategory(con, cat):
     return result
 
 def updateCategoryAmount(con, catList):
-    cur = con.cursor
+    cur = con.cursor()
+    print("Cat list Update: " + str(catList))
     insertCatAmount = "UPDATE Category SET category_Budget = ? WHERE category_ID = ?"
     result = cur.execute(insertCatAmount, catList)
+    con.commit()
+    selectString = "SELECT * FROM Category"
+    result = cur.execute(selectString).fetchall()
+
     return result
     
     
