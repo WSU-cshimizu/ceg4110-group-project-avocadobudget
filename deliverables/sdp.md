@@ -53,7 +53,7 @@ Members:
 |Design Specification|9/27/24|10/11/24|14|
 |Table Design|10/11/24|10/14/24|3|
 |UI Tasks Complete|10/11/24|10/18/24|7|
-|HTML / CSS - Finailzed|10/11/14|10/28/14|17|
+|HTML / CSS - Finailzed|10/11/14|11/8/14|28|
 |Business Logic / Code complete|10/14/24|11/11/24|28|
 |Crud Operations|10/14/24|11/11/24|28|
 |Reports - integrate for reports|10/30/24|11/18/24|17|
