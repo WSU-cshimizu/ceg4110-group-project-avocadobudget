@@ -186,6 +186,39 @@ def selectParamsExpense(con, parameterQueryString, parameterArray):
 
     
 ######### CATEGORY CRUD ##########
+def getCategoryTable(con):
+    cur = con.cursor()
+    selectString = "SELECT * FROM Category"
+    
+    result = cur.execute(selectString).fetchall()
 
+    return result
+
+'''
+DB Method: selectSingleCategory
+inputs: pass connection object and text for category
+processing: take in category and return record with matching value
+outputs: return record that matches
+'''         
+def selectSingleCategory(con, cat):
+    cur = con.cursor()
+    # Get record from expense table that matches the ID passed to this function
+    selectString = "SELECT * FROM Category WHERE category_ID = ?"
+    result = cur.execute(selectString, [cat]).fetchone()
+    
+    print ("Result: " + str(result))
+    
+    return result
+
+def updateCategoryAmount(con, catList):
+    cur = con.cursor()
+    print("Cat list Update: " + str(catList))
+    insertCatAmount = "UPDATE Category SET category_Budget = ? WHERE category_ID = ?"
+    result = cur.execute(insertCatAmount, catList)
+    con.commit()
+    selectString = "SELECT * FROM Category"
+    result = cur.execute(selectString).fetchall()
+
+    return result
     
     
