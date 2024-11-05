@@ -10,31 +10,31 @@
 ## User Requirements
 
 ### The user shall be able to submit their expenses for later retrieval.
-  1. The user will be able to store the following content for each new expense on a nice form
+  1. The user will be able to store the following content for each new expense on a nice form.
      - Expense description
      - Expense Category
      - Expense Amount
      - Expense Date
      - Expense Payment Method (Card, Cash, Venmo, etc)
-  2. The user will be able to insert or update theirs expenses 
-  3. The user will have a form that displays a table of expenses that allows them to select a button to delete or update the desired transaction, for user ease it will be searchable by month
+  2. The user will be able to insert, update or delete their expenses. 
+  3. The user will have a form that displays a table of expenses that allows them to select a button to delete or update the desired transaction, for user ease it will be searchable by several different filter options.
   4. The user will have validation to help collect accurate data. For example, no negative number or zero value numbers and of course float values only in the amount box
 
 ### The user shall be able to access a general built-in budget template if they choose to have the app help them
   1. The user will have default categories defined
   2. The user will have default percentages defined for these category
-  3. The user will enter their income and based off the percentages it will determine their budget
-  4. The user will have an easy interface to click a button for default options to be pulled into their permanent category comparison
-  5. The user will be able to load their default income driven selection to be stored for later tracking 
+  3. The user will enter their net monthly income income and based off the percentages it will determine their budget
+  4. The user will have an easy interface to click a button for default options to be pulled into their permanent category comparison. This will be done based on user net monthly income.
+  5. The user will be able to define their default income driven selection to drive the default template
   6. The user will have validation to help reduce their chance of error when selecting their income
   7. The form will display the budget template in an easy to understand and change format
   8. Later if the user desires, they can click a button to clear their personalized budget and replace with default template based on their income
   
 ### The user shall be able to proovide personalized numbers to their budget
-  1. The user will be able to personalize the categories if desired
-  2. The user will be able to set target amounts for each category if desired
-  3. The user will have an interface where they can pull up their current categories and amounts selected. They will to be able to add, update, remove items as needed
-  4. The user will be able to clear their budget settings and return to default template if desired
+  1. The user will not be able to change categories given time constraints.
+  2. The user will be able to set and change target amounts for each category if desired.
+  3. The user will have an interface where they can pull up their current categories and amounts selected. They will to be able to update the amounts only as part of a time constraint.
+  4. The user will be able to clear their budget settings and return to default template if desired. This will be based on net monthly income provided when reseting.
   5. The user will have some validation to avoid entering negative numbers, missing boxes, etc
 
 ### The user may be able to access an intuitive reporting system that displays their monthly results.
