@@ -54,11 +54,11 @@ Members:
 |Table Design|10/11/24|10/14/24|3|
 |UI Tasks Complete|10/11/24|10/18/24|7|
 |HTML / CSS - Finailzed|10/11/14|10/28/14|17|
-|Business Logic / Code complete|10/14/24|11/4/24|21|
-|Crud Operations|10/14/24|11/4/24|21|
-|Reports - integrate for reports|10/30/24|11/8/24|9|
-|Additional Features as time allows|11/4/24|11/11/24|7|
-|Testing / Finalizing|11/11/24|11/25/24|14|
+|Business Logic / Code complete|10/14/24|11/11/24|28|
+|Crud Operations|10/14/24|11/11/24|28|
+|Reports - integrate for reports|10/30/24|11/18/24|17|
+|Additional Features as time allows|11/18/24|11/25/24|7|
+|Testing / Finalizing|11/18/24|11/25/24|14|
 
 
 ### Justify CP and PM Choices
