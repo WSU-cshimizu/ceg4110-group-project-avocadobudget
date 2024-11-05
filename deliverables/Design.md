@@ -67,7 +67,7 @@
 
 3. There will be validation to ensure that negative values are not allowed, also only allow valid floats for income and amounts.
 
-4. The gui interface will allow editing of the amounts by category. It will not allow you to add categories or remove them. Also, clicking apply % button will recalculate the tables based on custom percentages built in the backend code. (50% for living expenses 30% for misc and entertainment 20% for saving)
+4. The gui interface will allow editing of the amounts by category. It will not allow you to add categories or remove them. Also, clicking apply % button will recalculate the tables based on custom percentages built in the backend code. We researched reasonable targets for budget percentage to apply by default. 
 
 5. The DB class will add methods to handle changes to category table, this will be documented in requirement one. 
 
