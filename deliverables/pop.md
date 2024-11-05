@@ -16,8 +16,8 @@ The project will be divided into several major components amongst the team membe
 
 - **UI / UX**: Abhik will handle the graphics and visual design the project. He will focus on ensuring that the budget app look pleasing, easy to navigate and understand. This will include the look for the various forms to collect transaction data for purchases, for income, and for categories to track income and expenses by.
 - **Front End**: Devkumar will handle the HTML, CSS and any needed JS to provide a skeleton on which to hang the UI design provided by Abhik. He will work on providing the HTML pages for these various types of transactions to process transactions, read data, display data, etc.
-- **Database Design**: Owen will focus on database schema design, some business logic and other gaps as needed. He will focus on getting the data design correct, because this will drive all the other parts of the project. Tables will include a transaction table, expense category table, income category table, budget category table, user table, etc. 
-- **Database crud**: Daniel will focus on the glue and crud operations from HTML pages to the back-end database. He will also work on the business logic code and help where needed. Will need to take get / post requests from various forms / pages and route to the proper handler. Will need to take request object and manipulate to pull the data needed for recoding transactions, user category setup, user account set up, etc. 
+- **Database Design**: Owen will focus on database schema design, some business logic and other gaps as needed. He will focus on getting the data design correct, because this will drive all the other parts of the project. Tables will include an expense transaction table, expense category table, and more if needed. Owen also took on the CRUD for category table.
+- **Database crud**: Daniel will focus on the glue and crud operations from HTML pages to the back-end database. He will also work on the business logic code and help where needed. Will need to take get / post requests from various forms / pages and route to the proper handler. Will need to take request object and manipulate to pull the data needed for recoding transactions, user category setup, user account set up, etc. Owen helped out and did the code for category section.
 - **Reports / queries**: this will be a group effort to ensure that the required outputs are displayed or accessed in a pleasant and easy to understand format.
 - **Testing and Validation**: – Abhik and Devkuymar will focus on this portion of the project as they are the graduate students in the group.
 
@@ -52,5 +52,5 @@ Further communication and collaboration will be done over discord; here we can s
 
 ### Git Branching Strategies:
 
-We will be using a feature branching strategy where each feature will get its own branch. These branches will vary whether they are worked on by an individual group member or multiple group members. 
+We will be using a feature branching strategy where each contributor will use their own branch. This evolved because we kept a lot of our tasks separate by front end vs back end, except for the jinja and flask requirements.
 
