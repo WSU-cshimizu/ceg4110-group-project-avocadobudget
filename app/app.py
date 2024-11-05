@@ -448,7 +448,7 @@ def update():
 def budget():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
-<<<<<<< HEAD
+
         db = dbOperations
         con = db.getConnection()       
         expense_amt = request.form.get('catamt')
@@ -456,23 +456,25 @@ def budget():
         catList = [expense_cat, expense_amt]
         cat = request.args['item']
         print(catList)
+        print("got inside budget post")
 
         #amt = request.args
         listItems = db.selectSingleCategory(con, cat)
+        print(listItems)
         # print("item: " + str(item))
         # print("listitems: " + str(item))
         return render_template('updateCategory.html', listItems = listItems)
-=======
-        print("Inside post update category")
-        db = dbOperations
-        con = db.getConnection()
-        #catToChange = request.form.get('cat')
-        print(str(request.forms))
-        #print(str(catToChange))
-        listItems = ["testinggggg"]
-        methodRequested = request.form['button']
-        return render_template('myBudget.html', listItems = listItems)
->>>>>>> 20ea15870d1d50fad2824939f074c46c04f2062d
+
+        # print("Inside post update category")
+        # db = dbOperations
+        # con = db.getConnection()
+        # #catToChange = request.form.get('cat')
+        # print(str(request.forms))
+        # #print(str(catToChange))
+        # listItems = ["testinggggg"]
+        # methodRequested = request.form['button']
+        # return render_template('myBudget.html', listItems = listItems)
+
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object
@@ -486,18 +488,16 @@ def budget():
         
         # get record for ID desired
         #listItems = db.selectIDExpense(con,updateID)
-<<<<<<< HEAD
+
         listItems = db.getCategoryTable(con)
-=======
-        listItems = ['test']
->>>>>>> 20ea15870d1d50fad2824939f074c46c04f2062d
+
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
         return render_template('myBudget.html', listItems = listItems)
     else:
         return render_template('mybudget.html')
-<<<<<<< HEAD
+
     
 @app.route('/updateCategory', methods=['POST'])
 def updateCategory():
@@ -509,8 +509,7 @@ def updateCategory():
         catList = [str(expense_amt), str(expense_cat)]
         listItems = db.updateCategoryAmount(con, catList)
         return render_template('myBudget.html', listItems = listItems)
-=======
->>>>>>> 20ea15870d1d50fad2824939f074c46c04f2062d
+
 
 # this will load the my reports page and handle based on get or post
 @app.route('/myreport', methods=['GET' ,'POST'])
