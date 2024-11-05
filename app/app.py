@@ -4,13 +4,45 @@ import sys
 import ast
 from pathlib import Path
 from dbOperations import *
+from datetime import *
 
 
-printTest()
+def buildExpenseString(desc, cat, sDate, eDate, parameterArray):
+    #default branch in case no filters have a match
+    filterSQLString = "SELECT * FROM expense WHERE 1=1"
 
-print(sys.path)
+    # build string based on if variables exists or not
+    # this allows a dynamic select query to be run as a filter
+    # from the My expense page
+    if desc != "":
+        filterSQLString += " AND expense_Description = ?"
+        parameterArray.append(desc)
+
+    if cat != "":
+        filterSQLString += " AND expense_Category = ?"
+        parameterArray.append(cat)
+
+    if sDate != "":
+        filterSQLString += " AND expense_Date >= ?"
+        parameterArray.append(sDate) 
+
+    if eDate != "":
+        filterSQLString += " AND expense_Date <= ?"
+        parameterArray.append(eDate)
+
+    return filterSQLString
+
+def storeExpenseSession(desc, cat, sDate, eDate):
+    session['desc'] = desc
+    session['cat'] = cat
+    session['sDate'] = sDate
+    session['eDate'] = eDate
+
+def getExpenseSessionArray():
+    return [session.get('desc',""), session.get('cat',""), session.get('sDate', ""), session.get('eDate',"")]
 
 app = Flask(__name__)
+app.secret_key = 'Avocado_toast'
 
 # This handle default launch page - 
 # GET request causes insert expense page to come up
@@ -66,19 +98,41 @@ def home():
             # expense table allows us to see updated expense table on susseful insert
             return redirect(url_for('table', code = 200))
 
-        '''
-        old format required for query SQlite3
-        fields = [
-                (pkID,expense_cat, expense_desc, expense_amount, expense_date, expense_payment_method)
-            ]
-        '''
         # this handles the cause of error not valid - we are just loading the expense table again
         # new expense we wanted to insert will not work. At some point we want a message box to pop up
         # that will tell us that variables were incorrect in the expense object
         db = dbOperations
         con = db.getConnection()
-       
-        listItems = db.getExpenseTable(con)
+
+        arraySession = getExpenseSessionArray()
+
+        print("Array session" + str(arraySession))
+
+        # Get the current date
+        #today = datetime.now().date()
+        today = arraySession[3]
+
+        # Get the first day of the current month
+        # first_day = today.replace(day=1)
+        firstDay = arraySession[2]
+
+        print("today: " + str(today) + "first day: " + str(firstDay))
+
+        desc = arraySession[0]
+        cat = arraySession[1]
+
+        #parameters
+        parameterArray = []
+
+        #string
+        filterSQLString = buildExpenseString(desc, cat, str(firstDay), str(today), parameterArray)
+
+    
+        # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+        # page
+        print("String for query is: " + str(filterSQLString))
+
+        listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         print(listItems)
 
@@ -86,7 +140,7 @@ def home():
         print("handled get table")
         return render_template('expensetable.html', listItems = listItems)
 
-    # if we have GET request after calling this we just want to display the index.html page, which is the insert page        
+    # if we have GET request after calling this we just want to display the insert page, which is the insert page        
     elif request.method == 'GET':
         
         print("handled get")
@@ -94,28 +148,6 @@ def home():
     else:
         # handle method we were not expecting
         return "<p>Other Call</p>"
-
-
-# This is likely going to be removed, was not part of the requirements listed for the class, going to handle
-# successful insert with expense table reload and error with expense table reload and popup message
-# @app.route('/success', methods=['POST', 'GET'])
-# def success():
-#     print("inside home")
-#     error = None
-#     if request.method == 'POST':
-#         print("pass in post")
-#         return render_template('success.html')
-#     elif request.method == 'GET':
-        
-#         #return render_template('success.html')
-#         print("Got to success get")
-#         fields = request.args['fields']
-#         listItems = list(ast.literal_eval(fields))
-#         print(listItems)
-#         return render_template('success.html', listItems = listItems)
-#     print("neither")
-#     return render_template('success.html')
-
 
 # handle display expense table, right now just show all items in table, should only handle get request
 @app.route('/', methods=['GET'])
@@ -128,9 +160,115 @@ def table():
         db = dbOperations
         con = db.getConnection()
        
-       # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
-       # page
-        listItems = db.getExpenseTable(con)
+        # Get the current date
+        today = datetime.now().date()
+
+        # Get the first day of the current month
+        first_day = today.replace(day=1)
+
+        print("today: " + str(today) + "first day: " + str(first_day))
+
+        desc = ""
+        cat = ""
+
+        #parameters
+        parameterArray = []
+
+        #string
+        filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+
+      
+        # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+        # page
+        print("String for query is: " + str(filterSQLString))
+
+        listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
+
+        print(listItems)
+        #close conneciton
+        con.close()
+        print("handled get table")
+        #have flaskk render the new html page with the items collected
+        return render_template('index.html', listItems = listItems)
+
+@app.route('/returnIndex', methods=['GET'])
+def returnIndex():
+    print("inside table")
+    error = None
+    # display expense table with current items in the expense table
+   
+    # create database operations object, use that to create connection to the database
+    db = dbOperations
+    con = db.getConnection()
+    
+    arraySession = getExpenseSessionArray()
+
+    # Get the current date
+    today = arraySession[3]
+
+    # Get the first day of the current month
+    first_day = arraySession[2]
+
+    print("today: " + str(today) + "first day: " + str(first_day))
+
+    desc = arraySession[0]
+    cat = arraySession[1]
+
+    #parameters
+    parameterArray = []
+
+    #string
+    filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+
+    
+    # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+    # page
+    print("String for query is: " + str(filterSQLString))
+
+    listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
+
+    print(listItems)
+    #close conneciton
+    con.close()
+    print("handled get table")
+    #have flaskk render the new html page with the items collected
+    return render_template('index.html', listItems = listItems)
+
+
+# handle display expense table, right now just show all items in table, should only handle get request
+@app.route('/applyExpense', methods=['GET'])
+def filtertable():
+    print("inside apply expense")
+    error = None
+    # display expense table with current items in the expense table
+    if request.method == 'GET':
+        # create database operations object, use that to create connection to the database
+        db = dbOperations
+        con = db.getConnection()
+        
+        desc = request.args['search-description']
+        cat = request.args['expcat']
+        sDate = request.args['sDate']
+        eDate = request.args['eDate']
+
+        print("description: " + str(desc) + " category " + str(cat) + " start date " + str(sDate))
+        
+        storeExpenseSession(desc, cat, sDate, eDate)
+
+        print("apply test session array: " + str(getExpenseSessionArray()))
+
+
+        #parameters
+        parameterArray = []
+
+        filterSQLString = buildExpenseString(desc, cat, sDate, eDate, parameterArray)
+
+      
+        # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+        # page
+        print("String for query is: " + str(filterSQLString))
+
+        listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         print(listItems)
         #close conneciton
@@ -160,9 +298,36 @@ def expenseButton():
             print("There are the arugments: " + str(deleteID))
             # call delete using the connection object and deleteID defined
             db.deleteIDExpense(con, str(deleteID))
+            
+            arraySession = getExpenseSessionArray()
 
-            # get new list of records now that we have deleted a record
-            listItems = db.getExpenseTable(con)
+            print("Array session" + str(arraySession))
+
+            # Get the current date
+            #today = datetime.now().date()
+            today = arraySession[3]
+
+            # Get the first day of the current month
+            # first_day = today.replace(day=1)
+            firstDay = arraySession[2]
+
+            print("today: " + str(today) + "first day: " + str(firstDay))
+
+            desc = arraySession[0]
+            cat = arraySession[1]
+
+            #parameters
+            parameterArray = []
+
+            #string
+            filterSQLString = buildExpenseString(desc, cat, str(firstDay), str(today), parameterArray)
+
+        
+            # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+            # page
+            print("String for query is: " + str(filterSQLString))
+
+            listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
             print(listItems)
             # close connection
@@ -179,11 +344,13 @@ def expenseButton():
             db = dbOperations
             con = db.getConnection()
 
-
             # this gets the array for the current expense in the expense object
             listItems = db.selectIDExpense(con,updateItem)
             print("List Items")
             print(listItems)
+
+            
+            
 
             
             #return redirect(url_for('update', listItems = listItems)) this will prefill the updateExpense.html page
@@ -224,8 +391,36 @@ def update():
         #call update expense using array above
         db.updateIDExpense(con, expenseObj)
 
-        # get updated list of expense records in expense table after updateIDExpense runs
-        listItems = db.getExpenseTable(con)
+        #call up session variables
+        arraySession = getExpenseSessionArray()
+        # Get the current date
+        #today = datetime.now().date()
+        today = arraySession[3]
+
+        # Get the first day of the current month
+        #first_day = today.replace(day=1)
+        first_day = arraySession[2]
+       
+
+        print("today: " + str(today) + "first day: " + str(first_day))
+
+        desc = arraySession[0]
+        cat = arraySession[1]
+
+        print("Update array session: " + str(arraySession))
+
+        #parameters
+        parameterArray = []
+
+        #string
+        filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+
+    
+        # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+        # page
+        print("String for query in update is: " + str(filterSQLString))
+
+        listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         # render expensetable.html
 
@@ -253,6 +448,7 @@ def update():
 def budget():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
+<<<<<<< HEAD
         db = dbOperations
         con = db.getConnection()       
         expense_amt = request.form.get('catamt')
@@ -266,6 +462,17 @@ def budget():
         # print("item: " + str(item))
         # print("listitems: " + str(item))
         return render_template('updateCategory.html', listItems = listItems)
+=======
+        print("Inside post update category")
+        db = dbOperations
+        con = db.getConnection()
+        #catToChange = request.form.get('cat')
+        print(str(request.forms))
+        #print(str(catToChange))
+        listItems = ["testinggggg"]
+        methodRequested = request.form['button']
+        return render_template('myBudget.html', listItems = listItems)
+>>>>>>> 20ea15870d1d50fad2824939f074c46c04f2062d
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object
@@ -279,13 +486,18 @@ def budget():
         
         # get record for ID desired
         #listItems = db.selectIDExpense(con,updateID)
+<<<<<<< HEAD
         listItems = db.getCategoryTable(con)
+=======
+        listItems = ['test']
+>>>>>>> 20ea15870d1d50fad2824939f074c46c04f2062d
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
         return render_template('myBudget.html', listItems = listItems)
     else:
         return render_template('mybudget.html')
+<<<<<<< HEAD
     
 @app.route('/updateCategory', methods=['POST'])
 def updateCategory():
@@ -297,6 +509,8 @@ def updateCategory():
         catList = [str(expense_amt), str(expense_cat)]
         listItems = db.updateCategoryAmount(con, catList)
         return render_template('myBudget.html', listItems = listItems)
+=======
+>>>>>>> 20ea15870d1d50fad2824939f074c46c04f2062d
 
 # this will load the my reports page and handle based on get or post
 @app.route('/myreport', methods=['GET' ,'POST'])

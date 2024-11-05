@@ -27,8 +27,22 @@
         </header>
 
         <div class="filters">
-            <input type="text" id="search-description" placeholder="Search by description">
-            <button class="apply">Apply</button>
+            
+            <form action="/applyExpense" method="GET">
+                <input type="text" id="search-description" name="search-description" placeholder="Search by description">
+                <select name="expcat" id="expcat">
+                    <option value="" selected>No category filter</option>
+                    <option value="rent">Rent</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="entertainment">entertainment</option>
+                    <option value="miscellaneous">miscellaneous</option>
+                    <option value="bills/subscription">bills/subscription</option>
+                    <option value="savings">savings</option>
+                </select><br>
+                <input type="date" id="sDate" name="sDate">
+                <input type="date" id="eDate" name="eDate">
+                <button class="apply">Apply</button>
+            </form>
         </div>
 
         <table>
@@ -51,6 +65,7 @@
             <form action="{{url_for('expenseButton', listItems = item)}}" method="POST">
             <tbody id="expense-table">
                 <!-- Dynamic content will be added here -->
+                 <!-- <td><input readonly value ="{{item[0]}}"></td>input></td> -->
                  <td>{{item[0]}}</td>
                  <td>{{item[1]}}</td>
                  <td>{{item[2]}}</td>
@@ -65,9 +80,6 @@
             {% endfor %}
         </table>
         <div class="pagination">
-    <button class="prev" disabled>Previous</button>
-    <span>Page <span id="current-page">1</span></span>
-    <button class="next">Next</button>
 </div>
 
         
