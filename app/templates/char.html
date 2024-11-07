@@ -17,6 +17,7 @@
                 <li><a href="{{ url_for('budget')}}">My Budget</a></li>
             </ul>
         </aside>
+        
         <div class="filter">
             <label for="month">Month:</label>
             <select id="month">
@@ -37,10 +38,10 @@
         </div>
 
         <div class="chart-container">
-            <canvas id="expenseChart"></canvas>
+            <img src="{{ url_for('static', filename='budgetBar.png') }}" alt="Bar Chart">
         </div>
     </div>
     <!-- <script src="chart.js"></script> -->
-    <script src="{{url_for('static', filename='js/chart.js')}}"></script>
+    <!-- <script src="{{url_for('static', filename='js/chart.js')}}"></script> -->
 </body>
 </html>

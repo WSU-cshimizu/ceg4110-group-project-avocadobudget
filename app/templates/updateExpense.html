@@ -16,15 +16,12 @@
         <option value="bills/subscription" {% if listItems[1]  == "bills/subscription" %}selected{% endif %}>bills/subscription</option>
         <option value="savings" {% if listItems[1]  == "savings" %}selected{% endif %}>savings</option>
     </select><br>
-    <!-- <input type="text" id="expcat" name="expcat"><br><br> -->
     <label for="expdesc">Expense desc:</label>
     <input type="text" id="expdesc" name="expdesc" value="{{listItems[2]}}" required><br><br>
     <label for="expamt">Expense Amount: </label>
     <input type="number" id="expamt" name="expamt" step="0.01" value="{{listItems[3]}}" min="0" required><br><br>
     <label for="expdate">Date:</label>
     <input type="date" id="expdate" name="expdate" value = "{{listItems[4]}}" required><br><br>
-    <!-- <label for="exppay">Payment Method:</label>
-    <input type="text" id="exppay" name="exppay"><br><br> -->
     <label for="exppay">Payment Method:</label>
     <select name="exppay" id="expcat" required>
         <option value="Cash" {% if listItems[5]  == "Cash" %}selected{% endif %}>Cash</option>

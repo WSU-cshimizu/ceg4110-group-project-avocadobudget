@@ -183,8 +183,30 @@ def selectParamsExpense(con, parameterQueryString, parameterArray):
     print ("Result: " + str(result))
     
     return result
+'''
+DB Method: 
+inputs: 
+outputs: 
+''' 
+def sumExpenseByCategory(con,categoryArray, startDate, endDate):
+    cur = con.cursor()
 
+    sumDict = {}
+
+    # loop through each item add sum() for each 
+    for item in categoryArray:
+        if item != None:
+            stringUpdate = "SELECT sum(expense_Amount) FROM Expense Where expense_Category = '" + str(item) + "'" " AND expense_Date >= '" + str(startDate) \
+            + "' AND expense_Date < '" + str(endDate) + "'" 
+            print("String select: " + stringUpdate)
+            result = cur.execute(stringUpdate).fetchone()
+            print("result: " + str (result[0]))
+            sumDict[item] = result[0]
     
+    
+    print("Result: " + str(sumDict))
+    return sumDict
+
 ######### CATEGORY CRUD ##########
 def getCategoryTable(con):
     cur = con.cursor()

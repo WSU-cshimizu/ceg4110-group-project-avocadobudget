@@ -1,11 +1,14 @@
 from flask import *
 import sqlite3
-import sys
-import ast
+# import sys
+# import ast
+import os
 from pathlib import Path
 from dbOperations import *
 from datetime import *
+import plotly.graph_objects as plotGraph
 
+graphPath = os.path.join(os.path.dirname(__file__), 'static', 'budgetBar.png')
 
 def buildExpenseString(desc, cat, sDate, eDate, parameterArray):
     #default branch in case no filters have a match
@@ -285,6 +288,7 @@ def expenseButton():
     if request.method == 'POST':
         # this is the button requested could be update or delete
         methodRequested = request.form['button']
+        
         print("String button passed: " + str(methodRequested))
         
         #check for delete button if so delete based on ID tied to form that delete button was in
@@ -350,9 +354,7 @@ def expenseButton():
             print(listItems)
 
             
-            
 
-            
             #return redirect(url_for('update', listItems = listItems)) this will prefill the updateExpense.html page
             return render_template('updateExpense.html', listItems = listItems)
         else:
@@ -528,18 +530,81 @@ def report():
       
         print('get method mybudget')
         
-        # get record for ID desired
-        #listItems = db.selectIDExpense(con,updateID)
-        listItems = ["test"]
-        #print("List Items GET")
-        #print(listItems)
+        #next couple of lines gets categories in category table
+        # Then we append to an array all the categories, this is then sent 
+        # to sumExpenseByCategory, where we get the sum of all categories
+        # which then returns back as a dictionary
+        categoryArray = db.getCategoryTable(con)
+        arrayChart = []
+        amountChart = []
+
+        #create array for categories, category budget amounts, and total budget
+        totalBudget = 0
+        for category in categoryArray:
+            arrayChart.append(category[0])
+            amountChart.append(category[1])
+            totalBudget += float(category[1])
+        
+        #now want line to compare total spent too
+        amountChart.append(totalBudget)
+
+        print("category array: " + str(categoryArray))
+        print("arrayChart array: " + str(arrayChart))
+        print("amount array: " + str(amountChart) + "total budget: " + str(totalBudget))
+
+        # Get the current date
+        today = datetime.now().date()
+
+        # Get the first day of the current month
+        firstDay = today.replace(day=1)
+
+        #want next month
+        nextMonth = firstDay + timedelta(days = 32) 
+
+        lastDay = nextMonth.replace(day=1)
+
+        print("firstDay: " + str(firstDay) + "first day: " + str(lastDay))
+        
+        #now get result for sums
+        sumResult = db.sumExpenseByCategory(con,arrayChart, firstDay, lastDay)
+        
+        #categories and values
+        categories = list(sumResult.keys())
+        values = list(sumResult.values())
+
+        #get total spend using values array
+        expenseTotal = 0
+        for value in values:
+            if value != None:
+                expenseTotal += float(value)
+        
+        #add total to figure
+        values.append(expenseTotal)
+        categories.append("Total")
+
+        print("categories: " + str(categories))
+        print("values: " + str(values))
+
+        graph = plotGraph.Figure(data=[plotGraph.Bar(x=categories, y=values, name="Amount by Category")])
+        
+        graph.add_trace(plotGraph.Scatter(x=categories, y=amountChart, name='Budget by Category', mode='lines+markers'))
+
+        graph.update_layout(
+            title = 'Category Spent',
+            xaxis_title = 'Expense Categories',
+            yaxis_title = 'Amount Spent ($)'
+        )
+
+        graph.write_image(graphPath)
+
         # create template with the one id passed for display
-        return render_template('char.html', listItems = listItems)
+        return render_template('char.html', listItems = sumResult, firstDay = firstDay, lastDay = lastDay )
+
 
 
 ## if this file is run directly, then it is main and runs the flask app object to start listening on localhost 
 # port 5000 for requests
 if __name__ == '__main__':
-   app.run(debug=True, port=5000)
+   app.run(debug=True, port=5002)
    
  
