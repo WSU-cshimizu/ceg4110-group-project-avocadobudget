@@ -458,6 +458,7 @@ def budget():
         catList = [expense_cat, expense_amt]
         cat = request.args['item']
         print(catList)
+        print("cat: " + str(cat))
         print("got inside budget post")
 
         #amt = request.args
@@ -518,7 +519,35 @@ def updateCategory():
 def report():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
-        listItems = ["test"]
+        
+        year = '2024'
+
+        #get month from form
+        month = request.form.get('month')
+        #dictionary for building date string based on month
+        monthDict = {'January': '-01-01', 'February': '-02-01', 'March': '-03-01', 'April': '-04-01',
+                     'May': '-05-01', 'June': '-06-01', 'July': '-07-01', 'August': '-08-01', 'September': '-09-01',
+                     'October': '-10-01', 'November': '-11-01', 'December': '-12-01'
+                     }
+
+        print("month: " + str(month))
+
+        print("request object" + str(request))
+
+        currentMonth = monthDict.get(month)
+
+        dateString = year + currentMonth
+
+        # use date format 
+        dateFormat = '%Y-%m-%d'
+
+        startDate = datetime.strptime(dateString, dateFormat)
+        dateFormat = ''
+
+        #make date object out of dateString
+     
+        listItems = ["Testing"]
+        print("Got into post for char.html")
         return render_template('char.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
@@ -558,6 +587,11 @@ def report():
         # Get the first day of the current month
         firstDay = today.replace(day=1)
 
+        #build string for month and year to place in the title
+        dateTitle = firstDay.strftime("%B %Y")
+
+        print("Date Text for graph: " + str(dateTitle))
+
         #want next month
         nextMonth = firstDay + timedelta(days = 32) 
 
@@ -590,7 +624,7 @@ def report():
         graph.add_trace(plotGraph.Scatter(x=categories, y=amountChart, name='Budget by Category', mode='lines+markers'))
 
         graph.update_layout(
-            title = 'Category Spent',
+            title = 'Category Spent ' + str(dateTitle),
             xaxis_title = 'Expense Categories',
             yaxis_title = 'Amount Spent ($)'
         )
