@@ -461,9 +461,10 @@ def budget():
         #amt = request.args
         listItems = db.selectSingleCategory(con, cat)
         print(listItems)
+        myArray = [1,2,3,4,5,6]
         # print("item: " + str(item))
         # print("listitems: " + str(item))
-        return render_template('updateCategory.html', listItems = listItems)
+        return render_template('updateCategory.html', listItems = listItems, myArray = myArray)
 
         # print("Inside post update category")
         # db = dbOperations
@@ -494,7 +495,9 @@ def budget():
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
-        return render_template('myBudget.html', listItems = listItems)
+        myArray = [1,2,3,4,5,6]
+
+        return render_template('myBudget.html', listItems = listItems, myArray = myArray)
     else:
         return render_template('mybudget.html')
 
@@ -536,6 +539,34 @@ def report():
         # create template with the one id passed for display
         return render_template('char.html', listItems = listItems)
 
+
+
+###Calcuate percentage logic
+@app.route('/calculateBudget', methods=['GET'])
+def calculate():
+    print("Hello")
+    db = dbOperations
+    con = db.getConnection()
+    
+    # test = request.form.get('income')
+    income = request.args['income']
+    rentPercent = .25
+    groceryPercent = .20
+    entertainmentPercent = .15
+    miscPercent = .15
+    billsPercent = .15
+    savingsPercent = .10
+    #nuild percentsgre array and pass to myArry
+    # 
+    # print((rentPercent * float(income)))
+    updateArray = [rentPercent * float(income), groceryPercent * float(income), entertainmentPercent * float(income), miscPercent * float(income), billsPercent * float(income), savingsPercent * float(income)]
+    
+    myArray = [1,2,3,4,5,6]
+
+    print(myArray)
+    # print(income)
+
+    return render_template('myBudget.html', listItems = listItems, myArray = myArray)
 
 ## if this file is run directly, then it is main and runs the flask app object to start listening on localhost 
 # port 5000 for requests
