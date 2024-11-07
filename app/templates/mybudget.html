@@ -40,12 +40,12 @@
                     </tr>
                 </thead>
                 {% for i in range (0, 6) %}
-               <form action="{{url_for('budget', item = item)}}" method="POST">
+               <form action="{{url_for('budget', item = listItems[i][0])}}" method="POST">
                <tbody id="expense-table">
                 <!-- Dynamic content will be added here -->
-                    <td>{{listItems[i][0]}}</td>
-                    <td>{{myArray[i]}} </td>
-                    <td>{{listItems[i][1]}}</td>
+                    <td name="cat">{{listItems[i][0]}}</td>
+                    <td>{{percArray[i]}} </td>
+                    <td name="catamt">{{listItems[i][1]}}</td>
                     <td><input type="submit" value="UPDATE" name="button"></td>
                </tbody>
                </form>
