@@ -20,13 +20,14 @@
         <main>
             <div class="header">
                 <h1>My Budget</h1>
-                <p>{{listItems[0]}}</p>
             </div>
 
             <div class="budget-section">
-                <label for="income">My Monthly Income</label>
-                <input type="number" id="income" placeholder="$3000" value="3000">
-                <button class="save-btn">Save</button>
+                <form action="/calculateBudget" method="GET">
+                    <label for="income">My Monthly Income</label>
+                    <input type="number" id="income" name="income" value="0" placeholder="Please enter net monthly income">
+                    <button class="save-btn">Calculate Budget</button>
+                </form>
             </div>
 
             <table class="budget-table">
@@ -38,25 +39,21 @@
                         <th>Edit</th>
                     </tr>
                 </thead>
-                {% for item in listItems %}
+                {% for i in range (0, 6) %}
                <form action="{{url_for('budget', item = item)}}" method="POST">
                <tbody id="expense-table">
                 <!-- Dynamic content will be added here -->
-                    <td>{{item[0]}}</td>
-                    <td>
-                    </td>
-                    <td>{{item[1]}}</td>
+                    <td>{{listItems[i][0]}}</td>
+                    <td>{{myArray[i]}} </td>
+                    <td>{{listItems[i][1]}}</td>
                     <td><input type="submit" value="UPDATE" name="button"></td>
                </tbody>
                </form>
                {% endfor %}
             </table>
 
-        
         </main>
     </div>
-
-
     
     <script src="{{url_for('static', filename='js/app.js')}}"></script>
 </body>
