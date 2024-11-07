@@ -557,7 +557,11 @@ def report():
     # handle post request, which is triggered by clicking update button in updateExpense.html
     if request.method == 'POST':
         
-        year = '2024'
+        # create db object and get connectional to SQL database
+        db = dbOperations
+        con = db.getConnection()
+
+        year = request.form.get('year')
 
         #get month from form
         month = request.form.get('month')
@@ -575,17 +579,81 @@ def report():
 
         dateString = year + currentMonth
 
+        print("Date string: " + str(dateString))
+
         # use date format 
         dateFormat = '%Y-%m-%d'
 
         startDate = datetime.strptime(dateString, dateFormat)
-        dateFormat = ''
 
-        #make date object out of dateString
-     
-        listItems = ["Testing"]
-        print("Got into post for char.html")
-        return render_template('char.html', listItems = listItems)
+        #build string for month and year to place in the title
+        dateTitle = startDate.strftime("%B %Y")
+
+        print("Date Text for graph: " + str(dateTitle))
+
+        #want next month
+        nextMonth = startDate + timedelta(days = 32) 
+
+        # gives us first day next month
+        lastDay = nextMonth.replace(day=1)
+
+        #dont forget to convert to string
+        startDate = startDate.strftime(dateFormat)
+        lastDay = lastDay.strftime(dateFormat)
+        
+        categoryArray = db.getCategoryTable(con)
+        arrayChart = []
+        amountChart = []
+
+        #create array for categories, category budget amounts, and total budget
+        totalBudget = 0
+        for category in categoryArray:
+            arrayChart.append(category[0])
+            amountChart.append(category[1])
+            totalBudget += float(category[1])
+        
+        #now want line to compare total spent too
+        amountChart.append(totalBudget)
+
+        print("category array: " + str(categoryArray))
+        print("arrayChart array: " + str(arrayChart))
+        print("amount array: " + str(amountChart) + "total budget: " + str(totalBudget))
+
+        #now get result for sums
+        sumResult = db.sumExpenseByCategory(con,arrayChart, startDate, lastDay)
+        
+        #categories and values
+        categories = list(sumResult.keys())
+        values = list(sumResult.values())
+
+        #get total spend using values array
+        expenseTotal = 0
+        for value in values:
+            if value != None:
+                expenseTotal += float(value)
+        
+        #add total to figure
+        values.append(expenseTotal)
+        categories.append("Total")
+
+        print("categories: " + str(categories))
+        print("values: " + str(values))
+
+        graph = plotGraph.Figure(data=[plotGraph.Bar(x=categories, y=values, name="Amount by Category")])
+        
+        graph.add_trace(plotGraph.Scatter(x=categories, y=amountChart, name='Budget by Category', mode='lines+markers'))
+
+        graph.update_layout(
+            title = 'Category Spent ' + str(dateTitle),
+            xaxis_title = 'Expense Categories',
+            yaxis_title = 'Amount Spent ($)'
+        )
+
+        graph.write_image(graphPath)
+
+        
+
+        return render_template('char.html', listItems = sumResult)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
         # create DB and connection object
