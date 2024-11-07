@@ -220,5 +220,8 @@ def updateCategoryAmount(con, catList):
     result = cur.execute(selectString).fetchall()
 
     return result
+
+
+
     
     
