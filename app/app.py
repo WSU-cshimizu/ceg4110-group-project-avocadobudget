@@ -455,12 +455,17 @@ def budget():
         expense_cat = request.form.get('cat')
         catList = [expense_cat, expense_amt]
         cat = request.args['item']
-        print(catList)
+        print("CHECK THIS" + str(catList))
+        print("CHECK THIS too" + str(cat))
+        print(request.args)
+
         print("got inside budget post")
 
         #amt = request.args
         listItems = db.selectSingleCategory(con, cat)
+        
         print(listItems)
+        
         # print("item: " + str(item))
         # print("listitems: " + str(item))
         return render_template('updateCategory.html', listItems = listItems)
@@ -481,8 +486,24 @@ def budget():
         db = dbOperations
         con = db.getConnection()
 
-        #get ID to display
-        #updateID = request.args['listItems']
+
+        listItems = db.getCategoryTable(con)
+        amountArray = []
+        for item in listItems:
+            catAmount = item[1]
+            print("Category Amount: " + str(catAmount))
+            amountArray.append(float(catAmount))
+            
+        totalBudget = sum(amountArray)
+        print("The total budget: " + str(totalBudget))
+
+
+        percArray = []
+        for item in amountArray:
+            percArray.append(float(item / totalBudget) * 100)
+
+
+        
       
         print('get method mybudget')
         
@@ -494,7 +515,8 @@ def budget():
         #print("List Items GET")
         #print(listItems)
         # create template with the one id passed for display
-        return render_template('myBudget.html', listItems = listItems)
+
+        return render_template('myBudget.html', listItems = listItems, percArray = percArray)
     else:
         return render_template('mybudget.html')
 
@@ -508,7 +530,23 @@ def updateCategory():
         expense_cat = request.form.get('cat')
         catList = [str(expense_amt), str(expense_cat)]
         listItems = db.updateCategoryAmount(con, catList)
-        return render_template('myBudget.html', listItems = listItems)
+
+        listItems = db.getCategoryTable(con)
+        amountArray = []
+        for item in listItems:
+            catAmount = item[1]
+            print("Category Amount: " + str(catAmount))
+            amountArray.append(float(catAmount))
+            
+        totalBudget = sum(amountArray)
+        print("The total budget: " + str(totalBudget))
+
+
+        percArray = []
+        for item in amountArray:
+            percArray.append(round(float(item / totalBudget) * 100, 2))
+
+        return render_template('myBudget.html', listItems = listItems , percArray = percArray)
 
 
 # this will load the my reports page and handle based on get or post
@@ -536,6 +574,45 @@ def report():
         # create template with the one id passed for display
         return render_template('char.html', listItems = listItems)
 
+
+
+###Calcuate percentage logic
+@app.route('/calculateBudget', methods=['GET'])
+def calculate():
+    print("Hello")
+    db = dbOperations
+    con = db.getConnection()
+    
+    # test = request.form.get('income')
+    income = float(request.args['income'])
+    rentPercent = .25
+    groceryPercent = .20
+    entertainmentPercent = .15
+    miscPercent = .15
+    billsPercent = .15
+    savingsPercent = .10
+    #nuild percentsgre array and pass to myArry
+    # 
+    # print((rentPercent * float(income)))
+    myArray = [rentPercent * float(income), groceryPercent * float(income), entertainmentPercent * float(income), miscPercent * float(income), billsPercent * float(income), savingsPercent * float(income)]
+    listItems = db.getCategoryTable(con)
+    i = 0
+    for item in listItems:
+        catUpdateArray = [myArray[i], item[0]]
+        db.updateCategoryAmount(con, catUpdateArray)
+        print("current category: " + str(catUpdateArray))
+        i += 1
+    
+    listItems = db.getCategoryTable(con)
+
+    percArray = []
+    for item in myArray:
+        percArray.append(float(item / income) * 100)
+
+    print(myArray)
+    # print(income)
+
+    return render_template('myBudget.html', listItems = listItems, percArray = percArray)
 
 ## if this file is run directly, then it is main and runs the flask app object to start listening on localhost 
 # port 5000 for requests
