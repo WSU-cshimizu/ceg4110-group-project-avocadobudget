@@ -71,4 +71,5 @@ Members:
 1. After discussion on 10/15/2024, our team decided some dates needed to be moved back based on HTML/CSS not being ready. Our team member was frank and due to midterms, the days have to be moved. We settled on moving the due date of 10/21/2024 to 10/28/2024 for HTML/CSS to be completed.
 2. Due to change in HTML due date, the business logic and crud operations due dates were pushed back from 10/30/2024 to 11/4/2024. Back end team can work around some of the HTML not being complete, but still reliant on that to properly code. 
 3. Reports pushed back 4 days from due date of 11/4/2024 to 11/8/2024. This cascades from resources from team not being available until backend code is complete.
+4. Pushed many dates back a week from HTML/CSS due date down. This was due to HTML not being complete in the format needed and it caused delays downstream. Most items were pushed back a week after notifying Joey.
 
