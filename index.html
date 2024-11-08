@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Avocadobudget</h2>
+        <ul>
+            <li><a href="char.html">My Reports</a></li>
+            <li><a href="index.html" class="active">My Expense</a></li>
+            <li><a href="mybudget.html">My Budget</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>My Expense</h1>
+            <button class="new-expense" id="new-expense-btn">+ New Expense</button>
+        </header>
+
+        <div class="filters">
+            <input type="text" id="search-description" placeholder="Search by description">
+            <button class="apply">Apply</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Expense ID</th>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>Total Spend</th>
+                    <th>Expense Description</th>
+                    <th>Expense Category</th>
+                    <th>Edit</th> 
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table">
+                <!-- Dynamic content will be added here -->
+            </tbody>
+        </table>
+        <div class="pagination">
+    <button class="prev" disabled>Previous</button>
+    <span>Page <span id="current-page">1</span></span>
+    <button class="next">Next</button>
+</div>
+
+        
+    </div>
+
+    <!-- Modal for adding/editing expenses -->
+    <div class="modal" id="expense-modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Add New Expense</h3>
+            <form id="expense-form">
+                <input type="hidden" id="expid">
+
+                <label>Enter Expense Description</label>
+                <input type="text" id="expdesc" placeholder="Write here..." required>
+
+                <label>Select Expense Category</label>
+                <select id="expcat" required>
+                    <option value="">Select category</option>
+                    <option value="Rental">Rental</option>
+                    <option value="Regular Expense">Regular Expense</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                    <option value="Education">Education</option>
+                    <option value="Education">Bills</option>
+                </select>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label>Enter Expense Amount</label>
+                        <input type="number" id="expamt" placeholder="Enter amount" required>
+                    </div>
+                    <div class="form-col">
+                        <label>Select Payment Method</label>
+                        <select id="payment-method" required>
+                            <option value="">Select method</option>
+                            <option value="Credit card">Credit card</option>
+                            <option value="Debit card">Debit card</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Venmo">Venmo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label>Select Date</label>
+                <input type="date" id="expdate" required>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancel-btn" class="cancel">Cancel</button>
+                    <button type="submit" id="submit-btn" class="submit">Save & Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app1.js"></script>
+</body>
+</html>
