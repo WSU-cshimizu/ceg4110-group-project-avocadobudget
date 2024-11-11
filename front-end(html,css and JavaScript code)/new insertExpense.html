@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Expense</title>
+    <link rel="stylesheet" href="new insert.css">
+</head>
+<body>
+  
+<div class="form-container">
+    <h2>Add New Expense</h2>
+    <form action="/insertexpense" method="POST">
+        <label for="expdesc">Expense Description</label>
+        <input type="text" id="expdesc" name="expdesc" required placeholder="Write here...">
+        
+        <label for="expcat">Expense Category</label>
+        <select name="expcat" id="expcat" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="rent">Rent</option>
+            <option value="groceries">Groceries</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="miscellaneous">Miscellaneous</option>
+            <option value="bills/subscriptions">Bills/Subscriptions</option>
+            <option value="savings">Savings</option>
+        </select>
+        
+        <label for="expamt">Expense Amount</label>
+        <input type="number" id="expamt" name="expamt" step="0.01" min="0" required placeholder="Enter amount">
+
+        <label for="exppay">Payment Method</label>
+        <select name="exppay" id="exppay" required>
+            <option value="" disabled selected>Select method</option>
+            <option value="Cash">Cash</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Checking">Checking</option>
+            <option value="3rd Party Payment">3rd Party Payment</option>
+        </select>
+
+        <label for="expdate">Date</label>
+        <input type="date" id="expdate" name="expdate" required>
+
+        
+
+
+        <div class="button-container">
+            <button type="button" onclick="window.location.href='/returnIndex'">Cancel</button>
+            <button type="submit" class="submit-button">Submit</button>
+            
+            <!-- Form for "View Expenses" button with action to go to index.html -->
+            <form action="/index.html" method="GET" style="display: inline;">
+                <button type="submit" class="view-expenses">View Expenses</button>
+            </form>
+        </div>
+        
+        
+    </form>
+</div>
+
+</body>
+</html>
