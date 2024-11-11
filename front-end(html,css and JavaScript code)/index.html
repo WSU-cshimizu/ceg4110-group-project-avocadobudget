@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expense</title>
+    <link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Avocadobudget</h2>
+        <ul>
+          
+            <li><a href="{{url_for('report')}}">My Reports</a></li>
+            <li><a class="active" href="{{ url_for('table')}}">My Expenses</a></li>  
+            <li><a href="{{ url_for('budget')}}">My Budget</a></li>
+            
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>My expense</h1>
+            <form action="/new inser.html" method="GET">
+                <button class="new-expense" id="new-expense-btn">+ New Expense</button>
+            </form>
+        </header>
+
+        <div class="filters">
+            
+            <form action="/applyExpense" method="GET">
+                <input type="text" id="search-description" name="search-description" placeholder="Search by description">
+                <select name="expcat" id="expcat">
+                    <option value="" selected>No category filter</option>
+                    <option value="rent">Rent</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="entertainment">entertainment</option>
+                    <option value="miscellaneous">miscellaneous</option>
+                    <option value="bills/subscription">bills/subscription</option>
+                    <option value="savings">savings</option>
+                </select><br>
+                <input type="date" id="sDate" name="sDate">
+                <input type="date" id="eDate" name="eDate">
+                <button class="apply">Apply</button>
+            </form>
+        </div>
+
+        <table>
+            <thead>
+                
+                <tr>
+                    <th>Expense ID</th>
+                    <th>Expense Category</th>
+                    <th>Expense Description</th>
+                    <th>Expense amount</th>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                
+            </thead>
+            {% for item in listItems %}
+            
+            <form action="{{url_for('expenseButton', listItems = item)}}" method="POST">
+            <tbody id="expense-table">
+                <!-- Dynamic content will be added here -->
+                 <!-- <td><input readonly value ="{{item[0]}}"></td>input></td> -->
+                 <td>{{item[0]}}</td>
+                 <td>{{item[1]}}</td>
+                 <td>{{item[2]}}</td>
+                 <td>{{item[3]}}</td>
+                 <td>{{item[4]}}</td>
+                 <td>{{item[5]}}</td>
+                 <td><input type="submit" value="UPDATE" name="button"></td>
+                 <td><input type="submit" value="DELETE" name="button"></td>
+                 
+            </tbody>
+            </form>
+            {% endfor %}
+        </table>
+        <div class="pagination">
+</div>
+
+        
+    </div>
+
+    <!-- Modal for adding/editing expenses
+    <div class="modal" id="expense-modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Add New Expense</h3>
+            <p>test</p>
+            
+            <p>{{listItems}} test</p>
+            <form id="expense-form" action="/" method="POST">
+                <input type="hidden" id="expid">
+
+                <label>Enter Expense Description</label>
+                <input type="text" id="expdesc" placeholder="Write here..." value="{{listItems[2]}}" >
+
+                <label>Select Expense Category</label>
+                <select id="expcat" required>
+                    <option value="">Select category</option>
+                    <option value="Rental">Rental</option>
+                    <option value="Regular Expense">Regular Expense</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                    <option value="Education">Education</option>
+                </select>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label>Enter Expense Amount</label>
+                        <input type="number" id="expamt" placeholder="Enter amount" required>
+                    </div>
+                    <div class="form-col">
+                        <label>Select Payment Method</label>
+                        <select id="payment-method" required>
+                            <option value="">Select method</option>
+                            <option value="Credit card">Credit card</option>
+                            <option value="Debit card">Debit card</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Venmo">Venmo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label>Select Date</label>
+                <input type="date" id="expdate" required>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancel-btn" class="cancel">Cancel</button>
+                    <button type="submit" id="submit-btn" class="submit">Save & Update</button>
+                </div>
+            </form>
+            
+        </div>
+    </div> -->
+
+
+    <script src="{{url_for('static', filename='js/app1.js')}}"></script>
+</body>
+</html>
