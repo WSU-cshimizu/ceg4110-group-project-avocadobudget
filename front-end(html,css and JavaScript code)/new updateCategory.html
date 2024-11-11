@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Category</title>
+    <link rel="stylesheet" href="new updateCategory.css">
+</head>
+<body>
+
+<div class="modal">
+    <h2>Edit Category</h2>
+    <form action="/updateCategory" method="POST">
+        <label for="cat">Enter Category</label>
+        <input type="text" id="cat" name="cat" value="{{ listItems[0] }}" required>
+
+        <label for="catamt">Enter Expense Amount</label>
+        <input type="number" id="catamt" name="catamt" step="0.01" value="{{ listItems[1] }}" min="0" required>
+
+        <div class="button-container">
+            <button type="button" class="button cancel-button" onclick="window.location.href='/mybudget'">Cancel</button>
+            <button type="submit" class="button save-button">Save & update</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
