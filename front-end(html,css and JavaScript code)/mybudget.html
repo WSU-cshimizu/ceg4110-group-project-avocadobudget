@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Budget</title>
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Avocadobudget</h2>
+            <ul>
+                <li><a href="{{url_for('report')}}">My Reports</a></li>
+                <li><a href="{{ url_for('table')}}">My Expenses</a></li>  
+                <li><a class="active" href="{{ url_for('budget')}}">My Budget</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="header">
+                <h1>My Budget</h1>
+            </div>
+
+            <div class="budget-section">
+                <form action="/calculateBudget" method="GET">
+                    <label for="income">My Monthly Income</label>
+                    <input type="number" id="income" name="income" value="0" placeholder="Please enter net monthly income">
+                    <button class="save-btn">Calculate Budget</button>
+                </form>
+            </div>
+
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Expense Category</th>
+                        <th>Percentage</th>
+                        <th>Category Amount</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                {% for i in range (0, 6) %}
+               <form action="{{url_for('budget', item = listItems[i][0])}}" method="POST">
+               <tbody id="expense-table">
+                <!-- Dynamic content will be added here -->
+                    <td name="cat">{{listItems[i][0]}}</td>
+                    <td>{{percArray[i]}} </td>
+                    <td name="catamt">{{listItems[i][1]}}</td>
+                    <td><input type="submit" value="UPDATE" name="button"></td>
+               </tbody>
+               </form>
+               {% endfor %}
+            </table>
+
+        </main>
+    </div>
+    
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+</body>
+</html>
