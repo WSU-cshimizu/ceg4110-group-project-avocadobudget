@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9fafb;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+button {
+    position: relative;
+    border: none;
+    font-size: 14px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* Styling for "Cancel" button */
+.cancel-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background-color: #cccccc;
+}
+
+.cancel-btn:after {
+    content: "";
+    background: #d3d3d3;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.cancel-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+/* Styling for "Submit" button */
+.submit-btn {
+    background-color: #04AA6D;
+    color: #FFFFFF;
+}
+
+.submit-btn:hover {
+    background-color: #039958;
+}
+
+.submit-btn:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.submit-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
