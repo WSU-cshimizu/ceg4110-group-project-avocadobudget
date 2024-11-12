@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/insertExpense.css') }}">
 <body>
+<div class="form-container">
+    <h2>Add New Expense</h2>
+    <form action="/insertexpense" method="POST">
+        <label for="expdesc">Expense Description</label>
+        <input type="text" id="expdesc" name="expdesc" required placeholder="Write here...">
+        
+        <label for="expcat">Expense Category</label>
+        <select name="expcat" id="expcat" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="rent">Rent</option>
+            <option value="groceries">Groceries</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="miscellaneous">Miscellaneous</option>
+            <option value="bills/subscriptions">Bills/Subscriptions</option>
+            <option value="savings">Savings</option>
+        </select>
+        
+        <label for="expamt">Expense Amount</label>
+        <input type="number" id="expamt" name="expamt" step="0.01" min="0" required placeholder="Enter amount">
 
-<h1>Insert Expense</h1>
-<p>Enter your expense infromation</p>
+        <label for="exppay">Payment Method</label>
+        <select name="exppay" id="exppay" required>
+            <option value="" disabled selected>Select method</option>
+            <option value="Cash">Cash</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Checking">Checking</option>
+            <option value="3rd Party Payment">3rd Party Payment</option>
+        </select>
 
-<form action="/insertexpense" method="POST">
-    <label for="excpcat">Expense category:</label>
-    <select name="expcat" id="expcat" required>
-        <option value="rent">Rent</option>
-        <option value="groceries">Groceries</option>
-        <option value="entertainment">entertainment</option>
-        <option value="miscellaneous">miscellaneous</option>
-        <option value="bills/subscriptions">bills/subscription</option>
-        <option value="savings">savings</option>
-    </select><br>
-    <!-- <input type="text" id="expcat" name="expcat"><br><br> -->
-    <label for="expdesc">Expense desc:</label>
-    <input type="text" id="expdesc" name="expdesc" required><br><br>
-    <label for="expamt">Expense Amount:</label>
-    <input type="number" id="expamt" name="expamt" step="0.01" min="0" required><br><br>
-    <label for="expdate">Date:</label>
-    <input type="date" id="expdate" name="expdate" required><br><br>
-    <!-- <label for="exppay">Payment Method:</label>
-    <input type="text" id="exppay" name="exppay"><br><br> -->
-    <label for="exppay">Payment Method:</label>
-    <select name="exppay" id="expcat" required>
-        <option value="Cash">Cash</option>
-        <option value="Credit Card">Credit Card</option>
-        <option value="Debit Card">Debit Card</option>
-        <option value="Checking">Checking</option>
-        <option value="3rd Party Payment">3rd Party Payment</option>
-    </select><br>
-    <input type="submit" value="Submit">
-</form>
+        <label for="expdate">Date</label>
+        <input type="date" id="expdate" name="expdate" required>
 
-<form action="/returnIndex" method="GET">
-    <input type="submit" value="View expenses">
-</form>
+        
+
+
+        <div class="button-container">
+            <button type="button" onclick="window.location.href='/returnIndex'">Cancel</button>
+            <button type="submit" class="submit-button">Submit</button>
+            
+            <!-- Form for "View Expenses" button with action to go to index.html -->
+            <form action="/index.html" method="GET" style="display: inline;">
+                <button type="submit" class="view-expenses">View Expenses</button>
+            </form>
+        </div>
+        
+        
+    </form>
+</div>
 
 </body>
 </html>
