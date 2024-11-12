@@ -312,7 +312,7 @@ main {
 }
 
 .budget-table {
-    width: 100%;
+    width: 95px;
     border-collapse: collapse;
 }
 
@@ -386,3 +386,27 @@ main {
 #submit-btn:hover, #edit-submit-btn:hover {
     background-color: #155bb5;
 }
+
+
+
+
+.edit-btn,.edit-btn:hover{
+    background-color: #f18960;
+    color: rgb(10, 10, 10);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer
+
+}
+
+.delete_btn,.delete_btn:hover{
+    background-color: #f11e1e;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer
+
+}
+
