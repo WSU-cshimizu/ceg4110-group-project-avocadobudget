@@ -1,0 +1,103 @@
+expense_id,expense_categories,expense_description,expense_amount,expense_date,expense_payment_method
+1,rent,Monthly rent payment,500.0,2024-01-01,3rd Party Payment
+2,groceries,Grocery shopping,400.0,2024-01-08,Debit Card
+3,savings,Monthly savings,200.0,2024-01-22,Debit Card
+4,bills/subscriptions,Trash collection fee,300.0,2024-01-12,Debit Card
+5,miscellaneous,Clothing purchase,868.1,2024-01-01,Credit Card
+6,miscellaneous,Household items,2429.52,2024-01-01,3rd Party Payment
+7,entertainment,"Hobby-related (books, games, etc.)",385.94,2024-01-01,Cash
+8,entertainment,Dining out (restaurant),812.34,2024-01-01,Cash
+9,entertainment,Concert ticket,1197.27,2024-01-01,Credit Card
+10,rent,Monthly rent payment,500.0,2024-02-01,Cash
+11,groceries,Grocery shopping,400.0,2024-02-11,Cash
+12,savings,Monthly savings,200.0,2024-02-15,Checking
+13,bills/subscriptions,Gym membership,300.0,2024-02-05,Checking
+14,miscellaneous,Household items,1935.66,2024-02-01,Debit Card
+15,entertainment,"Event (sports, theater, etc.)",383.18,2024-02-01,Cash
+16,rent,Monthly rent payment,500.0,2024-03-01,Checking
+17,groceries,Grocery shopping,400.0,2024-03-02,Debit Card
+18,savings,Monthly savings,200.0,2024-03-23,Checking
+19,bills/subscriptions,Electricity bill,300.0,2024-03-12,Debit Card
+20,bills/subscriptions,Electricity bill,300.0,2024-03-19,Cash
+21,bills/subscriptions,Gym membership,300.0,2024-03-21,3rd Party Payment
+22,miscellaneous,Charity donation,2357.72,2024-03-01,3rd Party Payment
+23,entertainment,Dining out (restaurant),2190.98,2024-03-01,3rd Party Payment
+24,rent,Monthly rent payment,500.0,2024-04-01,Debit Card
+25,groceries,Grocery shopping,400.0,2024-04-18,Debit Card
+26,savings,Monthly savings,200.0,2024-04-15,Cash
+27,bills/subscriptions,Cable TV,300.0,2024-04-14,Debit Card
+28,bills/subscriptions,Home security system,300.0,2024-04-30,3rd Party Payment
+29,miscellaneous,Charity donation,615.51,2024-04-01,Debit Card
+30,miscellaneous,"Personal care (haircut, beauty products)",563.17,2024-04-01,Cash
+31,miscellaneous,Household items,2390.71,2024-04-01,Credit Card
+32,entertainment,"Streaming service (Spotify, Apple Music)",1671.03,2024-04-01,Cash
+33,entertainment,"Event (sports, theater, etc.)",3114.71,2024-04-01,3rd Party Payment
+34,entertainment,"Streaming service (Spotify, Apple Music)",1148.19,2024-04-01,Credit Card
+35,rent,Monthly rent payment,500.0,2024-05-01,Cash
+36,groceries,Grocery shopping,400.0,2024-05-27,Checking
+37,savings,Monthly savings,200.0,2024-05-22,Cash
+38,bills/subscriptions,Phone bill,300.0,2024-05-31,Debit Card
+39,bills/subscriptions,Spotify subscription,300.0,2024-05-30,3rd Party Payment
+40,bills/subscriptions,Spotify subscription,300.0,2024-05-01,Debit Card
+41,miscellaneous,Charity donation,2724.76,2024-05-01,Credit Card
+42,miscellaneous,Clothing purchase,1143.55,2024-05-01,3rd Party Payment
+43,entertainment,"Hobby-related (books, games, etc.)",1521.33,2024-05-01,Debit Card
+44,entertainment,"Hobby-related (books, games, etc.)",2482.6,2024-05-01,Credit Card
+45,entertainment,Movie ticket,3474.48,2024-05-01,Cash
+46,rent,Monthly rent payment,500.0,2024-06-01,3rd Party Payment
+47,groceries,Grocery shopping,400.0,2024-06-27,Debit Card
+48,savings,Monthly savings,200.0,2024-06-11,Credit Card
+49,bills/subscriptions,Spotify subscription,300.0,2024-06-03,Credit Card
+50,bills/subscriptions,Cloud storage subscription,300.0,2024-06-14,Checking
+51,bills/subscriptions,Netflix subscription,300.0,2024-06-20,Debit Card
+52,miscellaneous,Pet expenses,480.48,2024-06-01,Credit Card
+53,miscellaneous,"Personal care (haircut, beauty products)",2753.6,2024-06-01,Cash
+54,miscellaneous,Clothing purchase,2850.53,2024-06-01,Credit Card
+55,entertainment,Dining out (restaurant),1351.53,2024-06-01,Checking
+56,entertainment,Dining out (restaurant),2450.38,2024-06-01,Credit Card
+57,entertainment,"Event (sports, theater, etc.)",3487.67,2024-06-01,3rd Party Payment
+58,rent,Monthly rent payment,500.0,2024-07-01,3rd Party Payment
+59,groceries,Grocery shopping,400.0,2024-07-29,Credit Card
+60,savings,Monthly savings,200.0,2024-07-01,Credit Card
+61,bills/subscriptions,Cable TV,300.0,2024-07-19,Checking
+62,bills/subscriptions,Amazon Prime subscription,300.0,2024-07-02,3rd Party Payment
+63,miscellaneous,"Gift (birthday, holiday)",1700.89,2024-07-01,Debit Card
+64,miscellaneous,Charity donation,3201.19,2024-07-01,Cash
+65,entertainment,Dining out (restaurant),2599.13,2024-07-01,3rd Party Payment
+66,entertainment,"Streaming service (Spotify, Apple Music)",2140.48,2024-07-01,Checking
+67,entertainment,Dining out (restaurant),1545.79,2024-07-01,Debit Card
+68,rent,Monthly rent payment,500.0,2024-08-01,Debit Card
+69,groceries,Grocery shopping,400.0,2024-08-08,Checking
+70,savings,Monthly savings,200.0,2024-08-08,3rd Party Payment
+71,bills/subscriptions,Cable TV,300.0,2024-08-29,Debit Card
+72,bills/subscriptions,Electricity bill,300.0,2024-08-13,Credit Card
+73,miscellaneous,Clothing purchase,1088.58,2024-08-01,Checking
+74,miscellaneous,"Gift (birthday, holiday)",2504.88,2024-08-01,Checking
+75,miscellaneous,"Gift (birthday, holiday)",474.1,2024-08-01,Credit Card
+76,entertainment,Movie ticket,2884.37,2024-08-01,Credit Card
+77,entertainment,"Event (sports, theater, etc.)",2983.85,2024-08-01,Debit Card
+78,entertainment,"Hobby-related (books, games, etc.)",3475.56,2024-08-01,Debit Card
+79,rent,Monthly rent payment,500.0,2024-09-01,Checking
+80,groceries,Grocery shopping,400.0,2024-09-21,Credit Card
+81,savings,Monthly savings,200.0,2024-09-22,Credit Card
+82,bills/subscriptions,Phone bill,300.0,2024-09-07,3rd Party Payment
+83,miscellaneous,Charity donation,3266.1,2024-09-01,Checking
+84,entertainment,Concert ticket,1675.79,2024-09-01,3rd Party Payment
+85,rent,Monthly rent payment,500.0,2024-10-01,Cash
+86,groceries,Grocery shopping,400.0,2024-10-20,Checking
+87,savings,Monthly savings,200.0,2024-10-05,Cash
+88,bills/subscriptions,Internet bill,300.0,2024-10-21,Checking
+89,bills/subscriptions,Spotify subscription,300.0,2024-10-29,3rd Party Payment
+90,miscellaneous,"Personal care (haircut, beauty products)",2791.45,2024-10-01,Debit Card
+91,miscellaneous,Pet expenses,1988.14,2024-10-01,Checking
+92,miscellaneous,"Personal care (haircut, beauty products)",1711.41,2024-10-01,3rd Party Payment
+93,entertainment,Dining out (restaurant),2123.81,2024-10-01,3rd Party Payment
+94,rent,Monthly rent payment,500.0,2024-11-01,Credit Card
+95,groceries,Grocery shopping,400.0,2024-11-17,Debit Card
+96,savings,Monthly savings,200.0,2024-11-16,Checking
+97,bills/subscriptions,Cable TV,300.0,2024-11-23,3rd Party Payment
+98,bills/subscriptions,Gym membership,300.0,2024-11-11,Debit Card
+99,miscellaneous,Travel expenses (day trips),656.68,2024-11-01,Checking
+100,miscellaneous,Household items,2793.08,2024-11-01,Debit Card
+101,entertainment,"Event (sports, theater, etc.)",2968.45,2024-11-01,3rd Party Payment
+102,entertainment,Dining out (restaurant),2905.36,2024-11-01,Credit Card

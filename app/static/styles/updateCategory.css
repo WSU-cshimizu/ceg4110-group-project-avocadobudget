@@ -1,0 +1,147 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Modal Container */
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Title Styling */
+.modal h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.modal label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.modal input[type="text"],
+.modal input[type="number"],
+.modal input[type="date"],
+.modal select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9fafb;
+    box-sizing: border-box;
+}
+
+.modal input::placeholder {
+    color: #aaa;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+/* Button Styling */
+.button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 48%;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Cancel Button */
+.cancel-button {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.cancel-button:hover {
+    background-color: #d0d0d0;
+}
+
+/* Save Button */
+.save-button {
+    background-color: #007bff;
+}
+
+.save-button:hover {
+    background-color: #1565dd;
+}
+
+/* Additional Button Styles */
+.view-button {
+    background-color: #4CAF50;
+}
+
+.view-button:hover {
+    background-color: #45a049;
+}
+
+/* Button Click Effect */
+.button::after {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.button:active::after {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .modal {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+

@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.form-container h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9fafb;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Add space between buttons */
+    margin-top: 25px;
+}
+
+button {
+    position: relative;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 32%; /* Adjust button width for three buttons */
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Styling for the first button (Cancel) */
+.button-container button:nth-of-type(1) {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.button-container button:nth-of-type(1):hover {
+    background-color: #d0d0d0;
+}
+
+.button-container button:nth-of-type(1)::after {
+    content: "";
+    background: #bbbbbb;
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.button-container button:nth-of-type(1):active::after {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Styling for the second button (Submit) */
+.button-container button:nth-of-type(2) {
+    background-color: #3d87f5;
+}
+
+.button-container button:nth-of-type(2):hover {
+    background-color: #1565dd;
+}
+
+.button-container button:nth-of-type(2)::after {
+    content: "";
+    background: #99ccff;
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.button-container button:nth-of-type(2):active::after {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Styling for the third button (View Expenses) */
+.button-container button:nth-of-type(3) {
+    background-color: #4CAF50;
+}
+
+.button-container button:nth-of-type(3):hover {
+    background-color: #45a049;
+}
+
+.button-container button:nth-of-type(3)::after {
+    content: "";
+    background: #a5d6a7;
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.button-container button:nth-of-type(3):active::after {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
