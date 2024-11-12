@@ -502,7 +502,7 @@ def budget():
 
         percArray = []
         for item in amountArray:
-            percArray.append(float(item / totalBudget) * 100)
+            percArray.append(round(float(item / totalBudget) * 100, 2))
 
 
         
@@ -773,7 +773,7 @@ def calculate():
 
     percArray = []
     for item in myArray:
-        percArray.append(float(item / income) * 100)
+        percArray.append(round(float(item / income) * 100, 2))
 
     print(myArray)
     # print(income)
@@ -781,7 +781,7 @@ def calculate():
     return render_template('myBudget.html', listItems = listItems, percArray = percArray)
 
 ## if this file is run directly, then it is main and runs the flask app object to start listening on localhost 
-# port 5000 for requests
+# port 5003 for requests
 if __name__ == '__main__':
    app.run(debug=True, port=5003)
    
