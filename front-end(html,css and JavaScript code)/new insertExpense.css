@@ -52,106 +52,85 @@ input::placeholder {
 .button-container {
     display: flex;
     justify-content: space-between;
-    gap: 10px; /* Add space between buttons */
+    gap: 10px;
     margin-top: 25px;
 }
 
 button {
     position: relative;
-    padding: 12px 20px;
     border: none;
-    border-radius: 8px;
     font-size: 14px;
-    cursor: pointer;
-    width: 32%; /* Adjust button width for three buttons */
-    transition: background-color 0.3s ease;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    transition-duration: 0.4s;
     overflow: hidden;
-    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
-/* Styling for the first button (Cancel) */
-.button-container button:nth-of-type(1) {
+/* Hover animation */
+button:hover {
+    transform: scale(1.05); /* Slightly increases button size */
+}
+
+/* Styling for "Cancel" button */
+.cancel-btn {
     background-color: #e0e0e0;
     color: #333;
 }
 
-.button-container button:nth-of-type(1):hover {
-    background-color: #d0d0d0;
+.cancel-btn:hover {
+    background-color: #cccccc;
 }
 
-.button-container button:nth-of-type(1)::after {
+.cancel-btn:after {
     content: "";
-    background: #bbbbbb;
+    background: #d3d3d3;
+    display: block;
     position: absolute;
-    width: 300%;
-    height: 300%;
-    top: 50%;
-    left: 50%;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px;
+    margin-top: -120%;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: opacity 0.6s, transform 0.6s;
+    transition: all 0.8s;
 }
 
-.button-container button:nth-of-type(1):active::after {
+/* Click ripple effect animation */
+.cancel-btn:active:after {
     opacity: 0.3;
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Styling for the second button (Submit) */
-.button-container button:nth-of-type(2) {
-    background-color: #3d87f5;
+/* Styling for "Submit" button */
+.submit-btn {
+    background-color: #04AA6D;
+    color: #FFFFFF;
 }
 
-.button-container button:nth-of-type(2):hover {
-    background-color: #1565dd;
+.submit-btn:hover {
+    background-color: #039958;
 }
 
-.button-container button:nth-of-type(2)::after {
+.submit-btn:after {
     content: "";
-    background: #99ccff;
+    background: #90EE90;
+    display: block;
     position: absolute;
-    width: 300%;
-    height: 300%;
-    top: 50%;
-    left: 50%;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: opacity 0.6s, transform 0.6s;
+    transition: all 0.8s;
 }
 
-.button-container button:nth-of-type(2):active::after {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-/* Styling for the third button (View Expenses) */
-.button-container button:nth-of-type(3) {
-    background-color: #4CAF50;
-}
-
-.button-container button:nth-of-type(3):hover {
-    background-color: #45a049;
-}
-
-.button-container button:nth-of-type(3)::after {
-    content: "";
-    background: #a5d6a7;
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: opacity 0.6s, transform 0.6s;
-}
-
-.button-container button:nth-of-type(3):active::after {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
+.submit-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
 }
 
 /* Responsive adjustments */
@@ -166,3 +145,4 @@ button {
         margin-top: 10px;
     }
 }
+
