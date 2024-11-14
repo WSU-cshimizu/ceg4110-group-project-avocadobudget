@@ -38,18 +38,23 @@
         <label for="expdate">Date</label>
         <input type="date" id="expdate" name="expdate" required>
 
-        
-
+        <!-- <div class="button-container">
+            <button type="submit" class="submit-button">Submit</button>
+           
+            <form action="/" method="GET" style="display: inline;">
+                <button type="submit" class="view-expenses">Cancel</button>
+            </form>
+        </div> -->
 
         <div class="button-container">
-            <button type="button" onclick="window.location.href='/returnIndex'">Cancel</button>
+            <!-- <button type="button" onclick="window.location.href='/returnIndex'">Cancel</button> -->
+            
+            <button type="button" onclick ="window.location.href='/returnIndex'">Cancel</button>
+            
             <button type="submit" class="submit-button">Submit</button>
             
-            <!-- Form for "View Expenses" button with action to go to index.html -->
-            <form action="/index.html" method="GET" style="display: inline;">
-                <button type="submit" class="view-expenses">View Expenses</button>
-            </form>
         </div>
+        
         
         
     </form>
