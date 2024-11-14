@@ -74,7 +74,7 @@ def getExpenseTable(con):
     # get all records in expense table
     cur = con.cursor()
     # select all records from expense table
-    selectString = "SELECT * FROM Expense"
+    selectString = "SELECT * FROM Expense ORDER BY expense_Date"
     # return array or arrays for result of string above
     result = cur.execute(selectString).fetchall()
     
@@ -176,6 +176,9 @@ outputs: return records that match the query
 '''         
 def selectParamsExpense(con, parameterQueryString, parameterArray):
     cur = con.cursor()
+
+    #add ORDER BY
+    parameterQueryString += "ORDER BY expense_Date"
     
     #pass string, array and execute
     result = cur.execute(parameterQueryString, parameterArray).fetchall()
