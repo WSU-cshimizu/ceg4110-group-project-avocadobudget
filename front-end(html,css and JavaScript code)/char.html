@@ -8,16 +8,19 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class ="container">
-        <aside class="sidebar">
-            <h2>Avocadobudget</h2>
-            <ul>
-                <li><a class="active" href="{{url_for('report')}}">My Reports</a></li>
-                <li><a href="{{ url_for('table')}}">My Expenses</a></li>  
-                <li><a href="{{ url_for('budget')}}">My Budget</a></li>
-            </ul>
-        </aside>
-        
+
+    <aside class="sidebar">
+        <h2>Avocadobudget</h2>
+        <ul>
+            <li><a class="active" href="{{url_for('report')}}">My Reports</a></li>
+            <li><a href="{{ url_for('table')}}">My Expenses</a></li>  
+            <li><a href="{{ url_for('budget')}}">My Budget</a></li>
+        </ul>
+    </aside>
+
+    <div class="container">
+    
+        <!-- Filter Section at the Top -->
         <div class="filter">
             <form action="/myreport" method="POST">
                 <label for="month">Month:</label>
@@ -35,8 +38,6 @@
                     <option value="November">November</option>
                     <option value="December">December</option>
                 </select>
-                <!-- Used chatgpt to generate years in descending order
-                 so I did not have to type it all out DC -->
                 <select name="year" id="year">
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
@@ -58,16 +59,15 @@
                     <option value="2007">2007</option>
                     <option value="2006">2006</option>
                     <option value="2005">2005</option>
-                  </select>
+                </select>
                 <button id="apply-btn">Apply</button>
             </form>
-        </div>
 
-        <div class="chart-container">
-            <img src="{{ url_for('static', filename='budgetBar.png') }}" alt="Bar Chart">
+            <div class="chart-container">
+                <img src="{{ url_for('static', filename='budgetBar.png') }}" alt="Bar Chart">
+            </div>
+           
         </div>
     </div>
-    <!-- <script src="chart.js"></script> -->
-    <!-- <script src="{{url_for('static', filename='js/chart.js')}}"></script> -->
 </body>
 </html>
