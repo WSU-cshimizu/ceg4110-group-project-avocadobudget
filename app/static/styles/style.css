@@ -81,6 +81,7 @@ header h2 {
     background-color: #2563eb;
 }
 
+
 .filters {
     display: flex;
     gap: 10px;
@@ -409,4 +410,3 @@ main {
     cursor: pointer
 
 }
-
