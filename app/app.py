@@ -208,13 +208,24 @@ def returnIndex():
     
     arraySession = getExpenseSessionArray()
 
-    # Get the current date
-    today = arraySession[3]
+    boolNotEmpty = False
 
-    # Get the first day of the current month
-    first_day = arraySession[2]
+    for item in arraySession:
+        if item:
+            boolNotEmpty = True
+    
+    
+        
 
-    print("today: " + str(today) + "first day: " + str(first_day))
+    print('Array sessions' + str(arraySession) )
+
+    # Get the date from the arraySession if it exists
+    endDate = arraySession[3]
+
+    # Get the next day if it exists
+    startDate = arraySession[2]
+
+    print("today: " + str(startDate) + "first day: " + str(endDate))
 
     desc = arraySession[0]
     cat = arraySession[1]
@@ -222,8 +233,15 @@ def returnIndex():
     #parameters
     parameterArray = []
 
+    if boolNotEmpty == False:
+        today = datetime.now().date()
+        startDate = today.replace(day=1)
+        
+    #parameters
+    parameterArray = []
+
     #string
-    filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+    filterSQLString = buildExpenseString(desc, cat, str(startDate), str(endDate), parameterArray)
 
     
     # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
@@ -750,6 +768,18 @@ def expenseExcel():
     
     arraySession = getExpenseSessionArray()
 
+
+    boolNotEmpty = False
+
+    for item in arraySession:
+        if item:
+            boolNotEmpty = True
+    
+    
+        
+
+    print('Array sessions' + str(arraySession) )
+
     # Get the date from the arraySession if it exists
     endDate = arraySession[3]
 
@@ -763,6 +793,10 @@ def expenseExcel():
 
     #parameters
     parameterArray = []
+
+    if boolNotEmpty == False:
+        today = datetime.now().date()
+        startDate = today.replace(day=1)
 
     #string
     filterSQLString = buildExpenseString(desc, cat, str(startDate), str(endDate), parameterArray)
