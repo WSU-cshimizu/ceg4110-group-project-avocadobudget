@@ -7,6 +7,8 @@ from pathlib import Path
 from dbOperations import *
 from datetime import *
 import plotly.graph_objects as plotGraph
+import pandas as pd
+
 
 graphPath = os.path.join(os.path.dirname(__file__), 'static', 'budgetBar.png')
 
@@ -739,6 +741,57 @@ def report():
         # create template with the one id passed for display
         return render_template('char.html', listItems = sumResult, firstDay = firstDay, lastDay = lastDay )
 
+@app.route('/sendexcel', methods=['GET'])
+def expenseExcel():
+   
+    # create database operations object, use that to create connection to the database
+    db = dbOperations
+    con = db.getConnection()
+    
+    arraySession = getExpenseSessionArray()
+
+    # Get the date from the arraySession if it exists
+    endDate = arraySession[3]
+
+    # Get the next day if it exists
+    startDate = arraySession[2]
+
+    print("today: " + str(startDate) + "first day: " + str(endDate))
+
+    desc = arraySession[0]
+    cat = arraySession[1]
+
+    #parameters
+    parameterArray = []
+
+    #string
+    filterSQLString = buildExpenseString(desc, cat, str(startDate), str(endDate), parameterArray)
+
+    
+    # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
+    # page
+    print("String for query is: " + str(filterSQLString))
+
+    listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
+
+    #create pandas object
+    expenseData = pd.DataFrame(listItems, columns=['id','desc', 'cat', 'amount', 'date', 'payment'])
+
+    # writing to Excel
+    excelObject = pd.ExcelWriter('expenses.xlsx')
+
+    # write DataFrame to excel 
+    expenseData.to_excel(excelObject)
+
+    # close excel object
+    excelObject.close()
+
+    print(listItems)
+    #close conneciton
+    con.close()
+    print("handled get table")
+    #have flaskk render the new html page with the items collected
+    return render_template('index.html', listItems = listItems)
 
 
 
