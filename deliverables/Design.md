@@ -4,8 +4,7 @@
 
 1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
     - Flask will be used for front-end to back-end integration.
-    - When the user wants to enter, update, or delete an expense it will run as an HTTP post request. This sends the user entered desired request based on the button clicked to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to dispaly on the expense management page. If we are reapplying the table after a filter, update, insert, or delete we will also refresh the page with a get request based on the currently selected filter options.
-
+    - When the user wants to enter, update, or delete an expense it will run as an HTTP post request. This sends the user entered desired request based on the button clicked to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to display on the expense management page. If we are reapplying the table after a filter, update, insert, or delete we will also refresh the page with a get request based on the currently selected filter options.
 
 2. ***Database Design*** The default expense table will contain the following:
     - expense id (primary key)
@@ -52,11 +51,16 @@
      - ***deleteIDExpense*** This function will delete the id passed to the function if it exists in the expense table
      - ***updateIDExpense** This function will update the id passed to the function to capture any desired changes to the existing record. This will only work if the id passed has a matching id in the expense table. We will also pass a tuple with the fields of the corrected item. We will techinically insert new record to new id, then delete the old record for the id we want to replace, then we will change id of duplicate record to match the desired id to replace. This is more effiecent than updating all the fields.
      - ***selectIDExpense*** This function returns the expense from the expense table based on the ID passed to the function.
-
+     - ***selectParamsExpense** This function will build a dynamic SQL query based on the variables passed as options from filter. If variable passed is none, we do not add that string section to the SQL statement that we build. This way we only filter on the items that actually have a value passed. This is used for our apply button on the expense table page and allows for dynamic table results.
+     - ***sumExpenseByCategory*** Sum amounts by category for each category passed in array. Store in dictionary and return dictionary to the calling location.
+     - ***getCategoryTable*** Return array holding each record in the category table.
+     - ***selectSingleCategory*** Pass a single category to the this function and return the result for that (one record)
+     - ***updateCategoryAmount*** Update category amount, based on object passed to this function, then get category table and return to calling location
+       
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
 
-1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered monthly income 
-   - Clicking the apply % button on the category page will take the income the user entered into the monthly income box and apply default % values for the categories, to build the customer's template in the categories table
+1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered net monthly income 
+   - Clicking the calculate budget button on the category page will take the income the user entered into the monthly income box and apply default % values for the categories, to build the customer's default template in the categories table
 
 2. The default category table will contain the following fields in SQLite:
    1. ***category*** - will be text describing the category that the expenses will take (also the primary key) The categories will be defined for the program and they are below.
@@ -70,7 +74,7 @@
 
 3. There will be validation to ensure that negative values are not allowed, also only allow valid floats for income and amounts.
 
-4. The gui interface will allow editing of the amounts by category. It will not allow you to add categories or remove them. Also, clicking apply % button will recalculate the tables based on custom percentages built in the backend code. We researched reasonable targets for budget percentage to apply by default. 
+4. The gui interface will allow editing of the amounts by category. It will not allow you to add categories or remove them. Also, clicking calculate budget button will recalculate the tables based on custom percentages built in the backend code. We researched reasonable targets for budget percentage to apply by default. 
 
 5. The DB class will add methods to handle changes to category table, this will be documented in requirement one. 
 
@@ -82,14 +86,16 @@
     - There is a button to update the amount allocated, when a new amount is saved, a new percentage will be calculated with back-end code.
 2. This will use the same interface and page as the default budget feature
 
-## Requirement 4: The user may be able to access an intuitive reporting system that displays their monthly results
+## Requirement 4: The user may be able to access an intuitive reporting system that displays their results
 
 1. When the user wants to retrieve their expenses, a get request will be sent to flask and this will query the expense records from the database based on different filters
-    - The user can retrieve expenses by providing a date range that will send a query to the database and display it back to the user's html page. This may just provide selection by month.
+    - The user can retrieve expenses by providing a date range, category, and/or descripion that will send a query to the database and display it back to the user's html page. We improved this option to be very flexible. 
 
 ## Requirement 5: The user may be able to compare their current monthly expense report to older monthly reports
 1. The back-end will send a range of dates to the database and query the expense results for those date ranges.
     - Will be displayed in form of a bar chart.
+    - Line will be used to track expense vs budget
+    - Month to month checks can be conducted by selecting a month and year to display, then clicking a button to display the graph for that selection.
 
 ## Requirement 6: The user shall be able to access the application without internet access.
 1. Set to run on a local system which doesn't require internet access.
@@ -113,15 +119,15 @@
         - Total amount spent
         - Expense description
         - Expense category
-3. Each record has "Edit" and "Delete" options, enabling users to modify or remove expenses. Additionally, there is a "New Expense" button for adding new transactions manually.
+3. Each record has "Update" and "Delete" options, enabling users to modify or remove expenses. Additionally, there is a "New Expense" button for adding new transactions manually.
 
 3. ***My Budget Page***
     - The "My Budget" page allows users to manage and allocate their monthly income across different expense categories. Here's how it works:
-    1. ***Monthly Income Input***: Users can enter their monthly income in the provided field and click "Apply" to update it, this will also take that income and build budget based on defined % in backend code.
+    1. ***Monthly Income Input***: Users can enter their monthly income in the provided field and click "Calculate Budget" to update it, this will also take that income and build budget based on defined % in backend code.
     2. ***Expense Categories***: A list of predefined categories.
         - The percentage of income allocated to that category.
         - The corresponding amount in dollars.
-    3. ***Edit Option***: Users can modify the amount for each category by clicking the "Edit" button next to each entry.
+    3. ***Edit Option***: Users can modify the amount for each category by clicking the "Update" button next to each entry.
     - This page helps users plan their budgets effectively based on income and expenditure preferences. 
     
 
