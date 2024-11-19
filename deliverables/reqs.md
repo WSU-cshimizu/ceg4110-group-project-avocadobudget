@@ -59,4 +59,4 @@
   2. Another form to display to insert a new expense or update selected expense from the form in bullet 1
   3. Another form to handle budget selection. Income entry can be used to drive a percentage driven default budget, or personalize however you see fit.
   4. Another form for to handle data analysis and graphs.
-  5. Another form as a launch pad for the user to ineract with the app.
+  5. A nav bar to easily switch between different parts of the app. 
