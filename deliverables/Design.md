@@ -28,16 +28,19 @@
 
 5. ***Expense Class*** will be created in the back end code to assist with data validation, crud operations, changing an expense etc.
    - ***Class Variables***
-      1. expenseID
-      2. expenseCategory
-      3. expenseDescription
-      4. expenseAmount
-      5. expenseDate
-      6. expensePaymentMethod
+      1. expenseID (id)
+      2. expenseCategory (category)
+      3. expenseDescription (description)
+      4. expenseAmount (amount)
+      5. expenseDate (date)
+      6. expensePaymentMethod (payment)
     - ***Class Methods***
       1. ***__str__*** Returns a string of the expenses variables for the instance of expense
       2. ***validExpense*** Returns true or false depending on if expense instance is true or false
-      3. ***returnExpense*** Returns one element list with tuple of expense object varaibles to be used for interting validated records. 
+      3. ***returnExpense*** Returns one element list with tuple of expense object varaibles to be used for interting validated records.
+      4. ***setID*** Change id member variable to the id passed to this method
+      5. ***getID*** Return the current value of the member variable id.
+      6. ***displayInvalidVariables*** Return a string listing all the invalid variables passed when making expense object. This can be used to identify what was wrong in making the expense object. This become obsolete as we choose to use HTML to validate data going into expense object. 
 6. ***DB class*** to handle connections, db crud methods by page, etc (this section will build out as the db class is written and expands)
       1. ***DB variables***
          - none so far
