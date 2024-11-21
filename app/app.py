@@ -3,11 +3,13 @@ import sqlite3
 # import sys
 # import ast
 import os
+from kaleido import *
 from pathlib import Path
 from dbOperations import *
 from datetime import *
 import plotly.graph_objects as plotGraph
 import pandas as pd
+
 
 
 graphPath = os.path.join(os.path.dirname(__file__), 'static', 'budgetBar.png')
@@ -805,10 +807,17 @@ def report():
             yaxis_title = 'Amount Spent ($)'
         )
 
+        print("Graph Path: " + str(graphPath))
+        #graph.write_image(graphPath)
+
         graph.write_image(graphPath)
 
-        # create template with the one id passed for display
-        return render_template('char.html', listItems = sumResult, firstDay = firstDay, lastDay = lastDay )
+
+        
+        
+        print("wrote to graph")
+        #return render_template('char.html', listItems = sumResult, firstDay = firstDay, lastDay = lastDay )
+        return render_template('char.html')
 
 @app.route('/sendexcel', methods=['GET'])
 def expenseExcel():
