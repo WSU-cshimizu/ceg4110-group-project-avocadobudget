@@ -570,7 +570,10 @@ def budget():
 
         percArray = []
         for item in amountArray:
-            percArray.append(round(float(item / totalBudget) * 100, 2))
+            if item != None and item != 0:
+                percArray.append(round(float(item / totalBudget) * 100, 2))
+            else:
+                percArray.append(round(0, 2))
 
 
         
@@ -885,7 +888,12 @@ def calculate():
     con = db.getConnection()
     
     # test = request.form.get('income')
-    income = float(request.args['income'])
+    if request.args['income'] != None or request.args['income'] != 0 :
+        income = float(request.args['income'])
+    else:
+        income = 1000
+
+    print("request args: " + str(request.args['income']))
     rentPercent = .25
     groceryPercent = .20
     entertainmentPercent = .15
