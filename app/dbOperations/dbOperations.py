@@ -187,8 +187,8 @@ def selectParamsExpense(con, parameterQueryString, parameterArray):
     
     return result
 '''
-DB Method: 
-inputs: 
+DB Method: sumExpenseByCategory
+inputs: con - connection object for db manipulation. categoryArray, provide list categories, startDate and end date provide start and end
 outputs: 
 ''' 
 def sumExpenseByCategory(con,categoryArray, startDate, endDate):

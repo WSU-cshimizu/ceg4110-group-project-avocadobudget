@@ -298,6 +298,33 @@ def filtertable():
 
         print("apply test session array: " + str(getExpenseSessionArray()))
 
+        # get array session
+        arraySession = getExpenseSessionArray()
+
+        boolNotEmpty = False
+
+        for item in arraySession:
+            if item:
+                boolNotEmpty = True
+
+        #check if array is filled with empty
+        if boolNotEmpty == False:
+            # Get the current date
+            today = datetime.now().date()
+
+            # Get the first day of the current month
+            sDate = today.replace(day=1)
+
+            #want next month
+            nextMonth = sDate + timedelta(days = 32) 
+
+            #first day next month
+            eDate = nextMonth.replace(day=1)
+
+            desc = ""
+            cat = ""
+            storeExpenseSession(desc, cat, str(sDate), str(eDate) )
+
 
         #parameters
         parameterArray = []
