@@ -570,7 +570,7 @@ def budget():
 
         percArray = []
         for item in amountArray:
-            if item != None and item != 0:
+            if item != None and item != 0 and item != "":
                 percArray.append(round(float(item / totalBudget) * 100, 2))
             else:
                 percArray.append(round(0, 2))
@@ -888,7 +888,7 @@ def calculate():
     con = db.getConnection()
     
     # test = request.form.get('income')
-    if request.args['income'] != None or request.args['income'] != 0 :
+    if request.args['income'] != None and request.args['income']  != 0 and request.args['income'] != "":
         income = float(request.args['income'])
     else:
         income = 1000
@@ -916,7 +916,10 @@ def calculate():
 
     percArray = []
     for item in myArray:
-        percArray.append(round(float(item / income) * 100, 2))
+        if item != None and item != 0 and item != "":
+            percArray.append(round(float(item / income) * 100, 2))
+        else:
+            percArray.append(round(0, 2))
 
     print(myArray)
     # print(income)
