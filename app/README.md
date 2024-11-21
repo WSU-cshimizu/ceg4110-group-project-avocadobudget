@@ -1,3 +1,6 @@
+### Ensure you have python3 installed on your device
+- If you are on github you know how to do this
+  
 ### Clone repository from github to local directory
 - You should know this by now
 
