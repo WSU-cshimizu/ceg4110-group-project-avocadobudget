@@ -26,5 +26,5 @@
 
 - Owen Hill
 - Daniel Cronauer
-- 
+- Devkumar Prakashbhai Patel
 
