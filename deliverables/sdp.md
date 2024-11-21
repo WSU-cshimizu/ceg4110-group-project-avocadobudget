@@ -36,7 +36,7 @@ Members:
 ## Timeline (MVSs, Milestones, Requirement specifications, and Design Specifications)
 
 ### Gannt Chart for Project
-![Alt text](./GanntChart_V2.png)
+![Alt text](./GanntChart_v3.png)
 
 
 ### Key due dates from Gantt Chart in table form
@@ -56,9 +56,9 @@ Members:
 |HTML / CSS - Finailzed|10/11/14|11/8/14|28|
 |Business Logic / Code complete|10/14/24|11/11/24|28|
 |Crud Operations|10/14/24|11/11/24|28|
-|Reports - integrate for reports|10/30/24|11/18/24|17|
+|Reports - integrate for reports|10/30/24|11/16/24|17|
 |Additional Features as time allows|11/18/24|11/25/24|7|
-|Testing / Finalizing|11/18/24|11/25/24|14|
+|Testing / Finalizing|11/18/24|11/25/24|7|
 
 
 ### Justify CP and PM Choices
