@@ -118,7 +118,7 @@ def home():
         today = arraySession[3]
 
         # Get the first day of the current month
-        # first_day = today.replace(day=1)
+        # firstDay = today.replace(day=1)
         firstDay = arraySession[2]
 
         print("today: " + str(today) + "first day: " + str(firstDay))
@@ -169,19 +169,37 @@ def table():
         today = datetime.now().date()
 
         # Get the first day of the current month
-        first_day = today.replace(day=1)
+        firstDay = today.replace(day=1)
 
-        print("today: " + str(today) + "first day: " + str(first_day))
+        print("today: " + str(today) + "first day: " + str(firstDay))
+
+        #want next month
+        nextMonth = firstDay + timedelta(days = 32) 
+
+        #first day next month
+        lastDay = nextMonth.replace(day=1)
 
         desc = ""
         cat = ""
+
+        # get array session
+        arraySession = getExpenseSessionArray()
+
+        boolNotEmpty = False
+
+        for item in arraySession:
+            if item:
+                boolNotEmpty = True
+
+        #check if array is filled with empty
+        if boolNotEmpty == False:
+            storeExpenseSession(desc, cat, str(firstDay), str(lastDay) )
 
         #parameters
         parameterArray = []
 
         #string
-        filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
-
+        filterSQLString = buildExpenseString(desc, cat, str(firstDay), str(lastDay), parameterArray)
       
         # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
         # page
@@ -332,7 +350,7 @@ def expenseButton():
             today = arraySession[3]
 
             # Get the first day of the current month
-            # first_day = today.replace(day=1)
+            # firstDay = today.replace(day=1)
             firstDay = arraySession[2]
 
             print("today: " + str(today) + "first day: " + str(firstDay))
@@ -419,12 +437,15 @@ def update():
         #today = datetime.now().date()
         today = arraySession[3]
 
+
         # Get the first day of the current month
-        #first_day = today.replace(day=1)
-        first_day = arraySession[2]
+        #firstDay = today.replace(day=1)
+        firstDay = arraySession[2]
+
+
        
 
-        print("today: " + str(today) + "first day: " + str(first_day))
+        print("today: " + str(today) + "first day: " + str(firstDay))
 
         desc = arraySession[0]
         cat = arraySession[1]
@@ -435,7 +456,7 @@ def update():
         parameterArray = []
 
         #string
-        filterSQLString = buildExpenseString(desc, cat, str(first_day), str(today), parameterArray)
+        filterSQLString = buildExpenseString(desc, cat, str(firstDay), str(today), parameterArray)
 
     
         # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
