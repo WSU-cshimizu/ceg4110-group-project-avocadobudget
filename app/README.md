@@ -14,7 +14,7 @@
    2. ***Windows*** ```<myenvname>\Scricts\activate```
 
 ### Deactivate virtual environment
-```deactiavte```
+```deactivate```
 
 ### Install required libraries to virtual environment using requirements.txt
 
