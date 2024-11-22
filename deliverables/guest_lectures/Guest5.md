@@ -18,4 +18,5 @@
 ## Attendance
 
 - Devkumar Prakashbhai Patel
+- Daniel Cronauer
 
