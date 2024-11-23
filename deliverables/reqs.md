@@ -9,7 +9,7 @@
 
 ## User Requirements
 
-### The user shall be able to submit their expenses for later retrieval.
+### The user shall be able to manage their expenses for retrieval and change.
   1. The user will be able to store the following content for each new expense on a nice form.
      - Expense description
      - Expense Category
