@@ -23,4 +23,5 @@
 
 ## Further Comments
 * Overall the class provided the opportunity to learn a new tech stack. Flask is an interesting minimal web framework.
-* I do not have many other comments to make.  
+* We do not have many other comments to make.  
+
