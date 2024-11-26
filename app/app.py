@@ -14,6 +14,14 @@ import pandas as pd
 
 graphPath = os.path.join(os.path.dirname(__file__), 'static', 'budgetBar.png')
 
+
+
+'''
+inputs: desc = description for expense string, cat = categroy for expense string, sDate = start date
+eDate = end date, parameterArray = object for array to be built 
+processing: If the variables are not empty, then we add to string and also add item to paramter array
+outputs: return properly build string and array we passed will now have the proper paramters entered in the correct order.
+'''
 def buildExpenseString(desc, cat, sDate, eDate, parameterArray):
     #default branch in case no filters have a match
     filterSQLString = "SELECT * FROM expense WHERE 1=1"
@@ -39,19 +47,34 @@ def buildExpenseString(desc, cat, sDate, eDate, parameterArray):
 
     return filterSQLString
 
+'''
+inputs: desc = description for expense string, cat = categroy for expense string, sDate = start date
+eDate = end date
+processing: Set values for session variables
+outputs: no return value, but session variables are now updated with new values
+'''
 def storeExpenseSession(desc, cat, sDate, eDate):
     session['desc'] = desc
     session['cat'] = cat
     session['sDate'] = sDate
     session['eDate'] = eDate
 
+
+'''
+inputs: no inputs
+eDate = end date
+processing: take the session variables and add them inside an array for later pulling
+outputs: return array with session variables inside
+'''
 def getExpenseSessionArray():
     return [session.get('desc',""), session.get('cat',""), session.get('sDate', ""), session.get('eDate',"")]
 
+
+## This section builds a flask object, and secret key for sessions.
 app = Flask(__name__)
 app.secret_key = 'Avocado_toast'
 
-# This handle default launch page - 
+# This handles default launch page 
 # GET request causes insert expense page to come up
 # Post request to / pulls information from insert expense html page and inserts it to the DB
 @app.route('/insertexpense', methods=['POST', 'GET'])
