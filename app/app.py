@@ -74,14 +74,12 @@ def getExpenseSessionArray():
 app = Flask(__name__)
 app.secret_key = 'Avocado_toast'
 
-# This handles default launch page 
-# GET request causes insert expense page to come up
-# Post request to / pulls information from insert expense html page and inserts it to the DB
+# This handles when insert expense is desired
+# GET request causes insertExpense.html page to come up
+# Post request pulls information from insertExpense.html page and inserts it to the DB
 @app.route('/insertexpense', methods=['POST', 'GET'])
 def home():
     print("inside home")
-    error = None
-    
     # handle POST request on insert expense html page
     if request.method == 'POST':
         
@@ -102,7 +100,7 @@ def home():
         # store new id we want to insert to
         pkID = db.maxExpenseID(con)
 
-        #debug
+        #debug new PK
         print(pkID)
         
         # now that we have the data desired, we pass items to Expense contructor
@@ -130,10 +128,11 @@ def home():
 
         # this handles the cause of error not valid - we are just loading the expense table again
         # new expense we wanted to insert will not work. At some point we want a message box to pop up
-        # that will tell us that variables were incorrect in the expense object
+        # that will tell us that variables were incorrect in the expense object, however, ran out of time to implement
         db = dbOperations
         con = db.getConnection()
 
+        # get session array to load expense page after insert is done
         arraySession = getExpenseSessionArray()
 
         print("Array session" + str(arraySession))
@@ -162,21 +161,24 @@ def home():
         # page
         print("String for query is: " + str(filterSQLString))
 
+        # this builds the records up for the matching filter to display after insertion
         listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         print(listItems)
 
+        # close connection object
         con.close()
         print("handled get table")
+
+        #render template with listItems being the records to pass from result of select statement
         return render_template('expensetable.html', listItems = listItems)
 
     # if we have GET request after calling this we just want to display the insert page, which is the insert page        
     elif request.method == 'GET':
-        
         print("handled get")
         return render_template('insertExpense.html')
     else:
-        # handle method we were not expecting
+        # handle method we were not expecting should not get here
         return "<p>Other Call</p>"
 
 # handle display expense table, right now just show all items in table, should only handle get request
@@ -218,18 +220,20 @@ def table():
 
         #check if array is filled with empty
         if boolNotEmpty == False:
+            # if this triggers it means we had an empty session variable array, so want to pull current month by default
             storeExpenseSession(desc, cat, str(firstDay), str(lastDay) )
 
-        #parameters
+        #parameter array to store non empty variables for select statement
         parameterArray = []
 
-        #string
+        #string for dynamic return variable from session variables
         filterSQLString = buildExpenseString(desc, cat, str(firstDay), str(lastDay), parameterArray)
       
         # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
         # page
         print("String for query is: " + str(filterSQLString))
 
+        # pass SQL string based on dynamic filters, also array that we filled above to hold the values to pass to parameter query
         listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         print(listItems)
@@ -239,27 +243,26 @@ def table():
         #have flaskk render the new html page with the items collected
         return render_template('index.html', listItems = listItems)
 
+# This route handles when cancel is clicked in update or insert expense page
 @app.route('/returnIndex', methods=['GET'])
 def returnIndex():
     print("inside table")
-    error = None
-    # display expense table with current items in the expense table
    
     # create database operations object, use that to create connection to the database
     db = dbOperations
     con = db.getConnection()
     
+    # get session variables
     arraySession = getExpenseSessionArray()
 
+    #set to flase by default
     boolNotEmpty = False
 
+    #loop and determine if array is empty if so set to true
     for item in arraySession:
         if item:
             boolNotEmpty = True
     
-    
-        
-
     print('Array sessions' + str(arraySession) )
 
     # Get the date from the arraySession if it exists
@@ -270,12 +273,14 @@ def returnIndex():
 
     print("today: " + str(startDate) + "first day: " + str(endDate))
 
+    # same thing this will be none if session variables are still empty
     desc = arraySession[0]
     cat = arraySession[1]
 
     #parameters
     parameterArray = []
 
+    # if bool not empty is false it means we need to define start date as first day of current month
     if boolNotEmpty == False:
         today = datetime.now().date()
         startDate = today.replace(day=1)
@@ -283,7 +288,7 @@ def returnIndex():
     #parameters
     parameterArray = []
 
-    #string
+    #string built for dynamic array
     filterSQLString = buildExpenseString(desc, cat, str(startDate), str(endDate), parameterArray)
 
     
@@ -291,6 +296,7 @@ def returnIndex():
     # page
     print("String for query is: " + str(filterSQLString))
 
+    # build up string and pass items to display on expense table page
     listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
     print(listItems)
@@ -301,17 +307,18 @@ def returnIndex():
     return render_template('index.html', listItems = listItems)
 
 
-# handle display expense table, right now just show all items in table, should only handle get request
+# handle display expense table based on filter options selected uses dynamic select statement to apply filter
 @app.route('/applyExpense', methods=['GET'])
 def filtertable():
     print("inside apply expense")
-    error = None
+    
     # display expense table with current items in the expense table
     if request.method == 'GET':
         # create database operations object, use that to create connection to the database
         db = dbOperations
         con = db.getConnection()
         
+        # get items from html elements that define items to filter on
         desc = request.args['search-description']
         cat = request.args['expcat']
         sDate = request.args['sDate']
@@ -319,22 +326,24 @@ def filtertable():
 
         print("description: " + str(desc) + " category " + str(cat) + " start date " + str(sDate))
         
+        # store variables as session objects based on what was collected
         storeExpenseSession(desc, cat, sDate, eDate)
 
         print("apply test session array: " + str(getExpenseSessionArray()))
 
-        # get array session
+        # get array session for later review 
         arraySession = getExpenseSessionArray()
 
         boolNotEmpty = False
 
+        # let us know if no filter items were passed
         for item in arraySession:
             if item:
                 boolNotEmpty = True
 
         #check if array is filled with empty
         if boolNotEmpty == False:
-            # Get the current date
+            # Get the current date for providing default filter of current month
             today = datetime.now().date()
 
             # Get the first day of the current month
@@ -354,6 +363,7 @@ def filtertable():
         #parameters
         parameterArray = []
 
+        # build expense string based on variables above
         filterSQLString = buildExpenseString(desc, cat, sDate, eDate, parameterArray)
 
       
@@ -361,6 +371,7 @@ def filtertable():
         # page
         print("String for query is: " + str(filterSQLString))
 
+        # pass result table to index.html template
         listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
         print(listItems)
@@ -371,10 +382,9 @@ def filtertable():
         return render_template('index.html', listItems = listItems)
 
 
-# routing to this only accepts POST request
+# routing to this only accepts POST request when trying to update an expense or delete one
 @app.route('/modifyexpense', methods=['POST'])
 def expenseButton():
-    
     if request.method == 'POST':
         # this is the button requested could be update or delete
         methodRequested = request.form['button']
@@ -382,6 +392,7 @@ def expenseButton():
         print("String button passed: " + str(methodRequested))
         
         #check for delete button if so delete based on ID tied to form that delete button was in
+        # each table record on expense page is a form
         if (methodRequested == "DELETE"):
             # create db object and connection
             db = dbOperations
@@ -393,6 +404,7 @@ def expenseButton():
             # call delete using the connection object and deleteID defined
             db.deleteIDExpense(con, str(deleteID))
             
+            # build up sesion variables in array
             arraySession = getExpenseSessionArray()
 
             print("Array session" + str(arraySession))
@@ -413,7 +425,7 @@ def expenseButton():
             #parameters
             parameterArray = []
 
-            #string
+            #string built for returning back to expense table with update based on what was deleted
             filterSQLString = buildExpenseString(desc, cat, str(firstDay), str(today), parameterArray)
 
         
@@ -421,6 +433,7 @@ def expenseButton():
             # page
             print("String for query is: " + str(filterSQLString))
 
+            # this object is passed to template for building up table in html page when rendering
             listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
             print(listItems)
@@ -443,15 +456,13 @@ def expenseButton():
             print("List Items")
             print(listItems)
 
-            
-
-            #return redirect(url_for('update', listItems = listItems)) this will prefill the updateExpense.html page
+            # based on ID passed pass that id's properties to updateExpense.html page so it comes preloaded with current values
             return render_template('updateExpense.html', listItems = listItems)
         else:
             return render_template('index.html')
 
-# this will load the page of the desired updateID passed in listItems array
-# or handle post request from this page
+# this will load the page of the desired updateID passed in listItems array if get request
+# or handle post request from this page to update object 
 @app.route('/updateExpense', methods=['POST', 'GET'])
 def update():
     # handle post request, which is triggered by clicking update button in updateExpense.html
@@ -485,17 +496,13 @@ def update():
 
         #call up session variables
         arraySession = getExpenseSessionArray()
-        # Get the current date
+       
         #today = datetime.now().date()
         today = arraySession[3]
-
 
         # Get the first day of the current month
         #firstDay = today.replace(day=1)
         firstDay = arraySession[2]
-
-
-       
 
         print("today: " + str(today) + "first day: " + str(firstDay))
 
@@ -517,8 +524,7 @@ def update():
 
         listItems = db.selectParamsExpense(con, filterSQLString, parameterArray)
 
-        # render expensetable.html
-
+        # render expensetable.html with updated record and keeping old filter 
         return render_template('index.html', listItems = listItems)
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
@@ -529,7 +535,7 @@ def update():
         updateID = request.args['listItems']
       
         print('get method')
-        # get record for ID desired
+        # get record for ID desired this will pull up page with html elements filled out
         listItems = db.selectIDExpense(con,updateID)
         print("List Items GET")
         print(listItems)
@@ -537,13 +543,13 @@ def update():
         return render_template('updateExpense.html', listItems = listItems)
     
 
-
 # this will load the mybudget page and handle based on get or post
 @app.route('/mybudget', methods=['POST', 'GET'])
 def budget():
-    # handle post request, which is triggered by clicking update button in updateExpense.html
+    # handle post request, which is triggered by clicking update button in mybudget.html
     if request.method == 'POST':
 
+        # create db object, connection, and get the selected category and amount
         db = dbOperations
         con = db.getConnection()       
         expense_amt = request.form.get('catamt')
@@ -564,16 +570,6 @@ def budget():
         # print("item: " + str(item))
         # print("listitems: " + str(item))
         return render_template('updateCategory.html', listItems = listItems)
-
-        # print("Inside post update category")
-        # db = dbOperations
-        # con = db.getConnection()
-        # #catToChange = request.form.get('cat')
-        # print(str(request.forms))
-        # #print(str(catToChange))
-        # listItems = ["testinggggg"]
-        # methodRequested = request.form['button']
-        # return render_template('myBudget.html', listItems = listItems)
 
     # otherwise if GET, just want to display current ID given ID passed to get request
     elif request.method == 'GET':
@@ -647,7 +643,7 @@ def updateCategory():
         return render_template('myBudget.html', listItems = listItems , percArray = percArray)
 
 
-# this will load the my reports page and handle based on get or post
+# this will load the char.html page if a get or update and rerender if post
 @app.route('/myreport', methods=['GET' ,'POST'])
 def report():
     # handle post request, which is triggered by clicking update button in updateExpense.html
@@ -657,10 +653,12 @@ def report():
         db = dbOperations
         con = db.getConnection()
 
+        # define year from form
         year = request.form.get('year')
 
         #get month from form
         month = request.form.get('month')
+        
         #dictionary for building date string based on month
         monthDict = {'January': '-01-01', 'February': '-02-01', 'March': '-03-01', 'April': '-04-01',
                      'May': '-05-01', 'June': '-06-01', 'July': '-07-01', 'August': '-08-01', 'September': '-09-01',
@@ -671,8 +669,10 @@ def report():
 
         print("request object" + str(request))
 
+        # get string for month based on match
         currentMonth = monthDict.get(month)
 
+        # append year and month string for proper filter on date
         dateString = year + currentMonth
 
         print("Date string: " + str(dateString))
@@ -680,6 +680,7 @@ def report():
         # use date format 
         dateFormat = '%Y-%m-%d'
 
+        # create date with string passed and format passed
         startDate = datetime.strptime(dateString, dateFormat)
 
         #build string for month and year to place in the title
@@ -693,7 +694,7 @@ def report():
         # gives us first day next month
         lastDay = nextMonth.replace(day=1)
 
-        #dont forget to convert to string
+        #dont forget to convert date objects to string
         startDate = startDate.strftime(dateFormat)
         lastDay = lastDay.strftime(dateFormat)
         
@@ -735,6 +736,7 @@ def report():
         print("categories: " + str(categories))
         print("values: " + str(values))
 
+        # build up graph using plotly 
         graph = plotGraph.Figure(data=[plotGraph.Bar(x=categories, y=values, name="Amount by Category")])
         
         graph.add_trace(plotGraph.Scatter(x=categories, y=amountChart, name='Budget by Category', mode='lines+markers'))
@@ -747,10 +749,9 @@ def report():
 
         graph.write_image(graphPath)
 
-        
-
+        # get char.html to display again with new graph as selected 
         return render_template('char.html', listItems = sumResult)
-    # otherwise if GET, just want to display current ID given ID passed to get request
+    # otherwise if GET, just want to display current month in graph form as this is our first time opening the page
     elif request.method == 'GET':
         # create DB and connection object
         db = dbOperations
@@ -831,17 +832,14 @@ def report():
         )
 
         print("Graph Path: " + str(graphPath))
-        #graph.write_image(graphPath)
 
         graph.write_image(graphPath)
 
-
-        
-        
         print("wrote to graph")
         #return render_template('char.html', listItems = sumResult, firstDay = firstDay, lastDay = lastDay )
         return render_template('char.html')
 
+# send currently filtered set of records to excel file for easier manipulation 
 @app.route('/sendexcel', methods=['GET'])
 def expenseExcel():
    
@@ -849,11 +847,13 @@ def expenseExcel():
     db = dbOperations
     con = db.getConnection()
     
+    # get session variables
     arraySession = getExpenseSessionArray()
 
 
     boolNotEmpty = False
 
+    # check if empty to avoid none issues
     for item in arraySession:
         if item:
             boolNotEmpty = True
@@ -877,6 +877,7 @@ def expenseExcel():
     #parameters
     parameterArray = []
 
+    # other wise want to define first date of current month to avoid null values
     if boolNotEmpty == False:
         today = datetime.now().date()
         startDate = today.replace(day=1)
@@ -884,7 +885,6 @@ def expenseExcel():
     #string
     filterSQLString = buildExpenseString(desc, cat, str(startDate), str(endDate), parameterArray)
 
-    
     # this provides an array or expense records that we will use to load the expense rccords to the expensetable.html
     # page
     print("String for query is: " + str(filterSQLString))
