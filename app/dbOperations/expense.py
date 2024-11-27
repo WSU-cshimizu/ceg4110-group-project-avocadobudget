@@ -64,6 +64,8 @@ class Expense:
             # otherwise expense object is invalid so change state to false and leave payment as empty so we know
             self.valid = False
             self.payment = ""
+    
+    # default string return for printing object
     def __str__(self):
         return f"Variables, {self.id}, {self.category}, {self.description}, {self.amount}, {self.date}, {self.payment} "
     
@@ -71,19 +73,22 @@ class Expense:
     def validExpense(self):
         print("Valid expense check: " + str(self.validExpense))
         return self.valid
+    
     # return array of single tuple for expense object, this format is built for queries used by SQlite3
     def returnExpense(self):
         return [
                 (self.id,self.category, self.description, self.amount, self.date, self.payment)
             ]
+    
     # change ID of object if needed
     def setID(self, newID):
         self.id = newID
+    
     # get ID of object if needed
     def getID(self):
         return str(self.id)
     
-    # this function will look at each variable and built a string to let us know the varaibles that were invalid
+    # this function will look at each variable and built a string to let us know the variables that were invalid
     def dislayInvalidVariables(self):
         # default error string to empty
         
