@@ -19,7 +19,7 @@
 ### Install required libraries to virtual environment using requirements.txt
 
 - Move to app directory, in there github should have requirements.txt
-- Wite virtual environment activated use ```pip install -r requirements.txt``` or ```python3 -m pip install -r requirements.txt```
+- With virtual environment activated use ```pip install -r requirements.txt``` or ```python3 -m pip install -r requirements.txt```
 
 ### Run app
 
@@ -29,6 +29,6 @@
 
 ### Pull up website
 
-- On browser navigate to http://127.0.0.1:5003
+- On browser navigate to [local webpage for app on port 5000](http://127.0.0.1:5000)
 - This will open up local only connection to website and your personal budget app will be available
 
