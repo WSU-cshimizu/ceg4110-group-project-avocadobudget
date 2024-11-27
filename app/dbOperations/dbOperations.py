@@ -7,15 +7,13 @@ outputs:
 
 import sqlite3
 from datetime import *
-#import expense
 
-def printTest():
-    print("this is a test")
 
 ### DB wide methods ###
 ''' 
 DB Method: getConnection
 inputs: None
+processing: 
 outputs: Provides object that provides connection to project database
 '''
 def getConnection():
@@ -170,7 +168,7 @@ def selectIDExpense(con, ID):
 
 '''
 DB Method: selectParamExpense
-inputs: pass connection object parameters for select statement
+inputs: pass connection object parameters for select statement and string to use
 processing: take in more than one parameter and pass to prep query
 outputs: return records that match the query
 '''         
@@ -194,6 +192,7 @@ outputs:
 def sumExpenseByCategory(con,categoryArray, startDate, endDate):
     cur = con.cursor()
 
+    # disctionary to hold sums by category
     sumDict = {}
 
     # loop through each item add sum() for each 
@@ -202,8 +201,10 @@ def sumExpenseByCategory(con,categoryArray, startDate, endDate):
             stringUpdate = "SELECT sum(expense_Amount) FROM Expense Where expense_Category = '" + str(item) + "'" " AND expense_Date >= '" + str(startDate) \
             + "' AND expense_Date < '" + str(endDate) + "'" 
             print("String select: " + stringUpdate)
+            #get current sum by category store in result
             result = cur.execute(stringUpdate).fetchone()
             print("result: " + str (result[0]))
+            # add to sumDict key is item and value is result[0] = current sum for item
             sumDict[item] = result[0]
     
     
