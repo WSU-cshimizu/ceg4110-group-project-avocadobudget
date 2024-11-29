@@ -1,5 +1,5 @@
 # Design Specification
-git p
+
 ## Requirement 1: The user shall be able to submit, delete, update and review their expenses
 
 1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
@@ -13,7 +13,7 @@ git p
     - ***Update***
     ![Update](update.png)  
     - ***After Update Before Delete***
-      ![after update](afterupdate.png)
+    ![after update](afterUpdate.png)
     - ***After Delete of PS5***
     ![after delete](deleteExpense.png)
 
