@@ -111,6 +111,9 @@
     - Will be displayed in form of a bar chart.
     - Line will be used to track expense vs budget
     - Month to month checks can be conducted by selecting a month and year to display, then clicking a button to display the graph for that selection.
+    - ***October Graph***
+   
+    - ***November Graph***
 
 ## Requirement 6: The user shall be able to access the application without internet access.
 1. Set to run on a local system which doesn't require internet access.
