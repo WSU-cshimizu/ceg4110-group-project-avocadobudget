@@ -1,5 +1,5 @@
 # Design Specification
-
+git p
 ## Requirement 1: The user shall be able to submit, delete, update and review their expenses
 
 1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
@@ -7,12 +7,15 @@
     - When the user wants to enter, update, or delete an expense it will run as an HTTP post request. This sends the user entered desired request based on the button clicked to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to display on the expense management page. If we are reapplying the table after a filter, update, insert, or delete we will also refresh the page with a get request based on the currently selected filter options.
      ![Expense Page for CRUD](expensePage.png)
     - ***Insert***
-      
+    ![Insert](addExpense.png)  
+    - ***After Insert***
+    ![After](afterInsert.png)
     - ***Update***
-      
-    - ***Delete After Update Before Delete***
-   
+    ![Update](update.png)  
+    - ***After Update Before Delete***
+      ![after update](afterupdate.png)
     - ***After Delete of PS5***
+    ![after delete](deleteExpense.png)
 
 2. ***Database Design*** The default expense table will contain the following:
     - expense id (primary key)
