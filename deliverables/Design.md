@@ -99,12 +99,12 @@
 
 1. When the user wants to retrieve their expenses, a get request will be sent to flask and this will query the expense records from the database based on different filters
     - The user can retrieve expenses by providing a date range, category, and/or descripion that will send a query to the database and display it back to the user's html page. We improved this option to be very flexible.
-    - ***Filter date***
-      
+    - ***Filter date (OCT to Nov)***
+    ![date filter] (octNovDate.png)  
     - ***Filter Description***
-      
+    ![desc filter](descBooks.png)  
     - ***Filter Category***
-      
+   ![category filter](miscCategory.png)
 
 ## Requirement 5: The user may be able to compare their current monthly expense report to older monthly reports
 1. The back-end will send a range of dates to the database and query the expense results for those date ranges.
