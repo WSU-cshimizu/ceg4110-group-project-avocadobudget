@@ -5,6 +5,7 @@
 1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
     - Flask will be used for front-end to back-end integration.
     - When the user wants to enter, update, or delete an expense it will run as an HTTP post request. This sends the user entered desired request based on the button clicked to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to display on the expense management page. If we are reapplying the table after a filter, update, insert, or delete we will also refresh the page with a get request based on the currently selected filter options.
+    - ![Expense Page for CRUD](expensePage.png)
 
 2. ***Database Design*** The default expense table will contain the following:
     - expense id (primary key)
@@ -17,7 +18,7 @@
       
 3. ***UI/UX*** Dedicated html page for inserting an expense
    - See the wifreframe section below
-   - Deafult to current months expenses for display
+   - Default to current months expenses for display
    - expense category to use drop down to ensure that this field is controlled
    - payment method to use drop down to ensure that this field is controlled
 
@@ -50,9 +51,9 @@
       - ***maxpenseID*** This function will take in a connection object and collect the max id in the expense table then add one and return that value, if there are no records in the table, then return the value of 1 to start the ids for the table.
       - ***getExpenseTable*** This function will return all the records in the expense object table, later refinement will allow you to provide custom filtering to the table.
      - ***deleteIDExpense*** This function will delete the id passed to the function if it exists in the expense table
-     - ***updateIDExpense** This function will update the id passed to the function to capture any desired changes to the existing record. This will only work if the id passed has a matching id in the expense table. We will also pass a tuple with the fields of the corrected item. We will techinically insert new record to new id, then delete the old record for the id we want to replace, then we will change id of duplicate record to match the desired id to replace. This is more effiecent than updating all the fields.
+     - ***updateIDExpense*** This function will update the id passed to the function to capture any desired changes to the existing record. This will only work if the id passed has a matching id in the expense table. We will also pass a tuple with the fields of the corrected item. We will techinically insert new record to new id, then delete the old record for the id we want to replace, then we will change id of duplicate record to match the desired id to replace. This is more effiecent than updating all the fields.
      - ***selectIDExpense*** This function returns the expense from the expense table based on the ID passed to the function.
-     - ***selectParamsExpense** This function will build a dynamic SQL query based on the variables passed as options from filter. If variable passed is none, we do not add that string section to the SQL statement that we build. This way we only filter on the items that actually have a value passed. This is used for our apply button on the expense table page and allows for dynamic table results.
+     - ***selectParamsExpense*** This function will build a dynamic SQL query based on the variables passed as options from filter. If variable passed is none, we do not add that string section to the SQL statement that we build. This way we only filter on the items that actually have a value passed. This is used for our apply button on the expense table page and allows for dynamic table results.
      - ***sumExpenseByCategory*** Sum amounts by category for each category passed in array. Store in dictionary and return dictionary to the calling location.
      - ***getCategoryTable*** Return array holding each record in the category table.
      - ***selectSingleCategory*** Pass a single category to the this function and return the result for that (one record)
