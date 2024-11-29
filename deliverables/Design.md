@@ -72,7 +72,7 @@
 ## Requirement 2: The user shall be able to access a general built-in monthly budget template by providing their income if they choose to have the app help them
 
 1. The built in budget template will produce a general expense template table with recommended expense allocation based on the user's entered net monthly income 
-   - Clicking the calculate budget button on the category page will take the income the user entered into the monthly income box and apply default % values for the categories, to build the customer's default template in the categories table
+   - Clicking the calculate budget button on the category page will take the income the user entered into the monthly income box and apply default % values for the categories, to build the customer's default template in the categories table<br>
    -***Apply 4000 net income for default budget***
    ![4000 default](cat4000.png)
    -***Apply 2000 net income for default budget***
