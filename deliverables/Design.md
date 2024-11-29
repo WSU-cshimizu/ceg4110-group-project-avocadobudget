@@ -13,6 +13,7 @@
     - expense amount
     - expense date
     - expense payment method
+    - ![ERD diagram](../app/ERD_AvocadoDB.png)
       
 3. ***UI/UX*** Dedicated html page for inserting an expense
    - See the wifreframe section below
