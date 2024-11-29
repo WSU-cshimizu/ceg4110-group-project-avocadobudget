@@ -137,7 +137,11 @@
 
 ## Swim Lane Diagram
 
-![swim lane](Swim_Lane_chart.png)
+![swim lane](Swim_Lane_Chart.png)
+
+## Data Flow Chart Insert Expense and Display Graph
+
+![data flow](Data_Flow_Chart.png)
 
 ## WIREFRAME
 1. ***My Reports page***
