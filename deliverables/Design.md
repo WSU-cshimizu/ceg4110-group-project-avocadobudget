@@ -5,7 +5,7 @@
 1. ***Crud*** The local web page will collect user entered expenses from html pages and store them in a SQLite database.
     - Flask will be used for front-end to back-end integration.
     - When the user wants to enter, update, or delete an expense it will run as an HTTP post request. This sends the user entered desired request based on the button clicked to python code. We will then use a DB class to store the expense in our database, delete the desired id, update the desired id or collect the required information to display on the expense management page. If we are reapplying the table after a filter, update, insert, or delete we will also refresh the page with a get request based on the currently selected filter options.
-    - ![Expense Page for CRUD](expensePage.png)
+     ![Expense Page for CRUD](expensePage.png)
 
 2. ***Database Design*** The default expense table will contain the following:
     - expense id (primary key)
@@ -14,7 +14,7 @@
     - expense amount
     - expense date
     - expense payment method
-    - ![ERD diagram](../app/ERD_AvocadoDB.png)
+     ![ERD diagram](../app/ERD_AvocadoDB.png)
       
 3. ***UI/UX*** Dedicated html page for inserting an expense
    - See the wifreframe section below
