@@ -88,6 +88,12 @@
 1. This means that the user can bypass our recommended budget allocation algorithm that is based on user monthly net income and use their own budget allocation.
     - There is a button to update the amount allocated, when a new amount is saved, a new percentage will be calculated with back-end code.
 2. This will use the same interface and page as the default budget feature
+   - ***Before Changes Default Applied***
+     ![category table default budget clicked](defaultBudgetSelected2000.png)
+   - ***Update page***
+     ![Update Category](updateCategoryAmount.png)
+   - ***After***
+     ![After update](updatedAmountAndPercent.png)
 
 ## Requirement 4: The user may be able to access an intuitive reporting system that displays their results
 
