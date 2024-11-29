@@ -135,6 +135,9 @@
 ## Requirement 7: The user shall be able to access all features with minimal amount of local storage
 1. The program is extremely small (< 1GB) and stores less than 1GB.
 
+## Swim Lane Diagram
+
+![swim lane](Swim_Lane_chart.png)
 
 ## WIREFRAME
 1. ***My Reports page***
