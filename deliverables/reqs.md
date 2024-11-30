@@ -59,4 +59,79 @@
   2. Another form to display to insert a new expense or update selected expense from the form in bullet 1
   3. Another form to handle budget selection. Income entry can be used to drive a percentage driven default budget, or personalize however you see fit.
   4. Another form for to handle data analysis and graphs.
-  5. A nav bar to easily switch between different parts of the app. 
+  5. A nav bar to easily switch between different parts of the app.
+
+## Testing
+
+### Adding Expenses:
+Ensure users can add a new expense by entering valid values for description, category, amount, date, and payment method. Verify that invalid data (e.g., negative/zero amounts or missing fields) is rejected with appropriate error messages.
+
+### Updating Expenses:
+Test the functionality for editing an expense from the expense table. Ensure changes (e.g., adjusting amount or category) are saved correctly. Validate that invalid updates, like negative amounts, are prevented.
+
+### Deleting Expenses:
+Confirm that users can delete an expense from the table. Check that the expense is removed from both the table display and the local database.
+
+### Searching/Filtering:
+Validate that users can search and filter expenses by different criteria (e.g., date range, category, or payment method). Ensure the filtered results update dynamically and accurately.
+
+### Default Template Loading:
+Test that clicking the "Load Default Template" button applies default categories and percentages based on the user’s monthly income.
+
+### Resetting Budget Template:
+Ensure the "Reset to Default" button clears all personalized budget settings and restores defaults tied to the user’s income.
+
+### Setting Custom Budgets:
+Verify users can set and save personalized target amounts for budget categories. Ensure these changes persist and can be updated.
+
+### Validation for Inputs:
+Test that all forms prevent invalid inputs such as negative amounts, non-numeric data, or empty fields, ensuring robust validation.
+
+### Displaying Monthly Reports:
+Validate that the monthly expense report shows a breakdown of expenses by category in graphical form. Ensure the data aligns with budget targets.
+
+### Comparing Reports:
+Confirm users can select two or more months for comparison, displaying differences between expenses and budgets over time.
+
+### Navigation:
+Ensure smooth navigation between the expense form, budget form, and reporting system. Check that buttons and links are clearly labeled and functional.
+
+### File Import for Excel Sheets:
+Validate the ability to upload Excel files for expense import. Test for error handling with incorrectly formatted files.
+
+### Error Handling for Imports:
+Simulate invalid file uploads (e.g., unsupported formats) and ensure the app provides clear error messages without crashing.
+
+### Offline Functionality:
+Test the app’s functionality in offline mode. Ensure all features, like adding expenses or generating reports, work seamlessly without internet access.
+
+### Local Data Storage:
+Verify that all user data is stored locally, securely, and efficiently, ensuring sensitive data remains private.
+
+### Graph Representation:
+Ensure budget and expense data are represented clearly in graphs. Validate visual consistency and alignment with the inputted data.
+
+### Expense Table Management:
+Test that users can view all their expenses in a table format, with options to update or delete specific entries.
+
+### Budget Validation:
+Validate the app correctly calculates budget percentages and targets based on user-provided income.
+
+### Clearing Personalized Budgets:
+Test the functionality for clearing a user’s personalized budget. Ensure it resets to the default template tied to their income.
+
+### Search and Filter UI:
+Verify the search and filter interface is user-friendly, with responsive and accurate filtering for expenses.
+
+### Default Validation:
+Test validation for income input when generating a default budget. Prevent zero, negative, or invalid income entries.
+
+### Efficiency Testing:
+Ensure the app efficiently processes large numbers of expenses or file imports without noticeable delays.
+
+### Reporting Interface Usability:
+Validate that the reporting interface is intuitive, with buttons to generate and compare reports.
+
+###Data Integrity:
+Confirm that all displayed and stored data accurately reflects the user’s inputs, calculations, and imported files.
+
