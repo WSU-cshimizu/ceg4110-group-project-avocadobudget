@@ -39,14 +39,12 @@
 
 ### The user may be able to access an intuitive reporting system that displays their monthly results.
   1. The user wants a form that it is easy to navigate and click buttons to display results by month
-
-### The user may be able to compare their currently monthly report to older monthly reports.
-  1. The user will be able to navigate to a form that provides an intuitive interface to compare their expenses against budget over time
   2. The user wants easy to digest information. The representation will be graph form and display expense total by category, by month against the budget targets
 
 ### The user may be able to load credit card reports directly into their expenses for efficiency.
   1. The user would like some functionality where they could load a file in the app to automatically pull in expenses based on a predifined format
   2. The user would appreciate using this feature so they can also shift over any excel sheet they use for their own budgeting purposes
+  3. ***This functionality was a extra feature that did not get added due to time constraints*** On the flip side we did add an export to excel feature. This is why we said "may" be able to. 
 
 ### The user shall be able to access the application without internet access.
   1. The user will have their app run locally as well as store locally. This avoids sending sensitive data over the web
@@ -73,13 +71,10 @@ Test the functionality for editing an expense from the expense table. Ensure cha
 Confirm that users can delete an expense from the table. Check that the expense is removed from both the table display and the local database.
 
 ### Searching/Filtering:
-Validate that users can search and filter expenses by different criteria (e.g., date range, category, or payment method). Ensure the filtered results update dynamically and accurately.
+Validate that users can search and filter expenses by different criteria (e.g., date range, category, or description). Ensure the filtered results update dynamically and accurately.
 
 ### Default Template Loading:
-Test that clicking the "Load Default Template" button applies default categories and percentages based on the user’s monthly income.
-
-### Resetting Budget Template:
-Ensure the "Reset to Default" button clears all personalized budget settings and restores defaults tied to the user’s income.
+Test that clicking the "Calculate Budget" button applies default categories and percentages based on the user’s monthly income.
 
 ### Setting Custom Budgets:
 Verify users can set and save personalized target amounts for budget categories. Ensure these changes persist and can be updated.
@@ -90,17 +85,8 @@ Test that all forms prevent invalid inputs such as negative amounts, non-numeric
 ### Displaying Monthly Reports:
 Validate that the monthly expense report shows a breakdown of expenses by category in graphical form. Ensure the data aligns with budget targets.
 
-### Comparing Reports:
-Confirm users can select two or more months for comparison, displaying differences between expenses and budgets over time.
-
 ### Navigation:
 Ensure smooth navigation between the expense form, budget form, and reporting system. Check that buttons and links are clearly labeled and functional.
-
-### File Import for Excel Sheets:
-Validate the ability to upload Excel files for expense import. Test for error handling with incorrectly formatted files.
-
-### Error Handling for Imports:
-Simulate invalid file uploads (e.g., unsupported formats) and ensure the app provides clear error messages without crashing.
 
 ### Offline Functionality:
 Test the app’s functionality in offline mode. Ensure all features, like adding expenses or generating reports, work seamlessly without internet access.
@@ -117,9 +103,6 @@ Test that users can view all their expenses in a table format, with options to u
 ### Budget Validation:
 Validate the app correctly calculates budget percentages and targets based on user-provided income.
 
-### Clearing Personalized Budgets:
-Test the functionality for clearing a user’s personalized budget. Ensure it resets to the default template tied to their income.
-
 ### Search and Filter UI:
 Verify the search and filter interface is user-friendly, with responsive and accurate filtering for expenses.
 
@@ -130,8 +113,8 @@ Test validation for income input when generating a default budget. Prevent zero,
 Ensure the app efficiently processes large numbers of expenses or file imports without noticeable delays.
 
 ### Reporting Interface Usability:
-Validate that the reporting interface is intuitive, with buttons to generate and compare reports.
+Validate that the reporting interface is intuitive, with buttons to generate reports.
 
-###Data Integrity:
-Confirm that all displayed and stored data accurately reflects the user’s inputs, calculations, and imported files.
+### Data Integrity:
+Confirm that all displayed and stored data accurately reflects the user’s inputs and calculations.
 
