@@ -14,7 +14,8 @@
 ## What went well in the class...
 * The TA was very responsive to questions and willing to provide feedback. This was very helpful
 * The guidelines were consistent and deadlines clear.
-* The focus on github and documentation was helpful to see the software development process in a larger setting. 
+* The focus on github and documentation was helpful to see the software development process in a larger setting.
+* Learned a lot from this class that was not covered at all in other coding classes (requirements,design,mvs).
 
 ## What could have been better in the class...
 * More focus on agile and the different versions early in the class.
