@@ -59,7 +59,7 @@
   4. Another form for to handle data analysis and graphs.
   5. A nav bar to easily switch between different parts of the app.
 
-## Testing
+## Testing Requirements
 
 ### Adding Expenses:
 Ensure users can add a new expense by entering valid values for description, category, amount, date, and payment method. Verify that invalid data (e.g., negative/zero amounts or missing fields) is rejected with appropriate error messages.
