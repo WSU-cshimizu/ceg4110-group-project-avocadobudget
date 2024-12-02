@@ -28,5 +28,5 @@
 - ***Guest Lectures*** added directory for group lectures /deliverables/group_lectures in order to locate the 5 guest lecture forms
 - ***Design Specification*** location in deliverables/design.md
 - ***Group Restrospective*** location at deliverables/group_retrospective.md
-- ***Final Presentation Slides*** location at deliverables/AvocadoBudgetFinalPresentation.pptx
+- ***Final Presentation Slides*** location at deliverables/AvocadoBudgetFinalPresentation_1.pptx
 - ***Project Code** under directory app. README.md in the app directory helps to explain how to set up the virtual environment for python, install the required library and start the app.py file.
