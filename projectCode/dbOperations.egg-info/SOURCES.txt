@@ -1,8 +1,0 @@
-setup.py
-dbOperations/__init__.py
-dbOperations/dbOperations.py
-dbOperations.egg-info/PKG-INFO
-dbOperations.egg-info/SOURCES.txt
-dbOperations.egg-info/dependency_links.txt
-dbOperations.egg-info/requires.txt
-dbOperations.egg-info/top_level.txt
